@@ -72,98 +72,15 @@ a:hover{ text-decoration: underline; }
   color: var(--muted);
   font-size: 15px;
 }
-
-/* Hero */
-.hero {
-  min-height: 320px;
-  display: flex;
-  align-items: flex-end;
-  padding: 3.5rem 1.25rem;
-  background-size: cover;
-  background-position: center;
-  border-bottom: 1px solid var(--border);
-}
-
-.hero .inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  width: 100%;
-}
-
-.hero .panel {
-  max-width: 62ch;
-  margin: 0 auto;              /* ✅ centers the panel block */
-  padding: 1.25rem 1.25rem 1.1rem;
-  border-radius: 14px;
-  background: rgba(0,0,0,.45);
-  color: white;
-  text-align: center;          /* ✅ centers text inside even if you forget class="center" */
-}
-
-.hero .panel a { color: white; }
-
-/* Generic two columns (optional utility) */
-.columns {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-}
-
-.columns .text { flex: 2; }
-.columns .image { flex: 1; }
-
-.columns img {
-  max-width: 100%;
-  border-radius: 14px;
-  display: block;
-}
-
-@media (max-width: 600px){
-  .about-two-col{
-    flex-direction: column;
-  }
-
-  .about-photo{
-    max-width: 100%;
-  }
-}
-
-
-/* About layout: text left, photo right */
+/* About: two-column layout (base) */
 .about-two-col{
   display: flex;
   gap: 2rem;
   align-items: flex-start;
 }
 
-.about-text{
-  flex: 2;
-  min-width: 0;
-  order: 1;
-}
 
-.about-photo{
-  flex: 1;
-  max-width: 280px;
-  min-width: 0;
-  order: 2;
-}
-
-.about-photo img{
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 14px;
-}
-
-/* Desktop / tablet */
-@media (min-width: 700px){
-  .about-two-col{
-    flex-direction: row;
-  }
-}
-
-/* Mobile */
+/* Mobile (About stacking) */
 @media (max-width: 700px){
   .about-two-col{
     flex-direction: column;
@@ -172,8 +89,6 @@ a:hover{ text-decoration: underline; }
   .about-photo{
     max-width: 100%;
   }
-}
-
 }
 
 /* 3x3 grid tiles */
