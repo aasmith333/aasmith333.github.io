@@ -116,7 +116,7 @@ a:hover{ text-decoration: underline; }
 .about-two-col{
   display:flex;
   gap: 2rem;
-  align-items:flex-start;
+  align-items: center;
 }
 
 .about-text{
