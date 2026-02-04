@@ -3,7 +3,7 @@
   --text:#171717;
   --muted:#555;
   --border: rgba(0,0,0,.12);
-  --max: 760px;
+  --max: 980px;
 }
 
 *{ box-sizing:border-box; }
