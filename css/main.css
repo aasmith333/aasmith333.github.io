@@ -269,4 +269,5 @@ a:hover{ text-decoration: underline; }
   gap: 2rem !important;
   align-items: flex-start !important;
 }
+body { outline: 6px solid red; }
 
