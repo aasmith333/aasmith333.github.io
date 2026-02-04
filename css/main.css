@@ -34,6 +34,7 @@ a:hover{ text-decoration: underline; }
   top: 0;
   background: rgba(251,251,249,.9);
   backdrop-filter: blur(6px);
+  z-index: 10;
 }
 
 .nav{
@@ -63,7 +64,7 @@ a:hover{ text-decoration: underline; }
   max-width: 65ch;
 }
 
-.center { text-align: center; }
+.center{ text-align:center; }
 
 /* Footer */
 .site-footer{
@@ -72,35 +73,92 @@ a:hover{ text-decoration: underline; }
   color: var(--muted);
   font-size: 15px;
 }
-/* About: two-column layout (base) */
-.about-two-col{
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start;
+
+/* Hero */
+.hero{
+  min-height: 320px;
+  display:flex;
+  align-items:flex-end;
+  padding: 3.5rem 1.25rem;
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid var(--border);
 }
 
+.hero .inner{
+  max-width: var(--max);
+  margin: 0 auto;
+  width: 100%;
+}
 
-/* Mobile (About stacking) */
-@media (max-width: 700px){
+.hero .panel{
+  max-width: 62ch;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 1.1rem;
+  border-radius: 14px;
+  background: rgba(0,0,0,.45);
+  color: #fff;
+  text-align: center;
+}
+
+.hero .panel a{
+  color:#fff;
+  text-decoration: none;
+  display: inline-block; /* helps line-wrapping behave */
+  padding: .1rem .15rem;
+}
+
+.hero .panel a:hover{
+  text-decoration: underline;
+}
+
+/* About: two columns */
+.about-two-col{
+  display:flex;
+  gap: 2rem;
+  align-items:flex-start;
+}
+
+.about-text{
+  flex: 2;
+  min-width: 0;
+  order: 1;
+}
+
+.about-photo{
+  flex: 1;
+  min-width: 0;
+  max-width: 280px;
+  order: 2;
+}
+
+.about-photo img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius: 14px;
+}
+
+/* Stack only on real small screens */
+@media (max-width: 600px){
   .about-two-col{
     flex-direction: column;
   }
-
   .about-photo{
     max-width: 100%;
   }
 }
 
 /* 3x3 grid tiles */
-.grid-phrases {
-  display: grid;
+.grid-phrases{
+  display:grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin: 2.5rem 0;
   align-items: stretch;
 }
 
-.grid-phrases .item {
+.grid-phrases .item{
   height: 100%;
   padding: 1.25rem;
   border: 1px solid var(--border);
@@ -111,82 +169,79 @@ a:hover{ text-decoration: underline; }
   text-align: left;
 }
 
-.grid-phrases .item p {
-  margin: 0 0 .75rem;
+.grid-phrases .item p{ margin: 0 0 .75rem; }
+.grid-phrases .item p:last-child{ margin-bottom: 0; }
+
+.grid-phrases .item p strong{
+  display:block;
+  text-align:center;
+  font-size:1.15rem;
+  letter-spacing:.01em;
+  line-height:1.25;
 }
 
-.grid-phrases .item p:last-child {
-  margin-bottom: 0;
+/* Tablet */
+@media (max-width: 900px){
+  .grid-phrases{ grid-template-columns: repeat(2, 1fr); }
 }
 
-.grid-phrases .item p strong {
-  display: block;
-  text-align: center;
-  font-size: 1.15rem;
-  letter-spacing: .01em;
-  line-height: 1.25;
-}
-
-@media (max-width: 900px) {
-  .grid-phrases { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 600px) {
-  .grid-phrases { grid-template-columns: 1fr; }
+/* Mobile */
+@media (max-width: 600px){
+  .grid-phrases{ grid-template-columns: 1fr; }
 }
 
 /* Substack tiles */
-.tiles {
-  display: grid;
+.tiles{
+  display:grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin: 2.5rem 0;
   align-items: stretch;
 }
 
-.tile {
+.tile{
   border: 1px solid var(--border);
   border-radius: 14px;
   background: rgba(255,255,255,.75);
   padding: 1.25rem;
   height: 100%;
-  display: flex;
+  display:flex;
   gap: 1rem;
-  align-items: flex-start;
+  align-items:flex-start;
 }
 
-.tile img {
-  width: 72px;
-  height: 72px;
+.tile img{
+  width:72px;
+  height:72px;
   object-fit: cover;
   border-radius: 12px;
   flex: 0 0 auto;
 }
 
-.tile h3 {
+.tile h3{
   margin: 0 0 .35rem;
   font-size: 1.15rem;
   line-height: 1.25;
 }
 
-.tile p {
+.tile p{
   margin: 0 0 .85rem;
   color: var(--muted);
 }
 
-.tile .actions a {
-  display: inline-block;
+.tile .actions a{
+  display:inline-block;
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: .5rem .75rem;
-  text-decoration: none;
+  text-decoration:none;
   background: rgba(255,255,255,.6);
 }
 
-.tile .actions a:hover {
+.tile .actions a:hover{
   background: rgba(255,255,255,.95);
 }
 
-@media (max-width: 700px) {
-  .tiles { grid-template-columns: 1fr; }
+@media (max-width: 700px){
+  .tiles{ grid-template-columns: 1fr; }
 }
