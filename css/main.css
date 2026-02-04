@@ -261,3 +261,12 @@ a:hover{ text-decoration: underline; }
     max-width: 100%;
   }
 }
+/* Force About to stay 2-column (debug / override) */
+.about-two-col{
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 2rem !important;
+  align-items: flex-start !important;
+}
+
