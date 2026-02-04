@@ -122,7 +122,7 @@ a:hover{ text-decoration: underline; }
   .columns { flex-direction: column; }
 }
 
-/* About: two-column layout (Option B) */
+/* About layout: text left, photo right */
 .about-two-col{
   display: flex;
   gap: 2rem;
@@ -132,12 +132,14 @@ a:hover{ text-decoration: underline; }
 .about-text{
   flex: 2;
   min-width: 0;
+  order: 1;
 }
 
 .about-photo{
   flex: 1;
   max-width: 280px;
   min-width: 0;
+  order: 2;
 }
 
 .about-photo img{
@@ -147,13 +149,24 @@ a:hover{ text-decoration: underline; }
   border-radius: 14px;
 }
 
+/* Desktop / tablet */
+@media (min-width: 701px){
+  .about-two-col{
+    flex-direction: row;
+  }
+}
+
+/* Mobile */
 @media (max-width: 700px){
   .about-two-col{
     flex-direction: column;
   }
+
   .about-photo{
     max-width: 100%;
   }
+}
+
 }
 
 /* 3x3 grid tiles */
