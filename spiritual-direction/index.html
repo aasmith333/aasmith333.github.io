@@ -58,32 +58,56 @@
 
     <h2 id="contact">Contact</h2>
 
-    <form action="https://formspree.io/f/xykpqvaz" method="POST">
-      <p>
-        <label>
-          Name<br>
-          <input type="text" name="name" required>
-        </label>
-      </p>
+    <form
+  action="https://formspree.io/f/xykpqvaz"
+  method="POST"
+  style="display:flex; flex-direction:column; gap:1.25rem; margin-top:2.5rem;"
+>
 
-      <p>
-        <label>
-          Email<br>
-          <input type="email" name="email" required>
-        </label>
-      </p>
+  <!-- Redirect to custom thank-you page -->
+  <input type="hidden" name="_redirect" value="https://aaronjsmith.net/spiritual-direction/thank-you.html">
 
-      <p>
-        <label>
-          Message<br>
-          <textarea name="message" rows="7" required></textarea>
-        </label>
-      </p>
+  <label style="display:flex; flex-direction:column; gap:0.5rem;">
+    <span>Name</span>
+    <input 
+      type="text" 
+      name="name" 
+      required
+      style="padding:0.75rem; font-size:1rem; border:1px solid #ccc; border-radius:4px;"
+    >
+  </label>
 
-      <p>
-        <button type="submit">Send</button>
-      </p>
-    </form>
+  <label style="display:flex; flex-direction:column; gap:0.5rem;">
+    <span>Email</span>
+    <input 
+      type="email" 
+      name="email" 
+      required
+      style="padding:0.75rem; font-size:1rem; border:1px solid #ccc; border-radius:4px;"
+    >
+  </label>
+
+  <label style="display:flex; flex-direction:column; gap:0.5rem;">
+    <span>Message</span>
+    <textarea 
+      name="message" 
+      rows="7" 
+      required
+      style="padding:0.75rem; font-size:1rem; border:1px solid #ccc; border-radius:4px;"
+    ></textarea>
+  </label>
+
+  <!-- Honeypot spam protection -->
+  <input type="text" name="_gotcha" style="display:none">
+
+  <button 
+    type="submit"
+    style="padding:0.85rem; font-size:1rem; border:none; border-radius:4px; cursor:pointer;"
+  >
+    Send
+  </button>
+
+</form>
 
 
     <!-- HERO 2 -->
