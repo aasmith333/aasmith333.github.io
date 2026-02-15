@@ -19,7 +19,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Contact — Aaron J. Smith" />
   <meta name="twitter:description" content="Reach out for spiritual direction, collaboration, or conversation." />
-  <meta name="twitter:image" content="https://aaronjsmith.net/images/20200621_104847.jpg" />
+  <meta name="twitter:image" content="https://aaronjsmith.net/images/images/AdobeStock_278965337-scaled.jpeg" />
 
   <link rel="stylesheet" href="/css/main.css?v=clean-2" />
   <script src="/js/include.js" defer></script>
@@ -29,7 +29,7 @@
 
   <div data-include="/partials/nav.html"></div>
 
-  <section class="hero" style="background-image:url('/images/20200621_104847.jpg');">
+  <section class="hero" style="background-image:url('/images/images/AdobeStock_278965337-scaled.jpeg');">
     <div class="inner">
       <div class="panel" style="text-align:center;">
         <h1 style="margin:0;">Contact</h1>
@@ -49,42 +49,46 @@
     </p>
 
     <form
-      action="https://formspree.io/f/xdalgled"
-      method="POST"
-      style="display:flex; flex-direction:column; gap:1.25rem; margin-top:2.5rem;"
+  action="https://formspree.io/f/xdalgled"
+  method="POST"
+  style="display:flex; flex-direction:column; gap:1.25rem; margin-top:2.5rem;"
+>
+
+  <!-- Redirect to custom thank-you page -->
+  <input type="hidden" name="_redirect" value="https://aaronjsmith.net/contact/thank-you.html">
+
+  <label style="display:flex; flex-direction:column; gap:0.5rem;">
+    <span>Your email</span>
+    <input 
+      type="email" 
+      name="email" 
+      required
+      style="padding:0.75rem; font-size:1rem; border:1px solid #ccc; border-radius:4px;"
     >
+  </label>
 
-      <label style="display:flex; flex-direction:column; gap:0.5rem;">
-        <span>Your email</span>
-        <input 
-          type="email" 
-          name="email" 
-          required
-          style="padding:0.75rem; font-size:1rem; border:1px solid #ccc; border-radius:4px;"
-        >
-      </label>
+  <label style="display:flex; flex-direction:column; gap:0.5rem;">
+    <span>Your message</span>
+    <textarea 
+      name="message" 
+      rows="6"
+      required
+      style="padding:0.75rem; font-size:1rem; border:1px solid #ccc; border-radius:4px;"
+    ></textarea>
+  </label>
 
-      <label style="display:flex; flex-direction:column; gap:0.5rem;">
-        <span>Your message</span>
-        <textarea 
-          name="message" 
-          rows="6"
-          required
-          style="padding:0.75rem; font-size:1rem; border:1px solid #ccc; border-radius:4px;"
-        ></textarea>
-      </label>
+  <!-- Honeypot spam protection -->
+  <input type="text" name="_gotcha" style="display:none">
 
-      <!-- Honeypot spam protection -->
-      <input type="text" name="_gotcha" style="display:none">
+  <button 
+    type="submit"
+    style="padding:0.85rem; font-size:1rem; border:none; border-radius:4px; cursor:pointer;"
+  >
+    Send
+  </button>
 
-      <button 
-        type="submit"
-        style="padding:0.85rem; font-size:1rem; border:none; border-radius:4px; cursor:pointer;"
-      >
-        Send
-      </button>
+</form>
 
-    </form>
 
   </section>
 
