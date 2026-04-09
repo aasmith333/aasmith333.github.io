@@ -382,21 +382,31 @@
 </footer>
 
 <script>
-// Load recent posts from The Cluttered Mouth via Ghost Content API
-fetch('https://theclutteredmouth.com/ghost/api/content/posts/?key=25ae5ee2ea2208c6d56fcfe3f7&limit=5&include=tags&fields=title,url,published_at,tags')
+// Load recent posts from The Cluttered Mouth via RSS feed
+// Uses allorigins.win as a CORS proxy to fetch the public RSS feed
+const rssUrl = 'https://theclutteredmouth.com/rss/';
+const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(rssUrl)}`;
+
+fetch(proxyUrl)
   .then(res => res.json())
   .then(data => {
     const container = document.getElementById('recent-posts-list');
-    if (!container || !data.posts) return;
-    data.posts.forEach(post => {
-      const tag = post.tags && post.tags.length ? post.tags[0].name : 'Post';
-      const date = new Date(post.published_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-      const item = document.createElement('a');
-      item.className = 'post-item';
-      item.href = post.url;
-      item.target = '_blank';
-      item.innerHTML = `<div class="post-item-title">${post.title}</div><div class="post-item-sub">${date} · ${tag}</div>`;
-      container.appendChild(item);
+    if (!container) return;
+    const parser = new DOMParser();
+    const xml = parser.parseFromString(data.contents, 'text/xml');
+    const items = Array.from(xml.querySelectorAll('item')).slice(0, 5);
+    items.forEach(item => {
+      const title = item.querySelector('title')?.textContent || '';
+      const url = item.querySelector('link')?.textContent || '#';
+      const pubDate = item.querySelector('pubDate')?.textContent || '';
+      const category = item.querySelector('category')?.textContent || 'Post';
+      const date = pubDate ? new Date(pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+      const el = document.createElement('a');
+      el.className = 'post-item';
+      el.href = url;
+      el.target = '_blank';
+      el.innerHTML = `<div class="post-item-title">${title}</div><div class="post-item-sub">${date} · ${category}</div>`;
+      container.appendChild(el);
     });
   })
   .catch(() => {
