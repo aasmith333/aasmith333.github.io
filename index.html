@@ -310,26 +310,7 @@
     </div>
     <div class="recent-posts">
       <h3>Recent Work</h3>
-      <a class="post-item" href="https://theclutteredmouth.com/the-struggle-is-real/" target="_blank">
-        <div class="post-item-title">The Struggle Is Real</div>
-        <div class="post-item-sub">Apr 8, 2026 · Essay</div>
-      </a>
-      <a class="post-item" href="https://theclutteredmouth.com/the-r-word/" target="_blank">
-        <div class="post-item-title">The "R" Word</div>
-        <div class="post-item-sub">Mar 31, 2026 · Essay</div>
-      </a>
-      <a class="post-item" href="https://theclutteredmouth.com/you-are-not-bipolar/" target="_blank">
-        <div class="post-item-title">You Are Not Bipolar</div>
-        <div class="post-item-sub">Mar 24, 2026 · Poem</div>
-      </a>
-      <a class="post-item" href="https://theclutteredmouth.com/suffering-in-the-garden/" target="_blank">
-        <div class="post-item-title">Suffering in the Garden</div>
-        <div class="post-item-sub">Mar 23, 2026 · Essay</div>
-      </a>
-      <a class="post-item" href="https://theclutteredmouth.com/where-the-wind-will/" target="_blank">
-        <div class="post-item-title">Where the Wind Will</div>
-        <div class="post-item-sub">Feb 25, 2026 · Poem</div>
-      </a>
+      <div id="recent-posts-list"></div>
       <div style="padding-top:0.8rem;">
         <a class="text-link" href="https://theclutteredmouth.com" target="_blank">See All ↗</a>
       </div>
@@ -401,6 +382,27 @@
 </footer>
 
 <script>
+// Load recent posts from The Cluttered Mouth via Ghost Content API
+fetch('https://theclutteredmouth.com/ghost/api/content/posts/?key=25ae5ee2ea2208c6d56fcfe3f7&limit=5&include=tags&fields=title,url,published_at,tags')
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById('recent-posts-list');
+    if (!container || !data.posts) return;
+    data.posts.forEach(post => {
+      const tag = post.tags && post.tags.length ? post.tags[0].name : 'Post';
+      const date = new Date(post.published_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      const item = document.createElement('a');
+      item.className = 'post-item';
+      item.href = post.url;
+      item.target = '_blank';
+      item.innerHTML = `<div class="post-item-title">${post.title}</div><div class="post-item-sub">${date} · ${tag}</div>`;
+      container.appendChild(item);
+    });
+  })
+  .catch(() => {
+    // Silently fail — the "See All" link still works
+  });
+
 function handleSubscribe(e) {
   e.preventDefault();
   const email = document.getElementById('sub-email').value;
