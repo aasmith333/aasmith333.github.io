@@ -17,12 +17,20 @@
   body { background: var(--cream); color: var(--ink); font-family: 'EB Garamond', Georgia, serif; font-size: 18px; line-height: 1.7; min-height: 100vh; }
   body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1000; opacity: 0.5; }
 
+  /* NAV */
   nav { position: sticky; top: 0; z-index: 100; background: var(--cream); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
   .nav-name { font-family: 'Lora', Georgia, serif; font-size: 1rem; font-weight: 500; letter-spacing: 0.08em; color: var(--ink); text-decoration: none; }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.95rem; color: var(--ink-faint); text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s; }
   .nav-links a:hover { color: var(--rust); }
 
+  /* Hide nav links on mobile — cards handle navigation */
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    nav { justify-content: center; }
+  }
+
+  /* HERO */
   .hero { max-width: 780px; margin: 0 auto; padding: 6rem 2rem 5rem; text-align: center; animation: fadeUp 0.8s ease both; }
   .hero-eyebrow { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rust); margin-bottom: 1.5rem; }
   .hero h1 { font-family: 'Lora', Georgia, serif; font-size: clamp(2.8rem, 6vw, 4.2rem); font-weight: 500; line-height: 1.15; color: var(--ink); margin-bottom: 1.8rem; }
@@ -33,74 +41,31 @@
   .role-tag { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
   .role-dot { color: var(--gold); margin: 0 0.25rem; }
 
+  @media (max-width: 600px) {
+    .hero { padding: 3rem 1.5rem 3rem; }
+    .hero p { font-size: 1.1rem; }
+  }
+
   /* CARDS */
   .cards-grid { max-width: 960px; margin: 0 auto; padding: 0 2rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px; background: var(--border); border: 1.5px solid var(--border); animation: fadeUp 0.7s ease 0.1s both; }
 
-  .card {
-    background: var(--warm-white);
-    padding: 2.2rem 2rem;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    transition: background 0.2s;
-    text-decoration: none;
-    min-height: 220px;
-  }
+  .card { background: var(--warm-white); padding: 2.2rem 2rem; color: inherit; display: flex; flex-direction: column; transition: background 0.2s; text-decoration: none; min-height: 220px; }
   .card:hover { background: #f0e8d8; }
   .card-icon { font-size: 1.4rem; margin-bottom: 0.8rem; display: block; }
   .card-title { font-family: 'Lora', Georgia, serif; font-size: 1.2rem; font-weight: 500; color: var(--ink); margin-bottom: 0.5rem; line-height: 1.3; }
   .card-sub { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rust); margin-bottom: 0.6rem; }
   .card-desc { font-size: 0.95rem; color: var(--ink-faint); line-height: 1.65; flex: 1; }
 
-  .card-links {
-    margin-top: 1.8rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border-light);
-    display: flex;
-    gap: 1.2rem;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  .card-link {
-    font-family: 'Crimson Pro', Georgia, serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--rust);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    padding-bottom: 1px;
-    transition: border-color 0.2s, color 0.2s;
-    position: relative;
-    z-index: 2;
-  }
+  .card-links { margin-top: 1.8rem; padding-top: 1rem; border-top: 1px solid var(--border-light); display: flex; gap: 1.2rem; flex-wrap: wrap; align-items: center; }
+  .card-link { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rust); text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 1px; transition: border-color 0.2s, color 0.2s; position: relative; z-index: 2; }
   .card-link:hover { border-color: var(--rust); color: var(--rust-light); }
   .card-link-sep { color: var(--border); font-size: 0.7rem; }
 
   /* Direction card */
-  .card--direction {
-    grid-column: 1 / 3;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-    align-items: start;
-    background: var(--paper);
-    flex-direction: unset;
-    min-height: unset;
-  }
+  .card--direction { grid-column: 1 / 3; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; background: var(--paper); flex-direction: unset; min-height: unset; }
   .card--direction:hover { background: #e8e0d0; }
   .card--direction .card-left { display: flex; flex-direction: column; }
-  .card--direction .card-availability {
-    font-family: 'Crimson Pro', Georgia, serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-top: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
+  .card--direction .card-availability { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-top: 1rem; display: flex; align-items: center; gap: 0.4rem; }
   /* UPDATE OR REMOVE the availability line if your schedule changes */
   .card--direction .card-availability::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); display: inline-block; }
   .card--direction .card-detail { border-left: 1px solid var(--border); padding-left: 2rem; font-size: 1rem; color: var(--ink-light); line-height: 1.8; }
@@ -110,35 +75,42 @@
   .card--direction:hover .card-arrow { transform: translate(3px, -3px); }
 
   @media (max-width: 600px) {
-    .cards-grid { grid-template-columns: 1fr; }
-    .card--direction { grid-column: 1; grid-template-columns: 1fr; }
-    .card--direction .card-detail { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 1.5rem; }
-    nav { padding: 0 1rem; } .nav-links { gap: 1rem; }
+    .cards-grid { grid-template-columns: 1fr; padding: 0 1.5rem 3rem; }
+    .card { min-height: unset; padding: 1.8rem 1.5rem; }
+    .card--direction { grid-column: 1; grid-template-columns: 1fr; gap: 0; }
+    /* Hide the detail column on mobile — full description is in the section below */
+    .card--direction .card-detail { display: none; }
   }
 
+  /* SECTIONS */
   section { padding: 4rem 2rem; max-width: 960px; margin: 0 auto; animation: fadeUp 0.7s ease both; }
   .section-label { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rust); margin-bottom: 0.6rem; }
   .section-title { font-family: 'Lora', Georgia, serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 500; color: var(--ink); margin-bottom: 1rem; line-height: 1.25; }
   .section-desc { font-size: 1.05rem; color: var(--ink-light); max-width: 540px; line-height: 1.75; margin-bottom: 1.8rem; }
   .section-divider { border: none; border-top: 1px solid var(--border-light); max-width: 960px; margin: 0 auto; }
 
+  @media (max-width: 600px) { section { padding: 3rem 1.5rem; } }
+
+  /* DIRECTION */
   .direction-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-  @media (max-width: 640px) { .direction-layout { grid-template-columns: 1fr; } }
   .direction-text p { font-size: 1.05rem; color: var(--ink-light); margin-bottom: 1.2rem; line-height: 1.8; }
 
-  /* CONTACT FORM — update action with your Formspree endpoint */
+  @media (max-width: 640px) { .direction-layout { grid-template-columns: 1fr; gap: 2rem; } }
+
+  /* CONTACT FORM */
+  /* UPDATE: Replace YOUR_FORM_ID with your Formspree endpoint */
   .contact-form { margin-top: 0; }
   .contact-form .form-row { margin-bottom: 1rem; }
   .contact-form label { display: block; font-family: 'Crimson Pro', Georgia, serif; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.35rem; }
   .contact-form input, .contact-form textarea { width: 100%; padding: 0.7rem 0.9rem; border: 1.5px solid var(--border); background: var(--warm-white); font-family: 'EB Garamond', Georgia, serif; font-size: 1rem; color: var(--ink); outline: none; transition: border-color 0.2s; resize: vertical; }
   .contact-form input:focus, .contact-form textarea:focus { border-color: var(--gold); }
   .contact-form textarea { min-height: 110px; }
-  .contact-form button { margin-top: 0.5rem; padding: 0.75rem 1.8rem; background: var(--rust); color: var(--cream); border: 1.5px solid var(--rust); font-family: 'Crimson Pro', Georgia, serif; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
+  .contact-form button { margin-top: 0.5rem; padding: 0.75rem 1.8rem; background: var(--rust); color: var(--cream); border: 1.5px solid var(--rust); font-family: 'Crimson Pro', Georgia, serif; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; width: 100%; }
   .contact-form button:hover { background: var(--rust-light); border-color: var(--rust-light); }
   .form-note { font-size: 0.85rem; color: var(--ink-faint); font-style: italic; margin-top: 0.6rem; }
 
+  /* WRITING */
   .writing-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; margin-top: 2rem; }
-  @media (max-width: 640px) { .writing-layout { grid-template-columns: 1fr; } }
   .recent-posts { border-left: 2px solid var(--border); padding-left: 1.5rem; }
   .recent-posts h3 { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 1.2rem; }
   .post-item { display: block; padding: 0.8rem 0; border-bottom: 1px solid var(--border-light); text-decoration: none; color: inherit; }
@@ -147,34 +119,60 @@
   .post-item:hover .post-item-title { color: var(--rust); }
   .post-item-sub { font-size: 0.85rem; color: var(--ink-faint); font-style: italic; }
 
+  @media (max-width: 640px) {
+    .writing-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .recent-posts { border-left: none; border-top: 2px solid var(--border); padding-left: 0; padding-top: 1.5rem; }
+  }
+
+  /* SUBSCRIBE */
   .subscribe-section { background: var(--paper); border: 1.5px solid var(--border); padding: 3rem 3.5rem; text-align: center; max-width: 600px; margin: 0 auto 2rem; position: relative; }
   .subscribe-section::before { content: '✦'; position: absolute; top: -0.7rem; left: 50%; transform: translateX(-50%); background: var(--cream); padding: 0 0.5rem; color: var(--gold); font-size: 0.9rem; }
   .subscribe-section h2 { font-family: 'Lora', Georgia, serif; font-size: 1.6rem; font-weight: 500; color: var(--ink); margin-bottom: 0.6rem; }
   .subscribe-section p { font-size: 1rem; color: var(--ink-faint); margin-bottom: 1.8rem; font-style: italic; line-height: 1.7; }
   .subscribe-form { display: flex; max-width: 420px; margin: 0 auto; }
-  .subscribe-form input { flex: 1; padding: 0.75rem 1rem; border: 1.5px solid var(--border); border-right: none; background: var(--warm-white); font-family: 'EB Garamond', Georgia, serif; font-size: 1rem; color: var(--ink); outline: none; transition: border-color 0.2s; }
+  .subscribe-form input { flex: 1; padding: 0.75rem 1rem; border: 1.5px solid var(--border); border-right: none; background: var(--warm-white); font-family: 'EB Garamond', Georgia, serif; font-size: 1rem; color: var(--ink); outline: none; transition: border-color 0.2s; min-width: 0; }
   .subscribe-form input:focus { border-color: var(--gold); }
   .subscribe-form input::placeholder { color: var(--ink-faint); font-style: italic; }
-  .subscribe-form button { padding: 0.75rem 1.4rem; background: var(--rust); color: var(--cream); border: 1.5px solid var(--rust); font-family: 'Crimson Pro', Georgia, serif; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
+  .subscribe-form button { padding: 0.75rem 1.2rem; background: var(--rust); color: var(--cream); border: 1.5px solid var(--rust); font-family: 'Crimson Pro', Georgia, serif; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
   .subscribe-form button:hover { background: var(--rust-light); border-color: var(--rust-light); }
   .subscribe-note { font-size: 0.82rem; color: var(--ink-faint); margin-top: 0.8rem; font-style: italic; }
   .subscribe-note a { color: var(--rust); text-decoration: none; }
 
+  @media (max-width: 600px) {
+    .subscribe-section { padding: 2rem 1.5rem; }
+    .subscribe-form { flex-direction: column; }
+    .subscribe-form input { border-right: 1.5px solid var(--border); border-bottom: none; }
+    .subscribe-form button { width: 100%; padding: 0.75rem; }
+  }
+
+  /* ABOUT */
   .about-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 3.5rem; align-items: start; }
-  @media (max-width: 640px) { .about-layout { grid-template-columns: 1fr; } }
   .about-image-wrap { position: relative; }
   .about-image-wrap::after { content: ''; position: absolute; inset: 8px -8px -8px 8px; border: 1.5px solid var(--gold); z-index: -1; }
-  /* UPDATE: rename your photo file and update this src */
+  /* UPDATE: rename your photo file to aaron-smith.jpg */
   .about-image-wrap img { width: 100%; display: block; filter: sepia(15%) contrast(1.02); }
   .about-text p { font-size: 1.05rem; color: var(--ink-light); margin-bottom: 1.2rem; line-height: 1.8; }
+
+  @media (max-width: 640px) {
+    .about-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .about-image-wrap { max-width: 200px; }
+    /* Disable offset border on mobile to prevent clipping */
+    .about-image-wrap::after { display: none; }
+  }
 
   .text-link { color: var(--rust); text-decoration: none; border-bottom: 1px solid var(--rust); padding-bottom: 1px; font-family: 'Crimson Pro', Georgia, serif; font-size: 0.88rem; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s, border-color 0.2s; }
   .text-link:hover { color: var(--rust-light); border-color: var(--rust-light); }
 
+  /* FOOTER */
   footer { border-top: 1px solid var(--border); padding: 2rem; font-family: 'Crimson Pro', Georgia, serif; font-size: 0.85rem; color: var(--ink-faint); letter-spacing: 0.05em; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 960px; margin: 0 auto; }
   .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
   .footer-links a { color: var(--rust); text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: var(--rust-light); }
+
+  @media (max-width: 600px) {
+    footer { flex-direction: column; align-items: flex-start; padding: 1.5rem; gap: 0.8rem; }
+    .footer-links { gap: 1rem; }
+  }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
   section:nth-child(2) { animation-delay: 0.1s; }
@@ -348,7 +346,7 @@
       <input type="email" placeholder="your@email.com" required id="sub-email">
       <button type="submit">Subscribe</button>
     </form>
-    <p class="subscribe-note">Free. No spam. Or go straight to <a href="https://theclutteredmouth.com/#/portal" target="_blank">Ghost to subscribe ↗</a></p>
+    <p class="subscribe-note">Free. No spam. Or go straight to <a href="https://theclutteredmouth.com/#/portal/signup" target="_blank">Ghost to subscribe ↗</a></p>
   </div>
 </div>
 
