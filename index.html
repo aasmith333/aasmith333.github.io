@@ -384,22 +384,20 @@
 <script>
 // Load recent posts from The Cluttered Mouth via RSS feed
 // Uses allorigins.win as a CORS proxy to fetch the public RSS feed
+// Load recent posts from The Cluttered Mouth via rss2json
 const rssUrl = 'https://theclutteredmouth.com/rss/';
-const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(rssUrl)}`;
+const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=5`;
 
-fetch(proxyUrl)
-  .then(res => res.text())
-  .then(text => {
+fetch(apiUrl)
+  .then(res => res.json())
+  .then(data => {
     const container = document.getElementById('recent-posts-list');
-    if (!container) return;
-    const parser = new DOMParser();
-    const xml = parser.parseFromString(text, 'text/xml');
-    const items = Array.from(xml.querySelectorAll('item')).slice(0, 5);
-    items.forEach(item => {
-      const title = item.querySelector('title')?.textContent || '';
-      const url = item.querySelector('link')?.textContent || '#';
-      const pubDate = item.querySelector('pubDate')?.textContent || '';
-      const category = item.querySelector('category')?.textContent || 'Post';
+    if (!container || !data.items) return;
+    data.items.forEach(item => {
+      const title = item.title || '';
+      const url = item.link || '#';
+      const pubDate = item.pubDate || '';
+      const category = item.categories && item.categories.length ? item.categories[0] : 'Post';
       const date = pubDate ? new Date(pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
       const el = document.createElement('a');
       el.className = 'post-item';
