@@ -1,70 +1,413 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aaron J. Smith</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aaron J. Smith</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #f5f0e8; --warm-white: #faf7f2; --ink: #2a1f0e; --ink-light: #4a3828;
+    --ink-faint: #7a6550; --rust: #8b3a1a; --rust-light: #a84d2a; --gold: #c4923a;
+    --border: #d4c5a9; --border-light: #e8dfc8; --paper: #ede8dc;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--cream); color: var(--ink); font-family: 'EB Garamond', Georgia, serif; font-size: 18px; line-height: 1.7; min-height: 100vh; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1000; opacity: 0.5; }
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Aaron J. Smith" />
-  <meta property="og:description" content="Poet. Spiritual Director. Theologian. Human." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://aaronjsmith.net/" />
-  <meta property="og:image" content="https://aaronjsmith.net/images/Wings.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:site_name" content="Aaron J. Smith" />
+  nav { position: sticky; top: 0; z-index: 100; background: var(--cream); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .nav-name { font-family: 'Lora', Georgia, serif; font-size: 1rem; font-weight: 500; letter-spacing: 0.08em; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.95rem; color: var(--ink-faint); text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--rust); }
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Aaron J. Smith" />
-  <meta name="twitter:description" content="Poet. Spiritual Director. Theologian. Human." />
-  <meta name="twitter:image" content="https://aaronjsmith.net/images/Wings.jpg" />
+  .hero { max-width: 780px; margin: 0 auto; padding: 6rem 2rem 5rem; text-align: center; animation: fadeUp 0.8s ease both; }
+  .hero-eyebrow { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rust); margin-bottom: 1.5rem; }
+  .hero h1 { font-family: 'Lora', Georgia, serif; font-size: clamp(2.8rem, 6vw, 4.2rem); font-weight: 500; line-height: 1.15; color: var(--ink); margin-bottom: 1.8rem; }
+  .hero h1 em { font-style: italic; color: var(--rust); }
+  .hero-rule { width: 60px; height: 1px; background: var(--gold); margin: 0 auto 1.8rem; }
+  .hero p { font-family: 'EB Garamond', Georgia, serif; font-size: 1.2rem; color: var(--ink-light); max-width: 560px; margin: 0 auto 2.5rem; font-style: italic; line-height: 1.8; }
+  .hero-roles { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-top: 0.5rem; }
+  .role-tag { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+  .role-dot { color: var(--gold); margin: 0 0.25rem; }
 
-  <link rel="stylesheet" href="/css/main.css?v=clean-2" />
-  <script src="/js/include.js" defer></script>
+  /* CARDS */
+  .cards-grid { max-width: 960px; margin: 0 auto; padding: 0 2rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px; background: var(--border); border: 1.5px solid var(--border); animation: fadeUp 0.7s ease 0.1s both; }
+
+  .card {
+    background: var(--warm-white);
+    padding: 2.2rem 2rem;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.2s;
+    text-decoration: none;
+    min-height: 220px;
+  }
+  .card:hover { background: #f0e8d8; }
+  .card-icon { font-size: 1.4rem; margin-bottom: 0.8rem; display: block; }
+  .card-title { font-family: 'Lora', Georgia, serif; font-size: 1.2rem; font-weight: 500; color: var(--ink); margin-bottom: 0.5rem; line-height: 1.3; }
+  .card-sub { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rust); margin-bottom: 0.6rem; }
+  .card-desc { font-size: 0.95rem; color: var(--ink-faint); line-height: 1.65; flex: 1; }
+
+  .card-links {
+    margin-top: 1.8rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-light);
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .card-link {
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rust);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: border-color 0.2s, color 0.2s;
+    position: relative;
+    z-index: 2;
+  }
+  .card-link:hover { border-color: var(--rust); color: var(--rust-light); }
+  .card-link-sep { color: var(--border); font-size: 0.7rem; }
+
+  /* Direction card */
+  .card--direction {
+    grid-column: 1 / 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+    background: var(--paper);
+    flex-direction: unset;
+    min-height: unset;
+  }
+  .card--direction:hover { background: #e8e0d0; }
+  .card--direction .card-left { display: flex; flex-direction: column; }
+  .card--direction .card-availability {
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  /* UPDATE OR REMOVE the availability line if your schedule changes */
+  .card--direction .card-availability::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); display: inline-block; }
+  .card--direction .card-detail { border-left: 1px solid var(--border); padding-left: 2rem; font-size: 1rem; color: var(--ink-light); line-height: 1.8; }
+  .card--direction .card-detail p { margin-bottom: 1rem; }
+  .card--direction .card-detail p:last-child { margin-bottom: 0; }
+  .card--direction .card-arrow { display: block; text-align: right; color: var(--gold); font-size: 1rem; margin-top: 1.5rem; transition: transform 0.2s; }
+  .card--direction:hover .card-arrow { transform: translate(3px, -3px); }
+
+  @media (max-width: 600px) {
+    .cards-grid { grid-template-columns: 1fr; }
+    .card--direction { grid-column: 1; grid-template-columns: 1fr; }
+    .card--direction .card-detail { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 1.5rem; }
+    nav { padding: 0 1rem; } .nav-links { gap: 1rem; }
+  }
+
+  section { padding: 4rem 2rem; max-width: 960px; margin: 0 auto; animation: fadeUp 0.7s ease both; }
+  .section-label { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rust); margin-bottom: 0.6rem; }
+  .section-title { font-family: 'Lora', Georgia, serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 500; color: var(--ink); margin-bottom: 1rem; line-height: 1.25; }
+  .section-desc { font-size: 1.05rem; color: var(--ink-light); max-width: 540px; line-height: 1.75; margin-bottom: 1.8rem; }
+  .section-divider { border: none; border-top: 1px solid var(--border-light); max-width: 960px; margin: 0 auto; }
+
+  .direction-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  @media (max-width: 640px) { .direction-layout { grid-template-columns: 1fr; } }
+  .direction-text p { font-size: 1.05rem; color: var(--ink-light); margin-bottom: 1.2rem; line-height: 1.8; }
+
+  /* CONTACT FORM — update action with your Formspree endpoint */
+  .contact-form { margin-top: 0; }
+  .contact-form .form-row { margin-bottom: 1rem; }
+  .contact-form label { display: block; font-family: 'Crimson Pro', Georgia, serif; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.35rem; }
+  .contact-form input, .contact-form textarea { width: 100%; padding: 0.7rem 0.9rem; border: 1.5px solid var(--border); background: var(--warm-white); font-family: 'EB Garamond', Georgia, serif; font-size: 1rem; color: var(--ink); outline: none; transition: border-color 0.2s; resize: vertical; }
+  .contact-form input:focus, .contact-form textarea:focus { border-color: var(--gold); }
+  .contact-form textarea { min-height: 110px; }
+  .contact-form button { margin-top: 0.5rem; padding: 0.75rem 1.8rem; background: var(--rust); color: var(--cream); border: 1.5px solid var(--rust); font-family: 'Crimson Pro', Georgia, serif; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
+  .contact-form button:hover { background: var(--rust-light); border-color: var(--rust-light); }
+  .form-note { font-size: 0.85rem; color: var(--ink-faint); font-style: italic; margin-top: 0.6rem; }
+
+  .writing-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; margin-top: 2rem; }
+  @media (max-width: 640px) { .writing-layout { grid-template-columns: 1fr; } }
+  .recent-posts { border-left: 2px solid var(--border); padding-left: 1.5rem; }
+  .recent-posts h3 { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 1.2rem; }
+  .post-item { display: block; padding: 0.8rem 0; border-bottom: 1px solid var(--border-light); text-decoration: none; color: inherit; }
+  .post-item:last-child { border-bottom: none; }
+  .post-item-title { font-family: 'Lora', Georgia, serif; font-size: 1rem; color: var(--ink); margin-bottom: 0.2rem; transition: color 0.2s; }
+  .post-item:hover .post-item-title { color: var(--rust); }
+  .post-item-sub { font-size: 0.85rem; color: var(--ink-faint); font-style: italic; }
+
+  .subscribe-section { background: var(--paper); border: 1.5px solid var(--border); padding: 3rem 3.5rem; text-align: center; max-width: 600px; margin: 0 auto 2rem; position: relative; }
+  .subscribe-section::before { content: '✦'; position: absolute; top: -0.7rem; left: 50%; transform: translateX(-50%); background: var(--cream); padding: 0 0.5rem; color: var(--gold); font-size: 0.9rem; }
+  .subscribe-section h2 { font-family: 'Lora', Georgia, serif; font-size: 1.6rem; font-weight: 500; color: var(--ink); margin-bottom: 0.6rem; }
+  .subscribe-section p { font-size: 1rem; color: var(--ink-faint); margin-bottom: 1.8rem; font-style: italic; line-height: 1.7; }
+  .subscribe-form { display: flex; max-width: 420px; margin: 0 auto; }
+  .subscribe-form input { flex: 1; padding: 0.75rem 1rem; border: 1.5px solid var(--border); border-right: none; background: var(--warm-white); font-family: 'EB Garamond', Georgia, serif; font-size: 1rem; color: var(--ink); outline: none; transition: border-color 0.2s; }
+  .subscribe-form input:focus { border-color: var(--gold); }
+  .subscribe-form input::placeholder { color: var(--ink-faint); font-style: italic; }
+  .subscribe-form button { padding: 0.75rem 1.4rem; background: var(--rust); color: var(--cream); border: 1.5px solid var(--rust); font-family: 'Crimson Pro', Georgia, serif; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
+  .subscribe-form button:hover { background: var(--rust-light); border-color: var(--rust-light); }
+  .subscribe-note { font-size: 0.82rem; color: var(--ink-faint); margin-top: 0.8rem; font-style: italic; }
+  .subscribe-note a { color: var(--rust); text-decoration: none; }
+
+  .about-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 3.5rem; align-items: start; }
+  @media (max-width: 640px) { .about-layout { grid-template-columns: 1fr; } }
+  .about-image-wrap { position: relative; }
+  .about-image-wrap::after { content: ''; position: absolute; inset: 8px -8px -8px 8px; border: 1.5px solid var(--gold); z-index: -1; }
+  /* UPDATE: rename your photo file and update this src */
+  .about-image-wrap img { width: 100%; display: block; filter: sepia(15%) contrast(1.02); }
+  .about-text p { font-size: 1.05rem; color: var(--ink-light); margin-bottom: 1.2rem; line-height: 1.8; }
+
+  .text-link { color: var(--rust); text-decoration: none; border-bottom: 1px solid var(--rust); padding-bottom: 1px; font-family: 'Crimson Pro', Georgia, serif; font-size: 0.88rem; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s, border-color 0.2s; }
+  .text-link:hover { color: var(--rust-light); border-color: var(--rust-light); }
+
+  footer { border-top: 1px solid var(--border); padding: 2rem; font-family: 'Crimson Pro', Georgia, serif; font-size: 0.85rem; color: var(--ink-faint); letter-spacing: 0.05em; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 960px; margin: 0 auto; }
+  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .footer-links a { color: var(--rust); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--rust-light); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  section:nth-child(2) { animation-delay: 0.1s; }
+  section:nth-child(3) { animation-delay: 0.2s; }
+  section:nth-child(4) { animation-delay: 0.3s; }
+  section:nth-child(5) { animation-delay: 0.4s; }
+</style>
 </head>
-
-
 <body>
 
-  <div data-include="/partials/nav.html"></div>
+<nav>
+  <a class="nav-name" href="#">Aaron J. Smith</a>
+  <ul class="nav-links">
+    <li><a href="#direction">Direction</a></li>
+    <li><a href="#writing">Writing</a></li>
+    <li><a href="#podcast">Podcast</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+</nav>
 
-  <section class="hero" style="background-image:url('/images/Wings.jpg');">
-  <div class="inner">
-    <div class="panel">
-      <h1 class="center" style="margin:0;">
-  <a href="/writing/index.html">Poet.</a> <a href="/spiritual-direction/index.html">Spiritual Director.</a> <a href="/spiritual-direction/index.html#believe">Theologian.</a> <a href="#about">Human.</a>
-</h1>
+<div class="hero">
+  <p class="hero-eyebrow">Aaron J. Smith</p>
+  <h1>Poet. Theologian.<br><em>Spiritual Director.</em></h1>
+  <div class="hero-rule"></div>
+  <p>Making the unspeakable speakable — through poetry, theology, and the practice of sitting with what is.</p>
+  <div class="hero-roles">
+    <span class="role-tag">Post-Christian</span><span class="role-dot">✦</span>
+    <span class="role-tag">Contemplative</span><span class="role-dot">✦</span>
+    <span class="role-tag">Queer Affirming</span>
+  </div>
+</div>
 
-          </div>
+<div class="cards-grid" id="work">
+
+  <!-- Spiritual Direction — full top row -->
+  <a class="card card--direction" href="#direction">
+    <div class="card-left">
+      <span class="card-icon">◎</span>
+      <div class="card-sub">One-on-One Work</div>
+      <div class="card-title">Spiritual Direction</div>
+      <p class="card-desc">Trauma-informed, queer-inclusive accompaniment for people deconstructing, reconstructing, or just trying to hear themselves think.</p>
+      <!-- UPDATE OR REMOVE this line if your availability changes -->
+      <p class="card-availability">Currently accepting directees</p>
+    </div>
+    <div class="card-detail">
+      <p>I don't come with answers — I come with presence, and the ability to hold space while the Spirit does her work.</p>
+      <p>I work from a trauma-informed lens. I am fully queer inclusive. I love sitting with people who are in the middle of something hard and holy.</p>
+      <p>No matter what your relationship with church is, you have a place at this table.</p>
+      <span class="card-arrow">↓</span>
+    </div>
+  </a>
+
+  <!-- The Cluttered Mouth -->
+  <div class="card card--writing">
+    <span class="card-icon">✍︎</span>
+    <div class="card-sub">Newsletter & Archive</div>
+    <div class="card-title">The Cluttered Mouth</div>
+    <p class="card-desc">Poetry, prose, prayer, and protest. Essays on theology and the life we carry. For everything stuck in the throat.</p>
+    <div class="card-links">
+      <a class="card-link" href="https://theclutteredmouth.com" target="_blank" onclick="event.stopPropagation()">Read & Subscribe ↗</a>
+      <span class="card-link-sep">·</span>
+      <a class="card-link" href="#writing" onclick="event.stopPropagation()">Recent Work ↓</a>
+    </div>
+  </div>
+
+  <!-- All Things Made New -->
+  <div class="card card--podcast">
+    <span class="card-icon">◉</span>
+    <div class="card-sub">Podcast</div>
+    <div class="card-title">All Things Made New</div>
+    <p class="card-desc">DIY conversations at the intersection of faith, flesh, and the everyday. Grace, grief, doubt, and resurrection in the cracks.</p>
+    <div class="card-links">
+      <a class="card-link" href="https://podcasts.apple.com/us/podcast/all-things-made-new/id1528396686" target="_blank" onclick="event.stopPropagation()">Apple ↗</a>
+      <span class="card-link-sep">·</span>
+      <a class="card-link" href="https://open.spotify.com/show/0ldzUu0jFNwX1ENgVSVKfO" target="_blank" onclick="event.stopPropagation()">Spotify ↗</a>
+      <span class="card-link-sep">·</span>
+      <a class="card-link" href="#podcast" onclick="event.stopPropagation()">More ↓</a>
+    </div>
+  </div>
+
+</div>
+
+<hr class="section-divider">
+
+<!-- ============================================================
+     SPIRITUAL DIRECTION
+     UPDATE: Replace YOUR_FORM_ID with your Formspree endpoint
+     ============================================================ -->
+<section id="direction">
+  <p class="section-label">One-on-One Work</p>
+  <h2 class="section-title">Spiritual Direction</h2>
+  <div class="direction-layout">
+    <div class="direction-text">
+      <p>I've been deconstructing and reconstructing my own faith for over twenty years. I don't come with answers — I come with presence, and with the ability to hold space while the Spirit does her work.</p>
+      <p>I work from a trauma-informed lens. I am fully queer inclusive. I love sitting with people who are in the middle of something hard and holy. No matter what your relationship with church is, you have a place at this table.</p>
+      <p style="font-size:0.95rem; color:var(--ink-faint); font-style:italic;">I am currently accepting new directees. If you're curious, reach out — no commitment required.</p>
+    </div>
+    <div>
+      <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-row">
+          <label for="sd-name">Name</label>
+          <input type="text" id="sd-name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-row">
+          <label for="sd-email">Email</label>
+          <input type="email" id="sd-email" name="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-row">
+          <label for="sd-message">Message</label>
+          <textarea id="sd-message" name="message" placeholder="What's on your mind?"></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+        <p class="form-note">I'll be in touch.</p>
+      </form>
+    </div>
   </div>
 </section>
 
-  <main class="wrap">
-  <section class="about-two-col" id="about" style="display:flex; gap:2rem; align-items:flex-start;">
+<hr class="section-divider">
 
-    <div class="about-grid">
-      <div class="about-text">
-        <section class="about-two-col" id="about">
-  <div class="about-text">
-    <h2>About</h2>
-
-    <p class="lede">Aaron J. Smith is a dad, husband, nerd, coffee chugger and kind of a mess. He hates writing about himself. It is the worst.</p>
-
-    <p class="lede">Aaron tries to live out a self-donating, other-centered love as a post-Christian follower of the Jesus way, a theologian, a spiritual director, and a poet.</p>
-
-    <p class="lede">Aaron grew up in Utah and moved to the Pacific Northwest in his late 20s, where he now lives with his wife and two kids.</p>
+<!-- ============================================================
+     WRITING
+     UPDATE: Replace recent posts as you publish new work
+     ============================================================ -->
+<section id="writing">
+  <p class="section-label">Writing</p>
+  <h2 class="section-title">The Cluttered Mouth</h2>
+  <div class="writing-layout">
+    <div>
+      <p class="section-desc">Poetry, essays, and theological prose — published when something is ready to be said. Free and paid tiers. All welcome.</p>
+      <div style="display:flex; gap:1.2rem; flex-wrap:wrap; align-items:center;">
+        <a class="text-link" href="https://theclutteredmouth.com" target="_blank">Browse the Archive ↗</a>
+        <a class="text-link" href="#subscribe">Subscribe Free</a>
+      </div>
+    </div>
+    <div class="recent-posts">
+      <h3>Recent Work</h3>
+      <a class="post-item" href="https://theclutteredmouth.com/the-struggle-is-real/" target="_blank">
+        <div class="post-item-title">The Struggle Is Real</div>
+        <div class="post-item-sub">Apr 8, 2026 · Essay</div>
+      </a>
+      <a class="post-item" href="https://theclutteredmouth.com/the-r-word/" target="_blank">
+        <div class="post-item-title">The "R" Word</div>
+        <div class="post-item-sub">Mar 31, 2026 · Essay</div>
+      </a>
+      <a class="post-item" href="https://theclutteredmouth.com/you-are-not-bipolar/" target="_blank">
+        <div class="post-item-title">You Are Not Bipolar</div>
+        <div class="post-item-sub">Mar 24, 2026 · Poem</div>
+      </a>
+      <a class="post-item" href="https://theclutteredmouth.com/suffering-in-the-garden/" target="_blank">
+        <div class="post-item-title">Suffering in the Garden</div>
+        <div class="post-item-sub">Mar 23, 2026 · Essay</div>
+      </a>
+      <a class="post-item" href="https://theclutteredmouth.com/where-the-wind-will/" target="_blank">
+        <div class="post-item-title">Where the Wind Will</div>
+        <div class="post-item-sub">Feb 25, 2026 · Poem</div>
+      </a>
+      <div style="padding-top:0.8rem;">
+        <a class="text-link" href="https://theclutteredmouth.com" target="_blank">See All ↗</a>
+      </div>
+    </div>
   </div>
-
-  <aside class="about-photo">
-    <img src="/images/Becky-with-the-good-hair.-jklolrotfl.jpg" alt="Aaron J. Smith">
-  </aside>
 </section>
 
-</main>
+<!-- Subscribe -->
+<div id="subscribe" style="padding: 0 2rem 4rem;">
+  <div class="subscribe-section">
+    <h2>Words in Your Inbox</h2>
+    <p>Poetry, essays, and theology from The Cluttered Mouth — sent when something is ready to be said.</p>
+    <form class="subscribe-form" onsubmit="handleSubscribe(event)">
+      <input type="email" placeholder="your@email.com" required id="sub-email">
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="subscribe-note">Free. No spam. Or go straight to <a href="https://theclutteredmouth.com/#/portal/signup" target="_blank">Ghost to subscribe ↗</a></p>
+  </div>
+</div>
 
-  <div data-include="/partials/footer.html"></div>
+<hr class="section-divider">
 
+<!-- ============================================================
+     PODCAST
+     ============================================================ -->
+<section id="podcast">
+  <p class="section-label">Podcast</p>
+  <h2 class="section-title">All Things Made New</h2>
+  <div style="max-width: 580px;">
+    <p class="section-desc">DIY conversations at the intersection of faith, flesh, and the everyday — exploring the Christian spirituality of being human. Friends, thinkers, and fellow wanderers talking about grace, grief, doubt, hope, and what it means to live in a world where resurrection keeps showing up in the cracks.</p>
+    <p style="font-size:1rem; color:var(--ink-faint); margin-bottom:1.8rem; line-height:1.75; font-style:italic;">Come as you are.</p>
+    <div style="display:flex; gap:1.2rem; flex-wrap:wrap;">
+      <a class="text-link" href="https://podcasts.apple.com/us/podcast/all-things-made-new/id1528396686" target="_blank">Apple Podcasts ↗</a>
+      <a class="text-link" href="https://open.spotify.com/show/0ldzUu0jFNwX1ENgVSVKfO" target="_blank">Spotify ↗</a>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ============================================================
+     ABOUT
+     UPDATE: Replace photo src with your renamed image file
+     ============================================================ -->
+<section id="about">
+  <div class="about-layout">
+    <div class="about-image-wrap">
+      <img src="/images/aaron-smith.jpg" alt="Aaron J. Smith" onerror="this.style.display='none'">
+    </div>
+    <div class="about-text">
+      <p class="section-label">About</p>
+      <h2 class="section-title" style="margin-bottom:1.2rem;">Aaron J. Smith</h2>
+      <p>I'm a poet, theologian, spiritual director, and something of a mess — in the way that paying attention to the world tends to make you.</p>
+      <p>I follow the way of Jesus without needing the institution to come with it. My theology begins in the body: Christ's, mine, and the world's. I hold kenosis — self-emptying love — as the through-line connecting the Trinity, the cross, the table, and the life we're asked to live.</p>
+      <p>I grew up in Utah. I live in the Pacific Northwest with my wife and two kids. I drink too much coffee and not enough water.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider" style="margin-bottom:0;">
+<footer>
+  <div class="footer-links">
+    <a href="#direction">Spiritual Direction</a>
+    <a href="https://theclutteredmouth.com" target="_blank">The Cluttered Mouth</a>
+    <a href="https://podcasts.apple.com/us/podcast/all-things-made-new/id1528396686" target="_blank">Podcast</a>
+    <a href="#about">About</a>
+  </div>
+  <span>© 2026 Aaron J. Smith</span>
+</footer>
+
+<script>
+function handleSubscribe(e) {
+  e.preventDefault();
+  const email = document.getElementById('sub-email').value;
+  window.open(`https://theclutteredmouth.com/#/portal/signup?email=${encodeURIComponent(email)}`, '_blank');
+}
+</script>
 </body>
 </html>
