@@ -385,15 +385,15 @@
 // Load recent posts from The Cluttered Mouth via RSS feed
 // Uses allorigins.win as a CORS proxy to fetch the public RSS feed
 const rssUrl = 'https://theclutteredmouth.com/rss/';
-const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(rssUrl)}`;
+const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(rssUrl)}`;
 
 fetch(proxyUrl)
-  .then(res => res.json())
-  .then(data => {
+  .then(res => res.text())
+  .then(text => {
     const container = document.getElementById('recent-posts-list');
     if (!container) return;
     const parser = new DOMParser();
-    const xml = parser.parseFromString(data.contents, 'text/xml');
+    const xml = parser.parseFromString(text, 'text/xml');
     const items = Array.from(xml.querySelectorAll('item')).slice(0, 5);
     items.forEach(item => {
       const title = item.querySelector('title')?.textContent || '';
