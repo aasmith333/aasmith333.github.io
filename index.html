@@ -98,7 +98,6 @@
   @media (max-width: 640px) { .direction-layout { grid-template-columns: 1fr; gap: 2rem; } }
 
   /* CONTACT FORM */
-  /* UPDATE: Replace YOUR_FORM_ID with your Formspree endpoint */
   .contact-form { margin-top: 0; }
   .contact-form .form-row { margin-bottom: 1rem; }
   .contact-form label { display: block; font-family: 'Crimson Pro', Georgia, serif; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.35rem; }
@@ -129,20 +128,9 @@
   .subscribe-section::before { content: '✦'; position: absolute; top: -0.7rem; left: 50%; transform: translateX(-50%); background: var(--cream); padding: 0 0.5rem; color: var(--gold); font-size: 0.9rem; }
   .subscribe-section h2 { font-family: 'Lora', Georgia, serif; font-size: 1.6rem; font-weight: 500; color: var(--ink); margin-bottom: 0.6rem; }
   .subscribe-section p { font-size: 1rem; color: var(--ink-faint); margin-bottom: 1.8rem; font-style: italic; line-height: 1.7; }
-  .subscribe-form { display: flex; max-width: 420px; margin: 0 auto; }
-  .subscribe-form input { flex: 1; padding: 0.75rem 1rem; border: 1.5px solid var(--border); border-right: none; background: var(--warm-white); font-family: 'EB Garamond', Georgia, serif; font-size: 1rem; color: var(--ink); outline: none; transition: border-color 0.2s; min-width: 0; }
-  .subscribe-form input:focus { border-color: var(--gold); }
-  .subscribe-form input::placeholder { color: var(--ink-faint); font-style: italic; }
-  .subscribe-form button { padding: 0.75rem 1.2rem; background: var(--rust); color: var(--cream); border: 1.5px solid var(--rust); font-family: 'Crimson Pro', Georgia, serif; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
-  .subscribe-form button:hover { background: var(--rust-light); border-color: var(--rust-light); }
-  .subscribe-note { font-size: 0.82rem; color: var(--ink-faint); margin-top: 0.8rem; font-style: italic; }
-  .subscribe-note a { color: var(--rust); text-decoration: none; }
 
   @media (max-width: 600px) {
     .subscribe-section { padding: 2rem 1.5rem; }
-    .subscribe-form { flex-direction: column; }
-    .subscribe-form input { border-right: 1.5px solid var(--border); border-bottom: none; }
-    .subscribe-form button { width: 100%; padding: 0.75rem; }
   }
 
   /* ABOUT */
@@ -226,7 +214,7 @@
   </a>
 
   <!-- The Cluttered Mouth -->
- <a class="card card--writing" href="#writing">
+  <a class="card card--writing" href="#writing">
     <span class="card-icon">✍︎</span>
     <div class="card-sub">Newsletter & Archive</div>
     <div class="card-title">The Cluttered Mouth</div>
@@ -236,8 +224,8 @@
       <span class="card-link-sep">·</span>
       <a class="card-link" href="#writing" onclick="event.stopPropagation()">Recent Work ↓</a>
     </div>
- </a>
-  
+  </a>
+
   <!-- All Things Made New -->
   <a class="card card--podcast" href="#podcast">
     <span class="card-icon">◉</span>
@@ -245,21 +233,20 @@
     <div class="card-title">All Things Made New</div>
     <p class="card-desc">DIY conversations at the intersection of faith, flesh, and the everyday. Grace, grief, doubt, and resurrection in the cracks.</p>
     <div class="card-links">
-     <a class="card-link" href="https://open.spotify.com/show/0ldzUu0jFNwX1ENgVSVKfO" target="_blank" onclick="event.stopPropagation()">Spotify ↗</a>
-      <span class="card-link-sep">·</span> 
-     <a class="card-link" href="https://podcasts.apple.com/us/podcast/all-things-made-new/id1528396686" target="_blank" onclick="event.stopPropagation()">Apple ↗</a>
+      <a class="card-link" href="https://open.spotify.com/show/0ldzUu0jFNwX1ENgVSVKfO" target="_blank" onclick="event.stopPropagation()">Spotify ↗</a>
+      <span class="card-link-sep">·</span>
+      <a class="card-link" href="https://podcasts.apple.com/us/podcast/all-things-made-new/id1528396686" target="_blank" onclick="event.stopPropagation()">Apple ↗</a>
       <span class="card-link-sep">·</span>
       <a class="card-link" href="#podcast" onclick="event.stopPropagation()">More ↓</a>
     </div>
-  </div>
-  
-</a>
- 
+  </a>
+
+</div><!-- /.cards-grid -->
+
 <hr class="section-divider">
 
 <!-- ============================================================
      SPIRITUAL DIRECTION
-     UPDATE: Replace YOUR_FORM_ID with your Formspree endpoint
      ============================================================ -->
 <section id="direction">
   <p class="section-label">One-on-One Work</p>
@@ -316,19 +303,19 @@
            Add your newest post at the top, delete the bottom one.
            Format: title, URL, date, type (Essay / Poem / etc.)
            ============================================================ -->
-<a class="post-item" href="https://theclutteredmouth.com/slow-of-burning-heart/" target="_blank">
+      <a class="post-item" href="https://theclutteredmouth.com/slow-of-burning-heart/" target="_blank">
         <div class="post-item-title">Slow of (Burning) Heart</div>
         <div class="post-item-sub">April 13, 2026 · Essay</div>
       </a>
-     <a class="post-item" href="https://theclutteredmouth.com/death-by-death/" target="_blank">
+      <a class="post-item" href="https://theclutteredmouth.com/death-by-death/" target="_blank">
         <div class="post-item-title">Death by Death</div>
         <div class="post-item-sub">Apr 12, 2026 · Essay</div>
       </a>
-     <a class="post-item" href="https://theclutteredmouth.com/the-atheist-christian/" target="_blank">
-  <div class="post-item-title">The Atheist Christian</div>
-  <div class="post-item-sub">Apr 10, 2026 · Essay</div>
-</a>
-     <a class="post-item" href="https://theclutteredmouth.com/the-struggle-is-real/" target="_blank">
+      <a class="post-item" href="https://theclutteredmouth.com/the-atheist-christian/" target="_blank">
+        <div class="post-item-title">The Atheist Christian</div>
+        <div class="post-item-sub">Apr 10, 2026 · Essay</div>
+      </a>
+      <a class="post-item" href="https://theclutteredmouth.com/the-struggle-is-real/" target="_blank">
         <div class="post-item-title">The Struggle Is Real</div>
         <div class="post-item-sub">Apr 8, 2026 · Essay</div>
       </a>
@@ -336,7 +323,6 @@
         <div class="post-item-title">The "R" Word</div>
         <div class="post-item-sub">Mar 31, 2026 · Essay</div>
       </a>
-            
       <!-- ============================================================ -->
 
       <div style="padding-top:0.8rem;">
@@ -351,8 +337,8 @@
   <div class="subscribe-section">
     <h2>Words in Your Inbox</h2>
     <p>Poetry, essays, and theology from The Cluttered Mouth — sent when something is ready to be said.</p>
-   <div style="min-height: 58px;max-width: 440px;margin: 0 auto;width: 100%"><script src="https://cdn.jsdelivr.net/ghost/signup-form@~0.3/umd/signup-form.min.js" data-button-color="#4a6f44" data-button-text-color="#FFFFFF" data-site="https://theclutteredmouth.com/" data-locale="en" async></script></div>
-     </div>
+    <div style="min-height: 58px;max-width: 440px;margin: 0 auto;width: 100%"><script src="https://cdn.jsdelivr.net/ghost/signup-form@~0.3/umd/signup-form.min.js" data-button-color="#4a6f44" data-button-text-color="#FFFFFF" data-site="https://theclutteredmouth.com/" data-locale="en" async></script></div>
+  </div>
 </div>
 
 <hr class="section-divider">
@@ -367,9 +353,8 @@
     <p class="section-desc">DIY conversations at the intersection of faith, flesh, and the everyday — exploring the Christian spirituality of being human. Friends, thinkers, and fellow wanderers talking about grace, grief, doubt, hope, and what it means to live in a world where resurrection keeps showing up in the cracks.</p>
     <p style="font-size:1rem; color:var(--ink-faint); margin-bottom:1.8rem; line-height:1.75; font-style:italic;">Come as you are.</p>
     <div style="display:flex; gap:1.2rem; flex-wrap:wrap;">
-     <a class="text-link" href="https://open.spotify.com/show/0ldzUu0jFNwX1ENgVSVKfO" target="_blank">Spotify ↗</a>
-     <a class="text-link" href="https://podcasts.apple.com/us/podcast/all-things-made-new/id1528396686" target="_blank">Apple Podcasts ↗</a>
-      
+      <a class="text-link" href="https://open.spotify.com/show/0ldzUu0jFNwX1ENgVSVKfO" target="_blank">Spotify ↗</a>
+      <a class="text-link" href="https://podcasts.apple.com/us/podcast/all-things-made-new/id1528396686" target="_blank">Apple Podcasts ↗</a>
     </div>
   </div>
 </section>
@@ -406,12 +391,5 @@
   <span>© 2026 Aaron J. Smith</span>
 </footer>
 
-<script>
-function handleSubscribe(e) {
-  e.preventDefault();
-  const email = document.getElementById('sub-email').value;
-  window.open(`https://theclutteredmouth.com/#/portal/signup?email=${encodeURIComponent(email)}`, '_blank');
-}
-</script>
 </body>
 </html>
