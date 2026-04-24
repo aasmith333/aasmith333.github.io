@@ -61,25 +61,23 @@
   .card-link:hover { border-color: var(--rust); color: var(--rust-light); }
   .card-link-sep { color: var(--border); font-size: 0.7rem; }
 
-  /* Direction card */
-  .card--direction { grid-column: 1 / 3; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; background: var(--paper); flex-direction: unset; min-height: unset; }
+  /* Direction card — spans full width, internal 2-col layout */
+  .card--direction { grid-column: 1 / 3; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; background: var(--paper); min-height: unset; }
   .card--direction:hover { background: #e8e0d0; }
-  .card--direction .card-left { display: flex; flex-direction: column; }
-  .card--direction .card-availability { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-top: 1rem; display: flex; align-items: center; gap: 0.4rem; }
-  /* UPDATE OR REMOVE the availability line if your schedule changes */
-  .card--direction .card-availability::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); display: inline-block; }
-  .card--direction .card-detail { border-left: 1px solid var(--border); padding-left: 2rem; font-size: 1rem; color: var(--ink-light); line-height: 1.8; }
-  .card--direction .card-detail p { margin-bottom: 1rem; }
-  .card--direction .card-detail p:last-child { margin-bottom: 0; }
-  .card--direction .card-arrow { display: block; text-align: right; color: var(--gold); font-size: 1rem; margin-top: 1.5rem; transition: transform 0.2s; }
+  .card-availability { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-top: 1.2rem; display: flex; align-items: center; gap: 0.5rem; }
+  /* UPDATE OR REMOVE the availability dot if your schedule changes */
+  .card-availability::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; display: inline-block; }
+  .card-arrow { display: block; text-align: right; color: var(--gold); font-size: 1rem; margin-top: 1.5rem; transition: transform 0.2s; }
   .card--direction:hover .card-arrow { transform: translate(3px, -3px); }
+  .card-detail-text { font-size: 0.98rem; color: var(--ink-light); line-height: 1.8; border-left: 1px solid var(--border); margin-left: -1.5rem; padding-left: 1.5rem; }
+  .card-detail-text p { margin-bottom: 0.9rem; }
+  .card-detail-text p:last-child { margin-bottom: 0; }
 
   @media (max-width: 600px) {
     .cards-grid { grid-template-columns: 1fr; padding: 0 1.5rem 3rem; }
     .card { min-height: unset; padding: 1.8rem 1.5rem; }
-    .card--direction { grid-column: 1; grid-template-columns: 1fr; gap: 0; }
-    /* Hide the detail column on mobile — full description is in the section below */
-    .card--direction .card-detail { display: none; }
+    .card--direction { grid-column: 1; grid-template-columns: 1fr; gap: 1.5rem; }
+    .card-detail-text { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 1.2rem; }
   }
 
   /* SECTIONS */
@@ -197,7 +195,7 @@
 
   <!-- Spiritual Direction — full top row -->
   <a class="card card--direction" href="#direction">
-    <div class="card-left">
+    <div>
       <span class="card-icon">◎</span>
       <div class="card-sub">One-on-One Work</div>
       <div class="card-title">Spiritual Direction</div>
@@ -205,7 +203,7 @@
       <!-- UPDATE OR REMOVE this line if your availability changes -->
       <p class="card-availability">Currently accepting directees</p>
     </div>
-    <div class="card-detail">
+    <div class="card-detail-text">
       <p>I don't come with answers — I come with presence, and the ability to hold space while the Spirit does her work.</p>
       <p>I work from a trauma-informed lens, am fully queer inclusive, and I love sitting with people who are in the middle of something hard and holy.</p>
       <p>No matter what your relationship with church is, you have a place at this table.</p>
@@ -213,32 +211,20 @@
     </div>
   </a>
 
-  <!-- The Cluttered Mouth -->
+  <!-- Writing — bottom left -->
   <a class="card card--writing" href="#writing">
     <span class="card-icon">✍︎</span>
     <div class="card-sub">Newsletter & Archive</div>
     <div class="card-title">The Cluttered Mouth</div>
     <p class="card-desc">Poetry, prose, prayer, and protest. Essays on theology and the life we carry. For everything stuck in the throat.</p>
-    <div class="card-links">
-      <a class="card-link" href="https://theclutteredmouth.com" target="_blank" onclick="event.stopPropagation()">Read & Subscribe ↗</a>
-      <span class="card-link-sep">·</span>
-      <a class="card-link" href="#writing" onclick="event.stopPropagation()">Recent Work ↓</a>
-    </div>
   </a>
 
-  <!-- All Things Made New -->
+  <!-- Podcast — bottom right -->
   <a class="card card--podcast" href="#podcast">
     <span class="card-icon">◉</span>
     <div class="card-sub">Podcast</div>
     <div class="card-title">All Things Made New</div>
     <p class="card-desc">DIY conversations at the intersection of faith, flesh, and the everyday. Grace, grief, doubt, and resurrection in the cracks.</p>
-    <div class="card-links">
-      <a class="card-link" href="https://open.spotify.com/show/0ldzUu0jFNwX1ENgVSVKfO" target="_blank" onclick="event.stopPropagation()">Spotify ↗</a>
-      <span class="card-link-sep">·</span>
-      <a class="card-link" href="https://podcasts.apple.com/us/podcast/all-things-made-new/id1528396686" target="_blank" onclick="event.stopPropagation()">Apple ↗</a>
-      <span class="card-link-sep">·</span>
-      <a class="card-link" href="#podcast" onclick="event.stopPropagation()">More ↓</a>
-    </div>
   </a>
 
 </div><!-- /.cards-grid -->
