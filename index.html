@@ -4,14 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aaron J. Smith</title>
+<meta name="description" content="Making the unspeakable speakable — through poetry, theology, and the practice of sitting with what is.">
+<link rel="canonical" href="https://aaronjsmith.net">
 <meta property="og:title" content="Aaron J. Smith">
 <meta property="og:description" content="Making the unspeakable speakable — through poetry, theology, and the practice of sitting with what is.">
-<meta property="og:image" content="https://aaronjsmith.net/images/Wings.jpg">
+<meta property="og:image" content="https://aaronjsmith.net/images/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://aaronjsmith.net">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Aaron J. Smith">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://aaronjsmith.net/images/Wings.jpg">
+<meta name="twitter:title" content="Aaron J. Smith">
+<meta name="twitter:description" content="Making the unspeakable speakable — through poetry, theology, and the practice of sitting with what is.">
+<meta name="twitter:image" content="https://aaronjsmith.net/images/og-card.jpg">
+<link rel="icon" href="/images/aaron-smith.jpg" type="image/jpeg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -118,7 +127,7 @@
   .recent-posts { border-left: 2px solid var(--border); padding-left: 1.5rem; }
   .recent-posts h3 { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 1.2rem; }
   .post-item { display: block; padding: 0.8rem 0; border-bottom: 1px solid var(--border-light); text-decoration: none; color: inherit; }
-  .post-item:last-child { border-bottom: none; }
+  .post-item:last-of-type { border-bottom: none; }
   .post-item-title { font-family: 'Lora', Georgia, serif; font-size: 1rem; color: var(--ink); margin-bottom: 0.2rem; transition: color 0.2s; }
   .post-item:hover .post-item-title { color: var(--rust); }
   .post-item-sub { font-size: 0.85rem; color: var(--ink-faint); font-style: italic; }
@@ -167,11 +176,13 @@
     .footer-links { gap: 1rem; }
   }
 
+  .hero-cta { display:inline-block; font-family:'Crimson Pro',Georgia,serif; font-size:0.85rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--rust); border:1.5px solid var(--rust); padding:0.7rem 2rem; text-decoration:none; transition:background 0.2s, color 0.2s; }
+  .hero-cta:hover { background:var(--rust); color:var(--cream); }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-  section:nth-child(2) { animation-delay: 0.1s; }
-  section:nth-child(3) { animation-delay: 0.2s; }
-  section:nth-child(4) { animation-delay: 0.3s; }
-  section:nth-child(5) { animation-delay: 0.4s; }
+  section:nth-of-type(1) { animation-delay: 0.1s; }
+  section:nth-of-type(2) { animation-delay: 0.2s; }
+  section:nth-of-type(3) { animation-delay: 0.3s; }
+  section:nth-of-type(4) { animation-delay: 0.4s; }
 </style>
 </head>
 <body>
@@ -186,6 +197,7 @@
   </ul>
 </nav>
 
+<main>
 <div class="hero">
   <p class="hero-eyebrow">Following the Jesus story wherever it leads</p>
   <h1>Poet. Theologian.<br><em>Spiritual Director.</em></h1>
@@ -197,7 +209,7 @@
     <span class="role-tag">Queer Affirming</span>
   </div>
   <div style="margin-top: 2.5rem;">
-    <a href="#writing" style="display:inline-block; font-family:'Crimson Pro',Georgia,serif; font-size:0.85rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--rust); border:1.5px solid var(--rust); padding:0.7rem 2rem; text-decoration:none; transition:background 0.2s, color 0.2s;" onmouseover="this.style.background='var(--rust)';this.style.color='var(--cream)'" onmouseout="this.style.background='transparent';this.style.color='var(--rust)'">Begin with the Writing ↓</a>
+    <a href="#writing" class="hero-cta">Begin with the Writing ↓</a>
   </div>
 </div>
 
@@ -300,30 +312,30 @@
            Add your newest post at the top, delete the bottom one.
            Format: title, URL, date, type (Essay / Poem / etc.)
            ============================================================ -->
-     <a class="post-item" href="https://theclutteredmouth.com/the-strangers-voice-learning-abundance-and-how-to-be-loved-by-name/" target="_blank">
+     <a class="post-item" href="https://theclutteredmouth.com/the-strangers-voice-learning-abundance-and-how-to-be-loved-by-name/" target="_blank" rel="noopener noreferrer">
         <div class="post-item-title">The Stranger's Voice—Learning Abundance and how to be Loved by Name</div>
         <div class="post-item-sub">April 26, 2026 · Essay</div>
       </a> 
-     <a class="post-item" href="https://theclutteredmouth.com/slow-of-burning-heart/" target="_blank">
+     <a class="post-item" href="https://theclutteredmouth.com/slow-of-burning-heart/" target="_blank" rel="noopener noreferrer">
         <div class="post-item-title">Slow of (Burning) Heart</div>
         <div class="post-item-sub">April 13, 2026 · Essay</div>
       </a>
-      <a class="post-item" href="https://theclutteredmouth.com/death-by-death/" target="_blank">
+      <a class="post-item" href="https://theclutteredmouth.com/death-by-death/" target="_blank" rel="noopener noreferrer">
         <div class="post-item-title">Death by Death</div>
         <div class="post-item-sub">Apr 12, 2026 · Essay</div>
       </a>
-      <a class="post-item" href="https://theclutteredmouth.com/the-atheist-christian/" target="_blank">
+      <a class="post-item" href="https://theclutteredmouth.com/the-atheist-christian/" target="_blank" rel="noopener noreferrer">
         <div class="post-item-title">The Atheist Christian</div>
         <div class="post-item-sub">Apr 10, 2026 · Essay</div>
       </a>
-      <a class="post-item" href="https://theclutteredmouth.com/the-struggle-is-real/" target="_blank">
+      <a class="post-item" href="https://theclutteredmouth.com/the-struggle-is-real/" target="_blank" rel="noopener noreferrer">
         <div class="post-item-title">The Struggle Is Real</div>
         <div class="post-item-sub">Apr 8, 2026 · Essay</div>
       </a>
       <!-- ============================================================ -->
 
       <div style="padding-top:0.8rem;">
-        <a class="text-link" href="https://theclutteredmouth.com/page/2/" target="_blank">See All ↗</a>
+        <a class="text-link" href="https://theclutteredmouth.com/page/2/" target="_blank" rel="noopener noreferrer">See All ↗</a>
       </div>
     </div>
   </div>
@@ -342,8 +354,8 @@
     <p style="font-size:1rem; color:var(--ink-light); margin-bottom:1.8rem; line-height:1.75;">Low-fi and honest — the kind of conversation you'd want to have with a friend who takes both faith and doubt seriously. No tidy answers. No performance. Just people thinking out loud about what it means to be alive and paying attention.</p>
     <p style="font-size:1rem; color:var(--ink-faint); margin-bottom:1.8rem; line-height:1.75; font-style:italic;">Come as you are.</p>
     <div style="display:flex; gap:1.2rem; flex-wrap:wrap;">
-      <a class="text-link" href="https://open.spotify.com/show/0ldzUu0jFNwX1ENgVSVKfO" target="_blank">Spotify ↗</a>
-      <a class="text-link" href="https://podcasts.apple.com/us/podcast/all-things-made-new/id1528396686" target="_blank">Apple Podcasts ↗</a>
+      <a class="text-link" href="https://open.spotify.com/show/0ldzUu0jFNwX1ENgVSVKfO" target="_blank" rel="noopener noreferrer">Spotify ↗</a>
+      <a class="text-link" href="https://podcasts.apple.com/us/podcast/all-things-made-new/id1528396686" target="_blank" rel="noopener noreferrer">Apple Podcasts ↗</a>
     </div>
   </div>
 </section>
@@ -370,11 +382,12 @@
 </section>
 
 <hr class="section-divider" style="margin-bottom:0;">
+</main>
 <footer>
   <div class="footer-links">
     <a href="#direction">Spiritual Direction</a>
-    <a href="https://theclutteredmouth.com" target="_blank">The Cluttered Mouth</a>
-    <a href="https://open.spotify.com/show/0ldzUu0jFNwX1ENgVSVKfO" target="_blank">Podcast</a>
+    <a href="https://theclutteredmouth.com" target="_blank" rel="noopener noreferrer">The Cluttered Mouth</a>
+    <a href="https://open.spotify.com/show/0ldzUu0jFNwX1ENgVSVKfO" target="_blank" rel="noopener noreferrer">Podcast</a>
    </div>
   <span>© 2026 Aaron J. Smith</span>
 </footer>
