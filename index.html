@@ -1,397 +1,1091 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aaron J. Smith</title>
-<meta name="description" content="Making the unspeakable speakable — through poetry, theology, and the practice of sitting with what is.">
-<link rel="canonical" href="https://aaronjsmith.net">
-<a rel="me" href="https://mastodon.social/@aaronjsmith" style="display:none;">Mastodon</a>
-<meta property="og:title" content="Aaron J. Smith">
-<meta property="og:description" content="Making the unspeakable speakable — through poetry, theology, and the practice of sitting with what is.">
-<meta property="og:image" content="https://aaronjsmith.net/images/og-card.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:url" content="https://aaronjsmith.net">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Aaron J. Smith">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Aaron J. Smith">
-<meta name="twitter:description" content="Making the unspeakable speakable — through poetry, theology, and the practice of sitting with what is.">
-<meta name="twitter:image" content="https://aaronjsmith.net/images/og-card.jpg">
-<link rel="icon" href="/images/aaron-smith.jpg" type="image/jpeg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --cream: #f5f0e8; --warm-white: #faf7f2; --ink: #2a1f0e; --ink-light: #4a3828;
-    --ink-faint: #7a6550; --rust: #8b3a1a; --rust-light: #a84d2a; --gold: #c4923a;
-    --border: #d4c5a9; --border-light: #e8dfc8; --paper: #ede8dc;
-  }
-  html { scroll-behavior: smooth; }
-  body { background: var(--cream); color: var(--ink); font-family: 'EB Garamond', Georgia, serif; font-size: 21px; line-height: 1.7; min-height: 100vh; }
-  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1000; opacity: 0.5; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AaronJSmith.net — Site Prototype</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80' fill='%237A8C6E' font-family='serif'>A</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#F5F0E8',
+            charcoal: '#2C2A26',
+            sage: '#7A8C6E',
+            clay: '#B5836A',
+            rule: '#DDD8CC',
+            muted: '#7A7468',
+            card: '#EDE8DE',
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Jost"', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    :root {
+      --bg: #F5F0E8;
+      --text: #2C2A26;
+      --sage: #7A8C6E;
+      --clay: #B5836A;
+      --rule: #DDD8CC;
+      --muted: #7A7468;
+      --card: #EDE8DE;
+    }
 
-  /* NAV */
-  nav { position: sticky; top: 0; z-index: 100; background: var(--cream); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
-  .nav-name { font-family: 'Lora', Georgia, serif; font-size: 1rem; font-weight: 500; letter-spacing: 0.08em; color: var(--ink); text-decoration: none; }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.95rem; color: var(--ink-faint); text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--rust); }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* Hide nav links on mobile — cards handle navigation */
-  @media (max-width: 600px) {
-    .nav-links { display: none; }
-    nav { justify-content: center; }
-  }
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg);
+      color: var(--text);
+    }
 
-  /* HERO */
-  .hero { max-width: 780px; margin: 0 auto; padding: 6rem 2rem 5rem; text-align: center; animation: fadeUp 0.8s ease both; }
-  .hero-eyebrow { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rust); margin-bottom: 1.5rem; }
-  .hero h1 { font-family: 'Lora', Georgia, serif; font-size: clamp(2.8rem, 6vw, 4.2rem); font-weight: 500; line-height: 1.15; color: var(--ink); margin-bottom: 1.8rem; }
-  .hero h1 em { font-style: italic; color: var(--rust); }
-  .hero-rule { width: 60px; height: 1px; background: var(--gold); margin: 0 auto 1.8rem; }
-  .hero p { font-family: 'EB Garamond', Georgia, serif; font-size: 1.2rem; color: var(--ink-light); max-width: 560px; margin: 0 auto 2.5rem; font-style: italic; line-height: 1.8; }
-  .hero-roles { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-top: 0.5rem; }
-  .role-tag { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
-  .role-dot { color: var(--gold); margin: 0 0.25rem; }
+    body {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 300;
+      font-size: 19px;
+      line-height: 1.9;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
 
-  @media (max-width: 600px) {
-    .hero { padding: 3rem 1.5rem 3rem; }
-    .hero p { font-size: 1.1rem; }
-  }
+    .label-caps {
+      font-family: 'Jost', system-ui, sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
 
-  /* CARDS */
-  .cards-grid { max-width: 960px; margin: 0 auto; padding: 0 2rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px; background: var(--border); border: 1.5px solid var(--border); animation: fadeUp 0.7s ease 0.1s both; }
+    .label-sage {
+      font-family: 'Jost', system-ui, sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
 
-  .card { background: var(--warm-white); padding: 2.2rem 2rem; color: inherit; display: flex; flex-direction: column; transition: background 0.2s; text-decoration: none; min-height: 220px; }
-  .card:hover { background: #f0e8d8; }
-  .card-icon { font-size: 1.4rem; margin-bottom: 0.8rem; display: block; }
-  .card-title { font-family: 'Lora', Georgia, serif; font-size: 1.2rem; font-weight: 500; color: var(--ink); margin-bottom: 0.5rem; line-height: 1.3; }
-  .card-sub { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rust); margin-bottom: 0.6rem; }
-  .card-desc { font-size: 0.95rem; color: var(--ink-faint); line-height: 1.65; flex: 1; }
+    .nav-link {
+      font-family: 'Jost', system-ui, sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      cursor: pointer;
+      position: relative;
+      padding-bottom: 2px;
+    }
 
-  .card-links { margin-top: 1.8rem; padding-top: 1rem; border-top: 1px solid var(--border-light); display: flex; gap: 1.2rem; flex-wrap: wrap; align-items: center; }
-  .card-link { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rust); text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 1px; transition: border-color 0.2s, color 0.2s; position: relative; z-index: 2; }
-  .card-link:hover { border-color: var(--rust); color: var(--rust-light); }
-  .card-link-sep { color: var(--border); font-size: 0.7rem; }
+    .nav-link:hover, .nav-link.active {
+      color: var(--sage);
+    }
 
-  /* Direction card — spans full width, internal 2-col layout */
-  .card--direction { grid-column: 1 / 3; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; background: var(--paper); min-height: unset; }
-  .card--direction:hover { background: #e8e0d0; }
-  .card-availability { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-top: 1.2rem; display: flex; align-items: center; gap: 0.5rem; }
-  /* UPDATE OR REMOVE the availability dot if your schedule changes */
-  .card-availability::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; display: inline-block; }
-  .card-arrow { display: block; text-align: right; color: var(--gold); font-size: 1rem; margin-top: 1.5rem; transition: transform 0.2s; }
-  .card--direction:hover .card-arrow { transform: translate(3px, -3px); }
-  .card-detail-text { font-size: 0.98rem; color: var(--ink-light); line-height: 1.8; border-left: 1px solid var(--border); margin-left: -1.5rem; padding-left: 1.5rem; }
-  .card-detail-text p { margin-bottom: 0.9rem; }
-  .card-detail-text p:last-child { margin-bottom: 0; }
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--sage);
+    }
 
-  @media (max-width: 600px) {
-    .cards-grid { grid-template-columns: 1fr; padding: 0 1.5rem 3rem; }
-    .card { min-height: unset; padding: 1.8rem 1.5rem; }
-    .card--direction { grid-column: 1; grid-template-columns: 1fr; gap: 1.5rem; }
-    .card-detail-text { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 1.2rem; }
-  }
+    .page-container {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
 
-  /* SECTIONS */
-  section { padding: 4rem 2rem; max-width: 960px; margin: 0 auto; animation: fadeUp 0.7s ease both; }
-  .section-label { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rust); margin-bottom: 0.6rem; }
-  .section-title { font-family: 'Lora', Georgia, serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 500; color: var(--ink); margin-bottom: 1rem; line-height: 1.25; }
-  .section-desc { font-size: 1.05rem; color: var(--ink-light); max-width: 540px; line-height: 1.75; margin-bottom: 1.8rem; }
-  .section-divider { border: none; border-top: 1px solid var(--border-light); max-width: 960px; margin: 0 auto; }
+    .page-container.active {
+      display: block;
+    }
 
-  @media (max-width: 600px) { section { padding: 3rem 1.5rem; } }
+    .page-container.visible {
+      opacity: 1;
+    }
 
-  /* DIRECTION */
-  .direction-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-  .direction-text p { font-size: 1.05rem; color: var(--ink-light); margin-bottom: 1.2rem; line-height: 1.8; }
+    .prose-link {
+      color: var(--sage);
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
 
-  @media (max-width: 640px) { .direction-layout { grid-template-columns: 1fr; gap: 2rem; } }
+    .prose-link:hover {
+      text-decoration: underline;
+    }
 
-  /* CONTACT FORM */
-  .contact-form { margin-top: 0; }
-  .contact-form .form-row { margin-bottom: 1rem; }
-  .contact-form label { display: block; font-family: 'Crimson Pro', Georgia, serif; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.35rem; }
-  .contact-form input, .contact-form textarea { width: 100%; padding: 0.7rem 0.9rem; border: 1.5px solid var(--border); background: var(--warm-white); font-family: 'EB Garamond', Georgia, serif; font-size: 1rem; color: var(--ink); outline: none; transition: border-color 0.2s; resize: vertical; }
-  .contact-form input:focus, .contact-form textarea:focus { border-color: var(--gold); }
-  .contact-form textarea { min-height: 110px; }
-  .contact-form button { margin-top: 0.5rem; padding: 0.75rem 1.8rem; background: var(--rust); color: var(--cream); border: 1.5px solid var(--rust); font-family: 'Crimson Pro', Georgia, serif; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; width: 100%; }
-  .contact-form button:hover { background: var(--rust-light); border-color: var(--rust-light); }
-  .form-note { font-size: 0.85rem; color: var(--ink-faint); font-style: italic; margin-top: 0.6rem; }
+    .invitation-btn {
+      font-family: 'Jost', system-ui, sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      background: var(--sage);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 14px 32px;
+      cursor: pointer;
+      transition: background 0.2s ease, opacity 0.2s ease;
+    }
 
-  /* WRITING */
-  .writing-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; margin-top: 2rem; }
-  .recent-posts { border-left: 2px solid var(--border); padding-left: 1.5rem; }
-  .recent-posts h3 { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 1.2rem; }
-  .post-item { display: block; padding: 0.8rem 0; border-bottom: 1px solid var(--border-light); text-decoration: none; color: inherit; }
-  .post-item:last-of-type { border-bottom: none; }
-  .post-item-title { font-family: 'Lora', Georgia, serif; font-size: 1rem; color: var(--ink); margin-bottom: 0.2rem; transition: color 0.2s; }
-  .post-item:hover .post-item-title { color: var(--rust); }
-  .post-item-sub { font-size: 0.85rem; color: var(--ink-faint); font-style: italic; }
+    .invitation-btn:hover {
+      opacity: 0.9;
+    }
 
-  @media (max-width: 640px) {
-    .writing-layout { grid-template-columns: 1fr; gap: 2rem; }
-    .recent-posts { border-left: none; border-top: 2px solid var(--border); padding-left: 0; padding-top: 1.5rem; }
-  }
+    .invitation-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
 
-  /* SUBSCRIBE */
-  .subscribe-section { background: var(--paper); border: 1.5px solid var(--border); padding: 3rem 3.5rem; text-align: center; max-width: 600px; margin: 0 auto 2rem; position: relative; }
-  .subscribe-section::before { content: '✦'; position: absolute; top: -0.7rem; left: 50%; transform: translateX(-50%); background: var(--cream); padding: 0 0.5rem; color: var(--gold); font-size: 0.9rem; }
-  .subscribe-section h2 { font-family: 'Lora', Georgia, serif; font-size: 1.6rem; font-weight: 500; color: var(--ink); margin-bottom: 0.6rem; }
-  .subscribe-section p { font-size: 1rem; color: var(--ink-faint); margin-bottom: 1.8rem; font-style: italic; line-height: 1.7; }
+    .pathway-block {
+      border-left: 3px solid var(--sage);
+      padding: 28px 0 28px 24px;
+      margin-bottom: 0;
+    }
 
-  @media (max-width: 600px) {
-    .subscribe-section { padding: 2rem 1.5rem; }
-  }
+    .pathway-block p {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 2;
+      color: var(--text);
+      margin: 0;
+    }
 
-  /* ABOUT */
-  .about-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 3.5rem; align-items: start; }
-  .about-image-wrap { position: relative; }
-  .about-image-wrap::after { content: ''; position: absolute; inset: 8px -8px -8px 8px; border: 1.5px solid var(--gold); z-index: -1; }
-  /* UPDATE: rename your photo file to aaron-smith.jpg */
-  .about-image-wrap img { width: 100%; display: block; filter: sepia(15%) contrast(1.02); }
-  .about-text p { font-size: 1.05rem; color: var(--ink-light); margin-bottom: 1.2rem; line-height: 1.8; }
+    .pathway-block .pathway-inline-link {
+      color: var(--sage);
+      text-decoration: none;
+      cursor: pointer;
+      transition: text-decoration 0.2s ease;
+    }
 
-  @media (max-width: 640px) {
-    .about-layout { grid-template-columns: 1fr; gap: 2rem; }
-    .about-image-wrap { max-width: 200px; }
-    /* Disable offset border on mobile to prevent clipping */
-    .about-image-wrap::after { display: none; }
-  }
+    .pathway-block .pathway-inline-link:hover {
+      text-decoration: underline;
+    }
 
-  .text-link { color: var(--rust); text-decoration: none; border-bottom: 1px solid var(--rust); padding-bottom: 1px; font-family: 'Crimson Pro', Georgia, serif; font-size: 0.88rem; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s, border-color 0.2s; }
-  .text-link:hover { color: var(--rust-light); border-color: var(--rust-light); }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 1.7;
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 12px 16px;
+      width: 100%;
+      color: var(--text);
+      transition: border-color 0.2s ease;
+      outline: none;
+    }
 
-  /* FOOTER */
-  footer { border-top: 1px solid var(--border); padding: 2rem; font-family: 'Crimson Pro', Georgia, serif; font-size: 0.85rem; color: var(--ink-faint); letter-spacing: 0.05em; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 960px; margin: 0 auto; }
-  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-  .footer-links a { color: var(--rust); text-decoration: none; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--rust-light); }
+    input:focus, textarea:focus {
+      border-color: var(--sage);
+    }
 
-  @media (max-width: 600px) {
-    footer { flex-direction: column; align-items: flex-start; padding: 1.5rem; gap: 0.8rem; }
-    .footer-links { gap: 1rem; }
-  }
+    textarea { resize: vertical; }
 
-  .hero-cta { display:inline-block; font-family:'Crimson Pro',Georgia,serif; font-size:0.85rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--rust); border:1.5px solid var(--rust); padding:0.7rem 2rem; text-decoration:none; transition:background 0.2s, color 0.2s; }
-  .hero-cta:hover { background:var(--rust); color:var(--cream); }
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-  section:nth-of-type(1) { animation-delay: 0.1s; }
-  section:nth-of-type(2) { animation-delay: 0.2s; }
-  section:nth-of-type(3) { animation-delay: 0.3s; }
-  section:nth-of-type(4) { animation-delay: 0.4s; }
-</style>
+    .hr-thin {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 0;
+    }
+
+    header#site-nav-a1b2 {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 24px;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    header#site-nav-a1b2.scrolled {
+      background-color: var(--bg);
+      box-shadow: 0 1px 8px rgba(44, 42, 38, 0.06);
+    }
+
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 200;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .mobile-overlay.open {
+      display: flex;
+    }
+
+    .mobile-overlay .nav-link {
+      font-size: 18px;
+      letter-spacing: 0.18em;
+    }
+
+    .mobile-close-btn {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    @media print {
+      header#site-nav-a1b2, .mobile-overlay { display: none !important; }
+      .page-container { display: block !important; opacity: 1 !important; }
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 32px 0;
+    }
+
+    .form-success.show {
+      display: block;
+    }
+
+    .form-error {
+      display: none;
+      padding: 12px 0;
+    }
+
+    .form-error.show {
+      display: block;
+    }
+
+    .form-error p {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #9B4444;
+    }
+
+    .poem-card {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .poem-card:last-child {
+      border-bottom: none;
+    }
+
+    .project-section {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .project-section:last-child {
+      border-bottom: none;
+    }
+
+    .gateway-grid-new {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    @media (min-width: 768px) {
+      .gateway-grid-new {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+    }
+
+    .gateway-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gateway-photo-header {
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .gateway-photo-header-left {
+      background: linear-gradient(135deg, #4a5a3e 0%, #6b7d5e 30%, #3d4f33 60%, #5a6e4c 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gateway-photo-header-left::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 80%, rgba(122, 140, 110, 0.4) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(90, 110, 76, 0.3) 0%, transparent 50%),
+        linear-gradient(to bottom, rgba(30, 28, 24, 0.25), rgba(30, 28, 24, 0.45));
+    }
+
+    .gateway-photo-header-right {
+      background: linear-gradient(135deg, #3d3832 0%, #5a4f44 30%, #2c2a26 60%, #4a4238 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gateway-photo-header-right::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 70% 30%, rgba(181, 131, 106, 0.25) 0%, transparent 60%),
+        radial-gradient(ellipse at 30% 70%, rgba(122, 116, 104, 0.2) 0%, transparent 50%),
+        linear-gradient(to bottom, rgba(30, 28, 24, 0.25), rgba(30, 28, 24, 0.45));
+    }
+
+    .gateway-photo-header h2 {
+      position: relative;
+      z-index: 1;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 400;
+      color: #F5F0E8;
+      letter-spacing: 0.02em;
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    .gateway-body-block {
+      background: var(--card);
+      padding: 28px 32px;
+    }
+
+    .gateway-body-block p {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 300;
+      font-size: 19px;
+      line-height: 1.9;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .gateway-link-strip {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gateway-link-strip-left {
+      background: linear-gradient(135deg, #3a4a30 0%, #4f6040 50%, #3a4a30 100%);
+    }
+
+    .gateway-link-strip-left::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(30, 28, 24, 0.55), rgba(30, 28, 24, 0.55));
+    }
+
+    .gateway-link-strip-right {
+      background: linear-gradient(135deg, #3d3530 0%, #4a3f38 50%, #3d3530 100%);
+    }
+
+    .gateway-link-strip-right::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(30, 28, 24, 0.55), rgba(30, 28, 24, 0.55));
+    }
+
+    .gateway-strip-link {
+      position: relative;
+      z-index: 1;
+      font-family: 'Jost', system-ui, sans-serif;
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #F5F0E8;
+      text-decoration: none;
+      cursor: pointer;
+      transition: text-decoration 0.2s ease;
+    }
+
+    .gateway-strip-link:hover {
+      text-decoration: underline;
+    }
+
+    .about-intro-link {
+      font-family: 'Jost', system-ui, sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sage);
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+      display: inline-block;
+      border-bottom: 1px solid var(--sage);
+      padding-bottom: 1px;
+    }
+
+    .about-intro-link:hover {
+      opacity: 0.8;
+    }
+
+    .back-link {
+      font-family: 'Jost', system-ui, sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      color: var(--muted);
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .back-link:hover {
+      color: var(--sage);
+    }
+
+    /* Ghost signup fallback styling */
+    .ghost-signup-fallback {
+      min-height: 58px;
+      max-width: 440px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      gap: 0;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--rule);
+    }
+
+    .ghost-signup-fallback input[type="email"] {
+      flex: 1;
+      border: none;
+      border-radius: 0;
+      padding: 14px 16px;
+      font-family: 'Jost', system-ui, sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      background: #fff;
+      color: var(--text);
+      outline: none;
+      min-width: 0;
+    }
+
+    .ghost-signup-fallback input[type="email"]::placeholder {
+      color: var(--muted);
+      opacity: 0.7;
+    }
+
+    .ghost-signup-fallback button {
+      font-family: 'Jost', system-ui, sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      letter-spacing: 0.03em;
+      background: #4a6f44;
+      color: #FFFFFF;
+      border: none;
+      padding: 14px 24px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity 0.2s ease;
+    }
+
+    .ghost-signup-fallback button:hover {
+      opacity: 0.9;
+    }
+  </style>
 </head>
-<body>
+<body data-id="0" class="bg-cream text-charcoal">
+  <app-icon data-id="1" hidden data-icon="feather" data-palette="Earth"></app-icon>
 
-<nav>
-  <a class="nav-name" href="#">Aaron J. Smith</a>
-  <ul class="nav-links">
-    <li><a href="#direction">Spiritual Direction</a></li>
-    <li><a href="#writing">Writing</a></li>
-    <li><a href="#podcast">Podcast</a></li>
-    <li><a href="#about">About</a></li>
-  </ul>
-</nav>
+  <!-- NAV -->
+  <header data-id="2" id="site-nav-a1b2">
+    <div data-id="3" class="max-w-5xl mx-auto flex items-center justify-between">
+      <a data-id="4" class="prose-link" data-nav="home" style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:22px; font-weight:400; color:var(--text); text-decoration:none; cursor:pointer;">Aaron J. Smith</a>
+      <nav data-id="5" id="desktop-nav-c3d4" class="hidden md:flex items-center gap-8">
+        <a data-id="6" class="nav-link" data-nav="direction">Direction</a>
+        <a data-id="7" class="nav-link" data-nav="writing">Writing</a>
+        <a data-id="8" class="nav-link" data-nav="about">About</a>
+      </nav>
+      <button data-id="9" id="hamburger-btn-e5f6" class="md:hidden p-2" style="background:none;border:none;cursor:pointer;color:var(--text);">
+        <i data-id="10" data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </header>
 
-<main>
-<div class="hero">
-  <p class="hero-eyebrow">Following the Jesus story wherever it leads</p>
-  <h1>Poet. Theologian.<br><em>Spiritual Director.</em></h1>
-  <div class="hero-rule"></div>
-  <p>Making the unspeakable speakable — through poetry, theology, and the practice of sitting with what is.</p>
-  <div class="hero-roles">
-    <span class="role-tag">Post-Christian</span><span class="role-dot">✦</span>
-    <span class="role-tag">Contemplative</span><span class="role-dot">✦</span>
-    <span class="role-tag">Queer Affirming</span>
+  <!-- MOBILE OVERLAY -->
+  <div data-id="11" id="mobile-menu-g7h8" class="mobile-overlay">
+    <button data-id="12" id="mobile-close-i9j0" class="mobile-close-btn">
+      <i data-id="13" data-lucide="x" class="w-7 h-7"></i>
+    </button>
+    <a data-id="14" class="nav-link" data-nav="home">Home</a>
+    <a data-id="15" class="nav-link" data-nav="direction">Direction</a>
+    <a data-id="16" class="nav-link" data-nav="writing">Writing</a>
+    <a data-id="17" class="nav-link" data-nav="about">About</a>
   </div>
-  <div style="margin-top: 2.5rem;">
-    <a href="#writing" class="hero-cta">Begin with the Writing ↓</a>
-  </div>
-</div>
 
-<div class="cards-grid" id="work">
+  <main data-id="18" id="main-content-k1l2" style="padding-top:80px;">
 
-  <!-- Spiritual Direction — full top row -->
-  <a class="card card--direction" href="#direction">
-    <div>
-      <span class="card-icon">◎</span>
-      <div class="card-sub">One-on-One Work</div>
-      <div class="card-title">Spiritual Direction</div>
-      <p class="card-desc">Trauma-informed, queer-inclusive accompaniment for people deconstructing, reconstructing, or just trying to hear themselves think.</p>
-      <!-- UPDATE OR REMOVE this line if your availability changes -->
-      <p class="card-availability">Currently accepting directees</p>
-    </div>
-    <div class="card-detail-text">
-      <p>I don't come with answers — I come with presence, and the ability to hold space while the Spirit does her work.</p>
-      <p>No matter what your relationship with God or church is, you have a place at this table.</p>
-      <span class="card-arrow">↓</span>
-    </div>
-  </a>
-
-  <!-- Writing — bottom left -->
-  <a class="card card--writing" href="#writing">
-    <span class="card-icon">✍︎</span>
-    <div class="card-sub">Newsletter & Archive</div>
-    <div class="card-title">The Cluttered Mouth</div>
-    <p class="card-desc">Poetry, prose, prayer, and protest. Essays on theology and the life we carry. For everything stuck in the throat.</p>
-  </a>
-
-  <!-- Podcast — bottom right -->
-  <a class="card card--podcast" href="#podcast">
-    <span class="card-icon">◉</span>
-    <div class="card-sub">Podcast</div>
-    <div class="card-title">All Things Made New</div>
-    <p class="card-desc">DIY conversations at the intersection of faith, flesh, and the everyday. Grace, grief, doubt, and resurrection in the cracks.</p>
-  </a>
-
-</div><!-- /.cards-grid -->
-
-<hr class="section-divider">
-
-<!-- ============================================================
-     SPIRITUAL DIRECTION
-     ============================================================ -->
-<section id="direction">
-  <p class="section-label">One-on-One Work</p>
-  <h2 class="section-title">Spiritual Direction</h2>
-  <div class="direction-layout">
-    <div class="direction-text">
-      <p>I've been deconstructing and reconstructing my own faith for over twenty years. I don't come with answers — I come with presence, and with the ability to hold space while the Spirit does her work.</p>
-      <p>I work from a trauma-informed lens, am fully queer inclusive, and I love sitting with people who are in the middle of something hard and holy. No matter what your relationship with church or God is, you have a place at this table.</p>
-      <p style="font-size:0.95rem; color:var(--ink-faint); font-style:italic;">I am currently accepting new directees. If you're curious, reach out — no commitment required.</p>
-    </div>
-    <div>
-      <form class="contact-form" action="https://formspree.io/f/xykpqvaz" method="POST">
-        <div class="form-row">
-          <label for="sd-name">Name</label>
-          <input type="text" id="sd-name" name="name" placeholder="Your name" required>
+    <!-- ============ HOME ============ -->
+    <div data-id="19" id="page-home" class="page-container active visible">
+      <!-- Hero -->
+      <section data-id="20" id="hero-m3n4" class="px-5 md:px-8" style="padding-top:80px; padding-bottom:64px;">
+        <div data-id="21" class="max-w-[720px] mx-auto text-center">
+          <p data-id="23" style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:28px; line-height:1.6; color:var(--text); max-width:600px; margin:0 auto 40px auto;" class="md:text-4xl">
+            I don't come with answers.<br data-id="24"/>
+            I come with presence, with questions,<br data-id="25"/>
+            and with the strange conviction<br data-id="26"/>
+            that the holy still moves<br data-id="27"/>
+            in the places we've abandoned.
+          </p>
+          <hr data-id="28" class="hr-thin" style="max-width:120px; margin:0 auto 28px auto;" />
+          <p data-id="29" class="label-caps" style="color:var(--muted); font-size:11px; letter-spacing:0.18em;">
+            Poet · Post-Christian Theologian · Spiritual Director · Chaplain-in-Formation
+          </p>
         </div>
-        <div class="form-row">
-          <label for="sd-email">Email</label>
-          <input type="email" id="sd-email" name="email" placeholder="your@email.com" required>
+      </section>
+
+      <!-- About Intro -->
+      <section data-id="30" id="about-intro-x4k9" class="px-5 md:px-8" style="padding-bottom:56px;">
+        <div data-id="31" class="max-w-[720px] mx-auto">
+          <hr data-id="32" class="hr-thin" style="margin-bottom:48px;" />
+          <div data-id="33" style="max-width:600px; margin:0 auto; text-align:center;">
+            <p data-id="34" style="font-family:'Cormorant Garamond',serif; font-weight:300; font-size:20px; line-height:1.9; color:#2C2A26; margin-bottom:28px;">I'm Aaron — a poet, a post-Christian theologian, a spiritual director, and a chaplain-in-formation. I live in Oregon, where the rain keeps us green nad we stay weird. The thread that holds all of this together is longer than I can explain in a sentence, but it's here if you want to follow it.</p>
+            <a data-id="35" class="about-intro-link" data-nav="about">About Aaron and his work →</a>
+          </div>
+          <hr data-id="36" class="hr-thin" style="margin-top:48px;" />
         </div>
-        <div class="form-row">
-          <label for="sd-message">Message</label>
-          <textarea id="sd-message" name="message" placeholder="What's on your mind?"></textarea>
+      </section>
+
+      <!-- Gateway -->
+      <section data-id="37" id="gateway-section" class="px-5 md:px-8" style="padding-bottom:64px;">
+        <div data-id="38" class="max-w-[900px] mx-auto">
+          <div data-id="39" class="gateway-grid-new">
+            <!-- LEFT COLUMN — Spiritual Direction -->
+            <div data-id="40" class="gateway-card">
+              <div data-id="41" class="gateway-photo-header gateway-photo-header-left">
+                <h2 data-id="42" style="font-size:32px;">Spiritual Direction</h2>
+              </div>
+              <div data-id="43" class="gateway-body-block">
+                <p data-id="44">If you're in the middle of something — a faith that's shifting, a grief that won't name itself, a question that keeps returning — spiritual direction offers a particular kind of accompaniment. Not advice. Not answers. Presence, and careful attention to what's already alive in you.</p>
+              </div>
+              <div data-id="45" class="gateway-link-strip gateway-link-strip-left">
+                <a data-id="46" class="gateway-strip-link" data-nav="direction">Learn about spiritual direction →</a>
+              </div>
+            </div>
+
+            <!-- RIGHT COLUMN — Poetry, Prose, Prayer and Protest -->
+            <div data-id="47" class="gateway-card">
+              <div data-id="48" class="gateway-photo-header gateway-photo-header-right">
+                <h2 data-id="49" style="font-size:28px;">Poetry, Prose, Prayer and Protest</h2>
+              </div>
+              <div data-id="50" class="gateway-body-block">
+                <p data-id="51">Words written at the edge of faith and its unraveling — poetry, theological essays, devotional prose, and the occasional act of liturgical defiance. The writing lives at The Cluttered Mouth.</p>
+              </div>
+              <div data-id="52" class="gateway-link-strip gateway-link-strip-right">
+                <a data-id="53" class="gateway-strip-link" href="https://theclutteredmouth.com" target="_blank" rel="noopener">The Cluttered Mouth →</a>
+                </div>
+            </div>
+          </div>
         </div>
-        <button type="submit">Send Message</button>
-        <p class="form-note">I'll be in touch.</p>
-      </form>
+      </section>
+
+      <!-- Home Footer -->
+      <footer data-id="55" id="footer-home-s9t0" class="px-5 md:px-8" style="padding-bottom:48px;">
+        <div data-id="56" class="max-w-[720px] mx-auto">
+          <hr data-id="57" class="hr-thin" style="margin-bottom:32px;" />
+          <div data-id="58" class="flex flex-col md:flex-row md:justify-between md:items-start gap-4" style="font-size:13px;">
+            <p data-id="59" style="color:var(--muted); font-family:'Jost',sans-serif; font-weight:300;">© 2026 Aaron J. Smith</p>
+            <div data-id="60" class="flex flex-wrap gap-4" style="font-family:'Jost',sans-serif; font-weight:300; font-size:12px; letter-spacing:0.1em; text-transform:uppercase;">
+              <a data-id="61" class="nav-link" data-nav="direction" style="font-size:12px;">Direction</a>
+              <a data-id="62" class="nav-link" data-nav="writing" style="font-size:12px;">Writing</a>
+              <a data-id="63" class="nav-link" data-nav="about" style="font-size:12px;">About</a>
+              </div>
+          </div>
+          <p data-id="65" style="color:var(--muted); font-size:11px; margin-top:20px; font-family:'Jost',sans-serif; font-weight:300; opacity:0.7;">Made with intention.</p>
+        </div>
+      </footer>
     </div>
-  </div>
-</section>
 
-<hr class="section-divider">
+    <!-- ============ DIRECTION ============ -->
+    <div data-id="66" id="page-direction" class="page-container">
+      <section data-id="67" id="direction-hero-u1v2" class="px-5 md:px-8" style="padding-top:60px; padding-bottom:48px;">
+        <div data-id="68" class="max-w-[720px] mx-auto">
+          <h1 data-id="69" style="font-family:'Cormorant Garamond',serif; font-weight:400; font-size:36px; line-height:1.3; margin-bottom:8px;" class="md:text-5xl">Spiritual Direction</h1>
+          <p data-id="70" style="font-style:italic; color:var(--muted); font-size:20px; margin-bottom:32px;">Not advice. Accompaniment.</p>
+          <p data-id="71" style="margin-bottom:0;">Spiritual direction is one of the oldest forms of care in the contemplative tradition — and one of the least understood. It is not therapy, not pastoral counseling, not advice-giving. It is the practice of attending together to what is already alive in you: the movements of longing, grief, wonder, doubt, and the occasional, startling glimpse of something holy.</p>
+        </div>
+      </section>
 
-<!-- ============================================================
-     WRITING
-     UPDATE: Replace recent posts as you publish new work
-     ============================================================ -->
-<section id="writing">
-  <p class="section-label">Writing</p>
-  <h2 class="section-title">The Cluttered Mouth</h2>
-  <div class="writing-layout">
-    <div>
-      <p class="section-desc">Poetry, essays, and theological prose — saying everything that's stuck in my throat. Read free. Support the work when you're able.</p>
-      <div style="background:var(--paper); border:1.5px solid var(--border); padding:1.8rem 2rem; margin-top:1.5rem; position:relative;">
-        <div style="position:absolute; top:-0.7rem; left:50%; transform:translateX(-50%); background:var(--cream); padding:0 0.5rem; color:var(--gold); font-size:0.9rem;">✦</div>
-        <h3 style="font-family:'Lora',Georgia,serif; font-size:1.2rem; font-weight:500; color:var(--ink); margin-bottom:0.5rem;">Words in Your Inbox</h3>
-        <p style="font-size:0.95rem; color:var(--ink-faint); font-style:italic; line-height:1.7; margin-bottom:1.2rem;">Sent when something is ready to be said.</p>
-        <div style="min-height: 58px;"><script src="https://cdn.jsdelivr.net/ghost/signup-form@~0.3/umd/signup-form.min.js" data-button-color="#8b3a1a" data-button-text-color="#faf7f2" data-site="https://theclutteredmouth.com/" data-locale="en" async></script></div>
-      </div>
+      <section data-id="72" id="direction-who-w3x4" class="px-5 md:px-8" style="padding-bottom:40px;">
+        <div data-id="73" class="max-w-[720px] mx-auto">
+          <p data-id="74" class="label-caps" style="margin-bottom:12px;">Who this is for</p>
+          <p data-id="75">People who have left the church but haven't left the longing. Those in the middle of theological deconstruction who still sense something sacred beneath the rubble. Queer people who have been told their bodies are problems to be solved. Survivors of religious trauma who need someone who won't flinch at their anger. People with no religious background at all, who simply feel the weight of their own inner life and want a guide. If you are somewhere in that territory, this may be for you.</p>
+        </div>
+      </section>
+
+      <section data-id="76" id="direction-how-y5z6" class="px-5 md:px-8" style="padding-bottom:40px;">
+        <div data-id="77" class="max-w-[720px] mx-auto">
+          <p data-id="78" class="label-caps" style="margin-bottom:12px;">How I work</p>
+          <p data-id="79">My approach is trauma-informed and rooted in the contemplative tradition — Ignatian discernment, centering prayer, the practices of stillness that cross traditions including zazen and Buddhist contemplative practice. I draw on Internal Family Systems (IFS) as one framework for understanding the inner life, and I work from a post-Christian, incarnational theology that takes the body seriously, honors lament, and refuses to spiritualize suffering away. There is no correct doctrine required. There is no belief you need to hold. There is only the honest conversation about what is actually happening in you.</p>
+        </div>
+      </section>
+
+      <section data-id="80" id="direction-expect-a7b8" class="px-5 md:px-8" style="padding-bottom:48px;">
+        <div data-id="81" class="max-w-[720px] mx-auto">
+          <p data-id="82" class="label-caps" style="margin-bottom:12px;">What to expect</p>
+          <p data-id="83">Sessions are typically 50 minutes, held via video. We meet once a month, or more frequently if you are in a season of particular intensity. I keep notes that stay between us. I ask more questions than I answer. I am not here to fix you — I am here to sit with you while you find your own way.</p>
+        </div>
+      </section>
+
+      <section data-id="84" id="direction-avail-c9d0" class="px-5 md:px-8" style="padding-bottom:48px;">
+        <div data-id="85" class="max-w-[720px] mx-auto text-center">
+          <p data-id="86" style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:24px; line-height:1.6; color:var(--text);">I am currently accepting new directees.</p>
+        </div>
+      </section>
+
+      <section data-id="87" id="direction-form-e1f2" class="px-5 md:px-8" style="padding-bottom:80px;">
+        <div data-id="88" class="max-w-[720px] mx-auto">
+          <hr data-id="89" class="hr-thin" style="margin-bottom:40px;" />
+          <p data-id="90" style="margin-bottom:32px;">If something in you is stirring — if you're curious, or cautious, or somewhere in the middle — I'd be glad to hear from you. The first conversation is free and carries no obligation. It is simply a conversation.</p>
+
+          <form data-id="91" id="direction-form-g3h4" action="https://formspree.io/f/xykpqvaz" method="POST" class="flex flex-col gap-5">
+            <input data-id="92" type="text" name="_gotcha" style="display:none" />
+            <div data-id="93">
+              <label data-id="94" class="label-caps" style="display:block; margin-bottom:6px;">Name</label>
+              <input data-id="95" type="text" name="name" id="form-name-i5j6" required />
+            </div>
+            <div data-id="96">
+              <label data-id="97" class="label-caps" style="display:block; margin-bottom:6px;">Email</label>
+              <input data-id="98" type="email" name="email" id="form-email-k7l8" required />
+            </div>
+            <div data-id="99">
+              <label data-id="100" class="label-caps" style="display:block; margin-bottom:6px;">What's on your heart? (There are no wrong answers.)</label>
+              <textarea data-id="101" name="message" id="form-heart-m9n0" rows="6"></textarea>
+            </div>
+            <div data-id="102">
+              <label data-id="103" class="label-caps" style="display:block; margin-bottom:6px;">How did you find your way here? <span data-id="104" style="opacity:0.6;">(optional)</span></label>
+              <input data-id="105" type="text" name="referral" id="form-found-o1p2" />
+            </div>
+            <div data-id="106" style="margin-top:8px;">
+              <button data-id="107" type="submit" id="direction-submit-btn" class="invitation-btn">Begin the conversation</button>
+            </div>
+            <div data-id="108" id="direction-form-error" class="form-error">
+              <p data-id="109">Something went wrong. Please try again, or reach me directly at <a data-id="110" href="mailto:contact@aaronjsmith.net" class="prose-link" style="font-size:16px;">contact@aaronjsmith.net</a></p>
+            </div>
+            <p data-id="111" style="font-size:14px; color:var(--muted); font-style:italic;">I typically respond within a few days. Everything shared here is held with care.</p>
+          </form>
+
+          <div data-id="112" id="form-success-q3r4" class="form-success">
+            <p data-id="113" style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:22px; color:var(--sage);">Thank you. I'll be in touch within a few days.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Direction Footer -->
+      <footer data-id="114" class="px-5 md:px-8" style="padding-bottom:48px;">
+        <div data-id="115" class="max-w-[720px] mx-auto">
+          <hr data-id="116" class="hr-thin" style="margin-bottom:32px;" />
+          <div data-id="117" class="flex flex-col md:flex-row md:justify-between md:items-start gap-4" style="font-size:13px;">
+            <p data-id="118" style="color:var(--muted); font-family:'Jost',sans-serif; font-weight:300;">© 2026 Aaron J. Smith </p>
+            <div data-id="119" class="flex flex-wrap gap-4" style="font-family:'Jost',sans-serif; font-weight:300; font-size:12px; letter-spacing:0.1em; text-transform:uppercase;">
+              <a data-id="120" class="nav-link" data-nav="direction" style="font-size:12px;">Direction</a>
+              <a data-id="121" class="nav-link" data-nav="writing" style="font-size:12px;">Writing</a>
+              <a data-id="122" class="nav-link" data-nav="about" style="font-size:12px;">About</a>
+            </div>
+          </div>
+          <p data-id="124" style="color:var(--muted); font-size:11px; margin-top:20px; font-family:'Jost',sans-serif; font-weight:300; opacity:0.7;">Made with intention.</p>
+        </div>
+      </footer>
     </div>
-    <div class="recent-posts">
-      <h3>Recent Work</h3>
 
-      <!-- ============================================================
-           RECENT POSTS — update whenever you publish something new.
-           Add your newest post at the top, delete the bottom one.
-           Format: title, URL, date, type (Essay / Poem / etc.)
-           ============================================================ -->
-     <a class="post-item" href="https://theclutteredmouth.com/complicit/" target="_blank" rel="noopener noreferrer">
-        <div class="post-item-title">Complicit</div>
-        <div class="post-item-sub">May 5, 2026 · Poetry</div>
-      </a> 
-     <a class="post-item" href="https://theclutteredmouth.com/the-ordinary-name-grater-works-and-good-news/" target="_blank" rel="noopener noreferrer">
-        <div class="post-item-title">The Ordinary Name-Grater Works and Good News</div>
-        <div class="post-item-sub">May 4, 2026 · Essay</div>
-      </a> 
-     <a class="post-item" href="https://theclutteredmouth.com/the-strangers-voice-learning-abundance-and-how-to-be-loved-by-name/" target="_blank" rel="noopener noreferrer">
-        <div class="post-item-title">The Stranger's Voice—Learning Abundance and how to be Loved by Name</div>
-        <div class="post-item-sub">April 26, 2026 · Essay</div>
-      </a> 
-     <a class="post-item" href="https://theclutteredmouth.com/slow-of-burning-heart/" target="_blank" rel="noopener noreferrer">
-        <div class="post-item-title">Slow of (Burning) Heart</div>
-        <div class="post-item-sub">April 13, 2026 · Essay</div>
-      </a>
-      <a class="post-item" href="https://theclutteredmouth.com/death-by-death/" target="_blank" rel="noopener noreferrer">
-        <div class="post-item-title">Death by Death</div>
-        <div class="post-item-sub">Apr 12, 2026 · Essay</div>
-      </a>
-      <!-- ============================================================ -->
+    <!-- ============ WRITING ============ -->
+    <div data-id="125" id="page-writing" class="page-container">
+      <section data-id="126" id="writing-hero-s5t6" class="px-5 md:px-8" style="padding-top:60px; padding-bottom:48px;">
+        <div data-id="127" class="max-w-[720px] mx-auto">
+          <h1 data-id="128" style="font-family:'Cormorant Garamond',serif; font-weight:400; font-size:36px; line-height:1.3; margin-bottom:8px;" class="md:text-5xl">Writing</h1>
+          <p data-id="129" style="font-style:italic; color:var(--muted); font-size:20px; margin-bottom:0;">Everything stuck in the throat. Poetry. Essay. Theological prose.</p>
+        </div>
+      </section>
 
-      <div style="padding-top:0.8rem;">
-        <a class="text-link" href="https://theclutteredmouth.com/page/2/" target="_blank" rel="noopener noreferrer">See All ↗</a>
-      </div>
+      <!-- Poetry -->
+      <section data-id="130" id="writing-poetry-u7v8" class="px-5 md:px-8" style="padding-bottom:48px;">
+        <div data-id="131" class="max-w-[720px] mx-auto">
+          <p data-id="132" class="label-caps" style="margin-bottom:12px;">Poetry</p>
+          <p data-id="133" style="margin-bottom:24px;">These poems were written at the edge of language — where life breaks down and something else comes through.</p>
+
+          <div data-id="134" class="poem-card">
+            <p data-id="135" style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:500; font-size:20px; margin-bottom:4px;">Love vs. Your Love</p>
+            <p data-id="136" style="font-style:italic; color:var(--muted); font-size:16px; margin-bottom:6px;">Love is like
+/ dark fog in the night,</p>
+            <a data-id="137" href="https://theclutteredmouth.com/love-vs-your-love/" class="prose-link" style="font-size:15px;">Read →</a>
+          </div>
+
+          <div data-id="138" class="poem-card">
+            <p data-id="139" style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:500; font-size:20px; margin-bottom:4px;">I Am Older Than My Mother</p>
+            <p data-id="140" style="font-style:italic; color:var(--muted); font-size:16px; margin-bottom:6px;">She lives in my face /
+and three photographs on the wall.</p>
+            <a data-id="141" href="https://theclutteredmouth.com/i-am-older-than-my-mother/" class="prose-link" style="font-size:15px;">Read →</a>
+          </div>
+
+          <div data-id="142" class="poem-card">
+            <p data-id="143" style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:500; font-size:20px; margin-bottom:4px;">On The Day Of James Dobson's Death</p>
+            <p data-id="144" style="font-style:italic; color:var(--muted); font-size:16px; margin-bottom:6px;">How did the eleven feel /
+after hearing the news</p>
+            <a data-id="145" href="https://theclutteredmouth.com/on-the-day-of-james-dobsons-death/" class="prose-link" style="font-size:15px;">Read →</a>
+          </div>
+
+          <!-- Essays -->
+      <section data-id="154" id="writing-essays-w9x0" class="px-5 md:px-8" style="padding-bottom:48px;">
+        <div data-id="155" class="max-w-[720px] mx-auto">
+          <hr data-id="156" class="hr-thin" style="margin-bottom:40px;" />
+          <p data-id="157" class="label-caps" style="margin-bottom:12px;">Essays & Theology</p>
+          <p data-id="158" style="margin-bottom:24px;">Prose written from inside the questions — post-Christian theology, contemplative practice, trauma, liberation, and the long work of unlearning.</p>
+
+          <div data-id="159" class="poem-card">
+            <p data-id="160" style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:20px; margin-bottom:4px;">Bouquets, Mixtapes, and Anthologies: Collected Theology as a Way Forward.</p>
+            <p data-id="161" style="font-style:italic; color:var(--muted); font-size:16px; margin-bottom:6px;">Towards a new way.</p>
+            <a data-id="162" href="https://theclutteredmouth.com/bouquets-mixtapes-and-anthologies-collected-theology-as-a-way-forward/" class="prose-link" style="font-size:15px;">Read →</a>
+          </div>
+
+          <div data-id="163" class="poem-card">
+            <p data-id="164" style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:20px; margin-bottom:4px;">https://theclutteredmouth.com/im-just-a-christian-dirtbag-baby/</p>
+            <p data-id="165" style="font-style:italic; color:var(--muted); font-size:16px; margin-bottom:6px;">to being a bad christian</p>
+            <a data-id="166" href="https://theclutteredmouth.com/im-just-a-christian-dirtbag-baby/" class="prose-link" style="font-size:15px;">Read →</a>
+          </div>
+
+          <div data-id="167" class="poem-card">
+            <p data-id="168" style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:20px; margin-bottom:4px;">Holding Space</p>
+            <p data-id="169" style="font-style:italic; color:var(--muted); font-size:16px; margin-bottom:6px;">Who believes when we can't?</p>
+            <a data-id="170" href="https://theclutteredmouth.com/holding-space/" class="prose-link" style="font-size:15px;">Read →</a>
+          </div>
+
+          <div data-id="171" style="margin-top:24px;">
+            <a data-id="172" href="https://theclutteredmouth.com" target="_blank" rel="noopener" class="prose-link" style="font-size:17px; font-weight:400;">Read more at The Cluttered Mouth →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Newsletter / Ghost Signup -->
+      <section data-id="173" id="writing-newsletter-y1z2" class="px-5 md:px-8" style="padding-bottom:80px;">
+        <div data-id="174" class="max-w-[720px] mx-auto">
+          <hr data-id="175" class="hr-thin" style="margin-bottom:40px;" />
+          <p data-id="176" style="margin-bottom:24px;">If you want these words in your inbox — occasionally, unhurriedly — you're welcome to subscribe.</p>
+
+          <!-- Ghost signup embed -->
+          <div data-id="177" id="ghost-signup-container" style="min-height: 58px;max-width: 440px;margin: 0 auto;width: 100%">
+            <script src="https://cdn.jsdelivr.net/ghost/signup-form@~0.3/umd/signup-form.min.js" data-button-color="#4a6f44" data-button-text-color="#FFFFFF" data-site="https://theclutteredmouth.com/" data-locale="en" async></script>
+          </div>
+
+          <!-- Fallback placeholder shown when Ghost script hasn't rendered -->
+          <div data-id="178" id="ghost-signup-fallback-el" class="ghost-signup-fallback" style="margin-top:12px;">
+            <input data-id="179" type="email" placeholder="Your email" disabled />
+            <button data-id="180" type="button" disabled>Subscribe</button>
+          </div>
+          <noscript data-id="181">
+            <div data-id="182" class="ghost-signup-fallback" style="margin-top:12px;">
+              <input data-id="183" type="email" placeholder="Your email" disabled />
+              <button data-id="184" type="button" disabled>Subscribe</button>
+            </div>
+          </noscript>
+        </div>
+      </section>
+
+      <!-- Writing Footer -->
+      <footer data-id="185" class="px-5 md:px-8" style="padding-bottom:48px;">
+        <div data-id="186" class="max-w-[720px] mx-auto">
+          <hr data-id="187" class="hr-thin" style="margin-bottom:32px;" />
+          <div data-id="188" class="flex flex-col md:flex-row md:justify-between md:items-start gap-4" style="font-size:13px;">
+            <p data-id="189" style="color:var(--muted); font-family:'Jost',sans-serif; font-weight:300;">© 2026 Aaron J. Smith</p>
+            <div data-id="190" class="flex flex-wrap gap-4" style="font-family:'Jost',sans-serif; font-weight:300; font-size:12px; letter-spacing:0.1em; text-transform:uppercase;">
+              <a data-id="191" class="nav-link" data-nav="direction" style="font-size:12px;">Direction</a>
+              <a data-id="192" class="nav-link" data-nav="writing" style="font-size:12px;">Writing</a>
+              <a data-id="193" class="nav-link" data-nav="about" style="font-size:12px;">About</a>
+            </div>
+          </div>
+          <p data-id="195" style="color:var(--muted); font-size:11px; margin-top:20px; font-family:'Jost',sans-serif; font-weight:300; opacity:0.7;">Made with intention.</p>
+        </div>
+      </footer>
     </div>
-  </div>
-</section>
 
-<hr class="section-divider">
+    <!-- ============ ABOUT ============ -->
+    <div data-id="196" id="page-about" class="page-container">
+      <section data-id="197" id="about-hero-k3l4" class="px-5 md:px-8" style="padding-top:60px; padding-bottom:48px;">
+        <div data-id="198" class="max-w-[720px] mx-auto">
+          <h1 data-id="199" style="font-family:'Cormorant Garamond',serif; font-weight:400; font-size:36px; line-height:1.3; margin-bottom:8px;" class="md:text-5xl">Aaron J. Smith</h1>
+          <p data-id="200" style="font-style:italic; color:var(--muted); font-size:20px; margin-bottom:32px;">Formation</p>
+          <p data-id="201">I'm a poet, a post-Christian theologian, a spiritual director, and something of a mess — which seems like the right combination for this work. I live with my wife and two kids in Oregon, where the rain is honest and the city remind me that everything takes longer than I think. I write at The Cluttered Mouth. I direct in the contemplative tradition. I am in formation as a community chaplain through the Order of Hildegard, cross-vocational, inter-spiritual order. All of it is connected, though it took me a long time to see how.</p>
+        </div>
+      </section>
 
-<!-- ============================================================
-     PODCAST
-     ============================================================ -->
-<section id="podcast">
-  <p class="section-label">Podcast</p>
-  <h2 class="section-title">All Things Made New</h2>
-  <div style="max-width: 580px;">
-    <p class="section-desc">DIY conversations at the intersection of faith, flesh, and the everyday — exploring the Christian spirituality of being human. Friends, thinkers, and fellow wanderers talking about grace, grief, doubt, hope, and what it means to live in a world where resurrection keeps showing up in the cracks.</p>
-    <p style="font-size:1rem; color:var(--ink-light); margin-bottom:1.8rem; line-height:1.75;">Low-fi and honest — the kind of conversation you'd want to have with a friend who takes both faith and doubt seriously. No tidy answers. No performance. Just people thinking out loud about what it means to be alive and paying attention.</p>
-    <p style="font-size:1rem; color:var(--ink-faint); margin-bottom:1.8rem; line-height:1.75; font-style:italic;">Come as you are.</p>
-    <div style="display:flex; gap:1.2rem; flex-wrap:wrap;">
-      <a class="text-link" href="https://open.spotify.com/show/0ldzUu0jFNwX1ENgVSVKfO" target="_blank" rel="noopener noreferrer">Spotify ↗</a>
-      <a class="text-link" href="https://podcasts.apple.com/us/podcast/all-things-made-new/id1528396686" target="_blank" rel="noopener noreferrer">Apple Podcasts ↗</a>
+      <section data-id="202" id="about-theology-m5n6" class="px-5 md:px-8" style="padding-bottom:48px;">
+        <div data-id="203" class="max-w-[720px] mx-auto">
+          <p data-id="204" class="label-caps" style="margin-bottom:12px;">Theological Formation</p>
+          <p data-id="205" style="margin-bottom:24px;">My theology is post-Christian in the sense that I no longer hold the dogmatic structures of evangelicalism — but I have not left the tradition so much as I have learned to read it differently, against itself, through the lens of those it has harmed. The through-line in my theological thinking is kenosis: God's self-emptying as the shape of divinity itself, which means that power-over is always a theological problem, and vulnerability is always a theological resource. My framework — Incarnational, Lamenting, Liberative — grounds my work in the body, takes suffering seriously rather than spiritualizing it, and orients everything toward liberation for the marginalized.</p>
+          <p data-id="206">The theologians who have shaped me most: James Cone, Jürgen Moltmann, Leonardo Boff, Walter Brueggemann, Howard Thurman. Their work lives in my bones.</p>
+        </div>
+      </section>
+
+      <section data-id="207" id="about-chaplaincy-o7p8" class="px-5 md:px-8" style="padding-bottom:48px;">
+        <div data-id="208" class="max-w-[720px] mx-auto">
+          <p data-id="209" class="label-caps" style="margin-bottom:12px;">Chaplaincy Formation</p>
+          <p data-id="210">I am in the process of ordination through the Order of Hildegard, a diverse, cross-vocational, inter-spiritual Order and Community of practice. My chaplaincy formation is oriented toward community and interfaith chaplaincy — accompaniment outside the walls of any single tradition, in the ordinary places where people are actually suffering and seeking.</p>
+        </div>
+      </section>
+
+      <section data-id="211" id="about-closing-q9r0" class="px-5 md:px-8" style="padding-bottom:48px;">
+        <div data-id="212" class="max-w-[720px] mx-auto text-center">
+          <p data-id="213" style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:22px; line-height:1.7; max-width:580px; margin:0 auto; color:var(--text);">I am not trying to build a platform. I am trying to be faithful to the thread — the one that runs through the poems and the theology and the direction sessions and the slowly forming chaplaincy. If you're here, you've probably found a piece of that thread. Welcome.</p>
+        </div>
+      </section>
+
+      <section data-id="214" id="about-contact-s1t2" class="px-5 md:px-8" style="padding-bottom:80px;">
+        <div data-id="215" class="max-w-[720px] mx-auto">
+          <hr data-id="216" class="hr-thin" style="margin-bottom:32px;" />
+
+          <form data-id="217" id="about-contact-form-x1y2" action="https://formspree.io/f/xdalgled" method="POST" class="flex flex-col gap-5">
+            <input data-id="218" type="text" name="_gotcha" style="display:none" />
+            <div data-id="219">
+              <label data-id="220" class="label-caps" style="display:block; margin-bottom:6px;">Name</label>
+              <input data-id="221" type="text" name="name" id="about-form-name-z3a4" required />
+            </div>
+            <div data-id="222">
+              <label data-id="223" class="label-caps" style="display:block; margin-bottom:6px;">Email</label>
+              <input data-id="224" type="email" name="email" id="about-form-email-b5c6" required />
+            </div>
+            <div data-id="225">
+              <label data-id="226" class="label-caps" style="display:block; margin-bottom:6px;">What's on your mind?</label>
+              <textarea data-id="227" name="message" id="about-form-message-d7e8" rows="6"></textarea>
+            </div>
+            <div data-id="228" style="margin-top:8px;">
+              <button data-id="229" type="submit" id="about-submit-btn" class="invitation-btn">Send a note</button>
+            </div>
+            <div data-id="230" id="about-form-error" class="form-error">
+              <p data-id="231">Something went wrong. Please try again, or reach me directly at <a data-id="232" href="mailto:contact@aaronjsmith.net" class="prose-link" style="font-size:16px;">contact@aaronjsmith.net</a></p>
+            </div>
+          </form>
+
+          <div data-id="233" id="about-form-success-f9g0" class="form-success">
+            <p data-id="234" style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:22px; color:var(--sage);">Thank you. I'll be in touch.</p>
+          </div>
+
+          <p data-id="235" style="font-size:14px; color:var(--muted); font-style:italic; margin-top:24px;">Or reach me directly at <a data-id="236" href="mailto:contact@aaronjsmith.net" class="prose-link" style="font-size:14px;">contact@aaronjsmith.net</a></p>
+        </div>
+      </section>
+
+      <!-- About Footer -->
+      <footer data-id="237" class="px-5 md:px-8" style="padding-bottom:48px;">
+        <div data-id="238" class="max-w-[720px] mx-auto">
+          <hr data-id="239" class="hr-thin" style="margin-bottom:32px;" />
+          <div data-id="240" class="flex flex-col md:flex-row md:justify-between md:items-start gap-4" style="font-size:13px;">
+            <p data-id="241" style="color:var(--muted); font-family:'Jost',sans-serif; font-weight:300;">© 2026 Aaron J. Smith</p>
+            <div data-id="242" class="flex flex-wrap gap-4" style="font-family:'Jost',sans-serif; font-weight:300; font-size:12px; letter-spacing:0.1em; text-transform:uppercase;">
+              <a data-id="243" class="nav-link" data-nav="direction" style="font-size:12px;">Direction</a>
+              <a data-id="244" class="nav-link" data-nav="writing" style="font-size:12px;">Writing</a>
+              <a data-id="245" class="nav-link" data-nav="about" style="font-size:12px;">About</a>
+            </div>
+          </div>
+          <p data-id="247" style="color:var(--muted); font-size:11px; margin-top:20px; font-family:'Jost',sans-serif; font-weight:300; opacity:0.7;">Made with intention.</p>
+        </div>
+      </footer>
     </div>
-  </div>
-</section>
 
-<hr class="section-divider">
+  </main>
 
-<!-- ============================================================
-     ABOUT
-     UPDATE: Replace photo src with your renamed image file
-     ============================================================ -->
-<section id="about">
-  <div class="about-layout">
-    <div class="about-image-wrap">
-      <img src="/images/aaron-smith.jpg" alt="Aaron J. Smith" onerror="this.style.display='none'">
-    </div>
-    <div class="about-text">
-      <p class="section-label">About</p>
-      <h2 class="section-title" style="margin-bottom:1.2rem;">Aaron J. Smith</h2>
-      <p>I'm a poet, a post-Christian theologian, a spiritual director, and something of a mess — in the way that paying attention to the world tends to make you.</p>
-      <p>I follow the way of the Jesus story without needing the institution to come with it. My theology begins in the body: Christ's, mine, and the world's. I hold kenosis — self-donating love — as the through-line connecting the Trinity, the cross, the table, and the life we're asked to live.</p>
-      <p>I grew up in Utah. I live in the Pacific Northwest with my wife and two kids. I drink too much coffee and not enough water.</p>
-    </div>
-  </div>
-</section>
+  <script>
+    lucide.createIcons();
 
-<hr class="section-divider" style="margin-bottom:0;">
-</main>
-<footer>
-  <div class="footer-links">
-    <a href="#direction">Spiritual Direction</a>
-    <a href="https://theclutteredmouth.com" target="_blank" rel="noopener noreferrer">The Cluttered Mouth</a>
-    <a href="https://open.spotify.com/show/0ldzUu0jFNwX1ENgVSVKfO" target="_blank" rel="noopener noreferrer">Podcast</a>
-   </div>
-  <span>© 2026 Aaron J. Smith</span>
-</footer>
+    // --- ROUTING ---
+    const pages = ['home', 'direction', 'writing', 'about'];
 
+    function navigateTo(page) {
+      if (!pages.includes(page)) page = 'home';
+      window.location.hash = page;
+    }
+
+    function showPage(page) {
+      if (!pages.includes(page)) page = 'home';
+
+      document.querySelectorAll('.page-container').forEach(p => {
+        p.classList.remove('active', 'visible');
+      });
+
+      const target = document.getElementById('page-' + page);
+      if (target) {
+        target.classList.add('active');
+        void target.offsetWidth;
+        target.classList.add('visible');
+      }
+
+      document.querySelectorAll('.nav-link[data-nav]').forEach(link => {
+        if (link.dataset.nav === page) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      document.getElementById('mobile-menu-g7h8').classList.remove('open');
+    }
+
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.replace('#', '') || 'home';
+      showPage(hash);
+    });
+
+    const initialPage = window.location.hash.replace('#', '') || 'home';
+    showPage(initialPage);
+
+    // --- NAV LINK CLICKS ---
+    document.querySelectorAll('[data-nav]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        navigateTo(link.dataset.nav);
+      });
+    });
+
+    // --- MOBILE MENU ---
+    document.getElementById('hamburger-btn-e5f6').addEventListener('click', () => {
+      document.getElementById('mobile-menu-g7h8').classList.add('open');
+    });
+
+    document.getElementById('mobile-close-i9j0').addEventListener('click', () => {
+      document.getElementById('mobile-menu-g7h8').classList.remove('open');
+    });
+
+    // --- SCROLL NAV BACKGROUND ---
+    const nav = document.getElementById('site-nav-a1b2');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // --- GHOST SIGNUP FALLBACK LOGIC ---
+    (function checkGhostRendered() {
+      const container = document.getElementById('ghost-signup-container');
+      const fallback = document.getElementById('ghost-signup-fallback-el');
+      if (!container || !fallback) return;
+
+      let checks = 0;
+      const maxChecks = 20;
+      const interval = setInterval(() => {
+        checks++;
+        const ghostRendered = container.querySelector('iframe, form, div[data-ghost]');
+        if (ghostRendered || container.children.length > 1) {
+          fallback.style.display = 'none';
+          clearInterval(interval);
+        } else if (checks >= maxChecks) {
+          clearInterval(interval);
+        }
+      }, 250);
+    })();
+
+    // --- DIRECTION FORM (Formspree AJAX) ---
+    const directionForm = document.getElementById('direction-form-g3h4');
+    const directionSubmitBtn = document.getElementById('direction-submit-btn');
+    const directionFormError = document.getElementById('direction-form-error');
+    const directionFormSuccess = document.getElementById('form-success-q3r4');
+
+    directionForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      directionFormError.classList.remove('show');
+
+      const originalText = directionSubmitBtn.textContent;
+      directionSubmitBtn.textContent = 'Sending…';
+      directionSubmitBtn.disabled = true;
+
+      try {
+        const response = await fetch(directionForm.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(directionForm)
+        });
+
+        if (response.ok) {
+          directionForm.style.display = 'none';
+          directionFormSuccess.classList.add('show');
+        } else {
+          directionSubmitBtn.textContent = originalText;
+          directionSubmitBtn.disabled = false;
+          directionFormError.classList.add('show');
+        }
+      } catch (err) {
+        directionSubmitBtn.textContent = originalText;
+        directionSubmitBtn.disabled = false;
+        directionFormError.classList.add('show');
+      }
+    });
+
+    // --- ABOUT CONTACT FORM (Formspree AJAX) ---
+    const aboutForm = document.getElementById('about-contact-form-x1y2');
+    const aboutSubmitBtn = document.getElementById('about-submit-btn');
+    const aboutFormError = document.getElementById('about-form-error');
+    const aboutFormSuccess = document.getElementById('about-form-success-f9g0');
+
+    aboutForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      aboutFormError.classList.remove('show');
+
+      const originalText = aboutSubmitBtn.textContent;
+      aboutSubmitBtn.textContent = 'Sending…';
+      aboutSubmitBtn.disabled = true;
+
+      try {
+        const response = await fetch(aboutForm.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(aboutForm)
+        });
+
+        if (response.ok) {
+          aboutForm.style.display = 'none';
+          aboutFormSuccess.classList.add('show');
+        } else {
+          aboutSubmitBtn.textContent = originalText;
+          aboutSubmitBtn.disabled = false;
+          aboutFormError.classList.add('show');
+        }
+      } catch (err) {
+        aboutSubmitBtn.textContent = originalText;
+        aboutSubmitBtn.disabled = false;
+        aboutFormError.classList.add('show');
+      }
+    });
+  </script>
 </body>
 </html>
