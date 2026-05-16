@@ -3,7 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AaronJSmith.net — Site Prototype</title>
+  <title>Aaron J. Smith — Poet, Theologian, Spiritual Director</title>
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aaronjsmith.net/" />
+  <meta property="og:title" content="Aaron J. Smith — Poet, Theologian, Spiritual Director" />
+  <meta property="og:description" content="Poet. Post-Christian theologian. Spiritual director. Chaplain-in-formation. Following the thread wherever it leads." />
+  <meta property="og:image" content="https://aaronjsmith.net/images/Wings.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Aaron J. Smith" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Aaron J. Smith — Poet, Theologian, Spiritual Director" />
+  <meta name="twitter:description" content="Poet. Post-Christian theologian. Spiritual director. Chaplain-in-formation. Following the thread wherever it leads." />
+  <meta name="twitter:image" content="https://aaronjsmith.net/images/Wings.jpg" />
+
+  <!-- SEO -->
+  <meta name="description" content="Poet. Post-Christian theologian. Spiritual director. Chaplain-in-formation. Following the thread wherever it leads." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80' fill='%237A8C6E' font-family='serif'>A</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -305,6 +325,18 @@
       border-bottom: none;
     }
 
+    @media (min-width: 640px) {
+      .about-intro-grid {
+        grid-template-columns: 1fr 1fr !important;
+      }
+      .about-headshot-grid {
+        grid-template-columns: auto 1fr !important;
+      }
+      .about-headshot-grid > div:first-child {
+        max-width: 200px !important;
+      }
+    }
+
     .gateway-grid-new {
       display: grid;
       grid-template-columns: 1fr;
@@ -312,7 +344,19 @@
     }
 
     @media (min-width: 768px) {
-      .gateway-grid-new {
+      @media (min-width: 640px) {
+      .about-intro-grid {
+        grid-template-columns: 1fr 1fr !important;
+      }
+      .about-headshot-grid {
+        grid-template-columns: auto 1fr !important;
+      }
+      .about-headshot-grid > div:first-child {
+        max-width: 200px !important;
+      }
+    }
+
+    .gateway-grid-new {
         grid-template-columns: 1fr 1fr;
         gap: 32px;
       }
@@ -577,11 +621,18 @@
 
       <!-- About Intro -->
       <section data-id="30" id="about-intro-x4k9" class="px-5 md:px-8" style="padding-bottom:56px;">
-        <div data-id="31" class="max-w-[720px] mx-auto">
+        <div data-id="31" class="max-w-[900px] mx-auto">
           <hr data-id="32" class="hr-thin" style="margin-bottom:48px;" />
-          <div data-id="33" style="max-width:600px; margin:0 auto; text-align:center;">
-            <p data-id="34" style="font-family:'Cormorant Garamond',serif; font-weight:300; font-size:20px; line-height:1.9; color:#2C2A26; margin-bottom:28px;">I'm Aaron — a poet, a post-Christian theologian, a spiritual director, and a chaplain-in-formation. I live in Hillsboro, Oregon, where the hills are patient and the rain is honest. The thread that holds all of this together is longer than I can explain in a sentence, but it's here if you want to follow it.</p>
-            <a data-id="35" class="about-intro-link" data-nav="about">About Aaron and his work →</a>
+          <div style="display:grid; grid-template-columns:1fr; gap:40px; align-items:center;" class="about-intro-grid">
+            <!-- Photo -->
+            <div style="max-width:340px; width:100%; margin:0 auto;">
+              <img src="images/Wings.jpg" alt="Aaron J. Smith" style="width:100%; display:block; object-fit:cover; filter:sepia(8%) contrast(1.02);" />
+            </div>
+            <!-- Text -->
+            <div>
+              <p style="font-family:'Cormorant Garamond',serif; font-weight:300; font-size:20px; line-height:1.9; color:#2C2A26; margin-bottom:28px;">I'm Aaron — a poet, a post-Christian theologian, a spiritual director, and a chaplain-in-formation. I live in Oregon, where the rain is honest and Portland keeps us weird.. The thread that holds all of this together is longer than I can explain in a sentence, but it's here if you want to follow it.</p>
+              <a data-id="35" class="about-intro-link" data-nav="about">About Aaron and his work →</a>
+            </div>
           </div>
           <hr data-id="36" class="hr-thin" style="margin-top:48px;" />
         </div>
@@ -610,11 +661,10 @@
                 <h2 data-id="49" style="font-size:28px;">Poetry, Prose, Prayer and Protest</h2>
               </div>
               <div data-id="50" class="gateway-body-block">
-                <p data-id="51">Words written at the edge of faith and its unraveling — poetry, theological essays, devotional prose, and the occasional act of liturgical defiance. The writing lives at The Cluttered Mouth.</p>
+                <p data-id="51">Words written at the edge of faith and its unraveling — poetry, prose, prayer, and protest in the form of theological essays, devotional prose, and the occasional act of liturgical defiance. The writing lives at The Cluttered Mouth.</p>
               </div>
               <div data-id="52" class="gateway-link-strip gateway-link-strip-right">
                 <a data-id="53" class="gateway-strip-link" href="https://theclutteredmouth.com" target="_blank" rel="noopener">The Cluttered Mouth →</a>
-                <a data-id="54" class="gateway-strip-link" href="#">All Things Made New →</a>
               </div>
             </div>
           </div>
@@ -631,8 +681,7 @@
               <a data-id="61" class="nav-link" data-nav="direction" style="font-size:12px;">Direction</a>
               <a data-id="62" class="nav-link" data-nav="writing" style="font-size:12px;">Writing</a>
               <a data-id="63" class="nav-link" data-nav="about" style="font-size:12px;">About</a>
-              <a data-id="64" href="mailto:contact@aaronjsmith.net" class="prose-link" style="font-size:12px; font-family:'Jost',sans-serif; font-weight:300; letter-spacing:0.1em; text-transform:uppercase;">contact@aaronjsmith.net</a>
-            </div>
+             </div>
           </div>
           <p data-id="65" style="color:var(--muted); font-size:11px; margin-top:20px; font-family:'Jost',sans-serif; font-weight:300; opacity:0.7;">Made with intention.</p>
         </div>
@@ -724,8 +773,7 @@
               <a data-id="120" class="nav-link" data-nav="direction" style="font-size:12px;">Direction</a>
               <a data-id="121" class="nav-link" data-nav="writing" style="font-size:12px;">Writing</a>
               <a data-id="122" class="nav-link" data-nav="about" style="font-size:12px;">About</a>
-              <a data-id="123" href="mailto:contact@aaronjsmith.net" class="prose-link" style="font-size:12px; font-family:'Jost',sans-serif; font-weight:300; letter-spacing:0.1em; text-transform:uppercase;">contact@aaronjsmith.net</a>
-            </div>
+              </div>
           </div>
           <p data-id="124" style="color:var(--muted); font-size:11px; margin-top:20px; font-family:'Jost',sans-serif; font-weight:300; opacity:0.7;">Made with intention.</p>
         </div>
@@ -737,7 +785,7 @@
       <section data-id="126" id="writing-hero-s5t6" class="px-5 md:px-8" style="padding-top:60px; padding-bottom:48px;">
         <div data-id="127" class="max-w-[720px] mx-auto">
           <h1 data-id="128" style="font-family:'Cormorant Garamond',serif; font-weight:400; font-size:36px; line-height:1.3; margin-bottom:8px;" class="md:text-5xl">Writing</h1>
-          <p data-id="129" style="font-style:italic; color:var(--muted); font-size:20px; margin-bottom:0;">Everything stuck in the throat. Poetry. Essay. Theological prose.</p>
+          <p data-id="129" style="font-style:italic; color:var(--muted); font-size:20px; margin-bottom:0;">Everything stuck in the throat. Poetry. Prose. Prayer. Protest.</p>
         </div>
       </section>
 
@@ -748,23 +796,18 @@
           <p data-id="133" style="margin-bottom:24px;">These poems were written at the edge of language — where faith breaks down and something else comes through.</p>
 
           <div data-id="134" class="poem-card">
-            <p data-id="135" style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:500; font-size:20px; margin-bottom:4px;">Love vs. Your Love</p>
-            <p data-id="136" style="font-style:italic; color:var(--muted); font-size:16px; margin-bottom:6px;">Love is like / dark fog in the night,</p>
-            <a data-id="137" href="https://theclutteredmouth.com/love-vs-your-love/" class="prose-link" style="font-size:15px;">Read →</a>
+            <p data-id="135" style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:500; font-size:20px; margin-bottom:4px;">Hard Teeth</p>
+            <p data-id="136" style="font-style:italic; color:var(--muted); font-size:16px; margin-bottom:6px;">I have bitten through / every soft thing offered to me—</p>
+            <a data-id="137" href="#" class="prose-link" style="font-size:15px;">Read →</a>
           </div>
 
           <div data-id="138" class="poem-card">
-            <p data-id="139" style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:500; font-size:20px; margin-bottom:4px;">The First Time I Read Poetry with Pádraig Ó Tuama</p>
-            <p data-id="140" style="font-style:italic; color:var(--muted); font-size:16px; margin-bottom:6px;">I had a dream before I woke up— / they often happen that way, before I wake up.</p>
-            <a data-id="141" href="https://theclutteredmouth.com/the-first-time-i-read-poetry-with/" class="prose-link" style="font-size:15px;">Read →</a>
+            <p data-id="139" style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:500; font-size:20px; margin-bottom:4px;">Kenosis</p>
+            <p data-id="140" style="font-style:italic; color:var(--muted); font-size:16px; margin-bottom:6px;">He emptied himself, the text says. / I have been practicing.</p>
+            <a data-id="141" href="#" class="prose-link" style="font-size:15px;">Read →</a>
           </div>
 
-          <div data-id="142" class="poem-card">
-            <p data-id="143" style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:500; font-size:20px; margin-bottom:4px;">I Am Older Than My Mother</p>
-            <p data-id="144" style="font-style:italic; color:var(--muted); font-size:16px; margin-bottom:6px;">She lives in my face / and three photographs on the wall.</p>
-            <a data-id="145" href="https://theclutteredmouth.com/i-am-older-than-my-mother/" class="prose-link" style="font-size:15px;">Read →</a>
           </div>
-        </div>
       </section>
 
       <!-- Essays -->
@@ -775,22 +818,21 @@
           <p data-id="158" style="margin-bottom:24px;">Prose written from inside the questions — post-Christian theology, contemplative practice, trauma, liberation, and the long work of unlearning.</p>
 
           <div data-id="159" class="poem-card">
-            <p data-id="160" style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:20px; margin-bottom:4px;">Bouquets, Mixtapes, and Anthologies: Collected Theology as a Way Forward.</p>
-            <p data-id="161" style="font-style:italic; color:var(--muted); font-size:16px; margin-bottom:6px;">Towards a new way.</p>
-            <a data-id="162" href="https://theclutteredmouth.com/bouquets-mixtapes-and-anthologies-collected-theology-as-a-way-forward/" class="prose-link" style="font-size:15px;">Read →</a>
+            <p data-id="160" style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:20px; margin-bottom:4px;">The God Who Grieves</p>
+            <p data-id="161" style="font-style:italic; color:var(--muted); font-size:16px; margin-bottom:6px;">On Moltmann, lament, and what it means to believe in a God who suffers with us.</p>
+            <a data-id="162" href="#" class="prose-link" style="font-size:15px;">Read →</a>
           </div>
 
           <div data-id="163" class="poem-card">
-            <p data-id="164" style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:20px; margin-bottom:4px;">Welcome</p>
-            <p data-id="165" style="font-style:italic; color:var(--muted); font-size:16px; margin-bottom:6px;">Skipped lines and wrong doors.</p>
-            <a data-id="166" href="http://theclutteredmouth.com/welcome-69c064167d72e5001b29dc8b/" class="prose-link" style="font-size:15px;">Read →</a>
+            <p data-id="164" style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:20px; margin-bottom:4px;">Deconstruction Is Not a Detour</p>
+            <p data-id="165" style="font-style:italic; color:var(--muted); font-size:16px; margin-bottom:6px;">On the spiritual integrity of leaving — and what waits on the other side.</p>
+            <a data-id="166" href="#" class="prose-link" style="font-size:15px;">Read →</a>
           </div>
 
           <div data-id="167" class="poem-card">
-            <p data-id="168" style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:20px; margin-bottom:4px;">I'm Just a Christian Dirtbag Baby
-</p>
-            <p data-id="169" style="font-style:italic; color:var(--muted); font-size:16px; margin-bottom:6px;">To being a bad Christian.</p>
-            <a data-id="170" href="https://theclutteredmouth.com/im-just-a-christian-dirtbag-baby/" class="prose-link" style="font-size:15px;">Read →</a>
+            <p data-id="168" style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:20px; margin-bottom:4px;">What the Body Knows</p>
+            <p data-id="169" style="font-style:italic; color:var(--muted); font-size:16px; margin-bottom:6px;">A theology of embodiment, chronic illness, and the resurrection of ordinary flesh.</p>
+            <a data-id="170" href="#" class="prose-link" style="font-size:15px;">Read →</a>
           </div>
 
           <div data-id="171" style="margin-top:24px;">
@@ -834,8 +876,7 @@
               <a data-id="191" class="nav-link" data-nav="direction" style="font-size:12px;">Direction</a>
               <a data-id="192" class="nav-link" data-nav="writing" style="font-size:12px;">Writing</a>
               <a data-id="193" class="nav-link" data-nav="about" style="font-size:12px;">About</a>
-              <a data-id="194" href="mailto:contact@aaronjsmith.net" class="prose-link" style="font-size:12px; font-family:'Jost',sans-serif; font-weight:300; letter-spacing:0.1em; text-transform:uppercase;">contact@aaronjsmith.net</a>
-            </div>
+              </div>
           </div>
           <p data-id="195" style="color:var(--muted); font-size:11px; margin-top:20px; font-family:'Jost',sans-serif; font-weight:300; opacity:0.7;">Made with intention.</p>
         </div>
@@ -846,9 +887,18 @@
     <div data-id="196" id="page-about" class="page-container">
       <section data-id="197" id="about-hero-k3l4" class="px-5 md:px-8" style="padding-top:60px; padding-bottom:48px;">
         <div data-id="198" class="max-w-[720px] mx-auto">
-          <h1 data-id="199" style="font-family:'Cormorant Garamond',serif; font-weight:400; font-size:36px; line-height:1.3; margin-bottom:8px;" class="md:text-5xl">Aaron J. Smith</h1>
-          <p data-id="200" style="font-style:italic; color:var(--muted); font-size:20px; margin-bottom:32px;">Formation</p>
-          <p data-id="201">I'm a poet, a post-Christian theologian, a spiritual director, and something of a mess — which seems like the right combination for this work. I live in Hillsboro, Oregon, where the weather is honest and the hills remind me that everything takes longer than I think. I write at The Cluttered Mouth. I direct in the contemplative tradition. I am in formation as a community chaplain through the Order of Hildegard, an ecumenical and interfaith order. All of it is connected, though it took me a long time to see how.</p>
+          <div style="display:grid; grid-template-columns:1fr; gap:40px; align-items:start; margin-bottom:40px;" class="about-headshot-grid">
+            <!-- Headshot -->
+            <div style="max-width:260px; width:100%; margin:0 auto;">
+              <img src="images/aaron-smith.jpg" alt="Aaron J. Smith" style="width:100%; display:block; object-fit:cover; filter:sepia(5%) contrast(1.02);" />
+            </div>
+            <!-- Bio -->
+            <div>
+              <h1 data-id="199" style="font-family:'Cormorant Garamond',serif; font-weight:400; font-size:36px; line-height:1.3; margin-bottom:8px;">Aaron J. Smith</h1>
+              <p data-id="200" style="font-style:italic; color:var(--muted); font-size:20px; margin-bottom:24px;">Formation</p>
+              <p data-id="201">I'm a poet, a post-Christian theologian, a spiritual director, and something of a mess — which seems like the right combination for this work. I live with my wife and two kids in Oregon, where the rain is honest and the green remind me that everything takes longer than I think. I write at The Cluttered Mouth. I direct in the contemplative tradition. I am in formation as a community chaplain through the Order of Hildegard, a cross-vocational, inter-spiritual Order and Community of Practice. All of it is connected, though it took me a long time to see how.</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -856,14 +906,14 @@
         <div data-id="203" class="max-w-[720px] mx-auto">
           <p data-id="204" class="label-caps" style="margin-bottom:12px;">Theological Formation</p>
           <p data-id="205" style="margin-bottom:24px;">My theology is post-Christian in the sense that I no longer hold the dogmatic structures of evangelicalism — but I have not left the tradition so much as I have learned to read it differently, against itself, through the lens of those it has harmed. The through-line in my theological thinking is kenosis: God's self-emptying as the shape of divinity itself, which means that power-over is always a theological problem, and vulnerability is always a theological resource. My framework — Incarnational, Lamenting, Liberative — grounds my work in the body, takes suffering seriously rather than spiritualizing it, and orients everything toward liberation for the marginalized.</p>
-          <p data-id="206">The theologians who have shaped me most: James Cone, Jürgen Moltmann, Leonardo Boff, Walter Brueggemann, Howard Thurman, Brad Jersak. Their work lives in my bones.</p>
+          <p data-id="206">The theologians who have shaped me most: James Cone, Jürgen Moltmann, Leonardo Boff, Walter Brueggemann, Howard Thurman. Their work lives in my bones.</p>
         </div>
       </section>
 
       <section data-id="207" id="about-chaplaincy-o7p8" class="px-5 md:px-8" style="padding-bottom:48px;">
         <div data-id="208" class="max-w-[720px] mx-auto">
           <p data-id="209" class="label-caps" style="margin-bottom:12px;">Chaplaincy Formation</p>
-          <p data-id="210">I am in the process of ordination through the Order of Hildegard, an ecumenical and interfaith order committed to incarnational, contemplative ministry. My chaplaincy formation is oriented toward community and interfaith chaplaincy — accompaniment outside the walls of any single tradition, in the ordinary places where people are actually suffering and seeking.</p>
+          <p data-id="210">I am in the process of ordination through the Order of Hildegard, a cross-vocational, inter-spiritual Order and Community of Practice. My chaplaincy formation is oriented toward community and interfaith chaplaincy — accompaniment outside the walls of any single tradition, in the ordinary places where people are actually suffering and seeking.</p>
         </div>
       </section>
 
@@ -895,7 +945,7 @@
               <button data-id="229" type="submit" id="about-submit-btn" class="invitation-btn">Send a note</button>
             </div>
             <div data-id="230" id="about-form-error" class="form-error">
-              <p data-id="231">Something went wrong. Please try again, or reach me directly at <a data-id="232" href="mailto:contact@aaronjsmith.net" class="prose-link" style="font-size:16px;">contact@aaronjsmith.net</a></p>
+              <p data-id="231">Something went wrong. Please try again, or reach me directly at <a data-id="232" href="mailto:aaron@aaronjsmith.net" class="prose-link" style="font-size:16px;">Aaron J. Smith</a></p>
             </div>
           </form>
 
@@ -903,8 +953,7 @@
             <p data-id="234" style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:22px; color:var(--sage);">Thank you. I'll be in touch.</p>
           </div>
 
-          <p data-id="235" style="font-size:14px; color:var(--muted); font-style:italic; margin-top:24px;">Or reach me directly at <a data-id="236" href="mailto:contact@aaronjsmith.net" class="prose-link" style="font-size:14px;">contact@aaronjsmith.net</a></p>
-        </div>
+          </div>
       </section>
 
       <!-- About Footer -->
@@ -917,8 +966,7 @@
               <a data-id="243" class="nav-link" data-nav="direction" style="font-size:12px;">Direction</a>
               <a data-id="244" class="nav-link" data-nav="writing" style="font-size:12px;">Writing</a>
               <a data-id="245" class="nav-link" data-nav="about" style="font-size:12px;">About</a>
-              <a data-id="246" href="mailto:contact@aaronjsmith.net" class="prose-link" style="font-size:12px; font-family:'Jost',sans-serif; font-weight:300; letter-spacing:0.1em; text-transform:uppercase;">contact@aaronjsmith.net</a>
-            </div>
+              </div>
           </div>
           <p data-id="247" style="color:var(--muted); font-size:11px; margin-top:20px; font-family:'Jost',sans-serif; font-weight:300; opacity:0.7;">Made with intention.</p>
         </div>
