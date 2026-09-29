@@ -1,1027 +1,211 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aaron J. Smith </title>
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://aaronjsmith.net/">
-    <meta property="og:title" content="Aaron J. Smith — Poet, Theologian, Spiritual Director">
-    <meta property="og:description" content="Poet. Post-Christian theologian. Spiritual director. Following the thread wherever it leads.">
-    <meta property="og:image" content="https://aaronjsmith.net/images/Wings.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="Aaron J. Smith">
-    <meta property="og:locale" content="en_US">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Aaron J. Smith — Poet, Theologian, Spiritual Director">
-    <meta name="twitter:description" content="Poet. Post-Christian theologian. Spiritual director. Following the thread wherever it leads.">
-    <meta name="twitter:image" content="https://aaronjsmith.net/images/Wings.jpg">
-    <meta name="description" content="Poet. Post-Christian theologian. Spiritual director. Following the thread wherever it leads.">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='80' font-family='serif' fill='%236B7A5A'%3EA%3C/text%3E%3C/svg%3E">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Special+Elite&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest" defer></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        paper: '#F0E8D8',
-                        'paper-dark': '#E8DECA',
-                        'paper-light': '#FAF5EA',
-                        ink: '#1C1814',
-                        'ink-muted': '#6B5D4A',
-                        sage: '#6B7A5A',
-                        rust: '#8B5E3C',
-                        rule: '#C4B49A',
-                    },
-                    fontFamily: {
-                        'typewriter': ['"Courier Prime"', 'Courier', 'monospace'],
-                        'display': ['"Special Elite"', 'cursive'],
-                    },
-                },
-            },
-        };
-    </script>
-    <style>
-        :root {
-            --paper: #F0E8D8;
-            --paper-dark: #E8DECA;
-            --paper-light: #FAF5EA;
-            --ink: #1C1814;
-            --ink-muted: #6B5D4A;
-            --sage: #6B7A5A;
-            --rust: #8B5E3C;
-            --rule: #C4B49A;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            font-family: 'Courier Prime', Courier, monospace;
-            font-size: 17px;
-            line-height: 1.9;
-            color: var(--ink);
-            background-color: var(--paper);
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            opacity: 0.04;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-            background-repeat: repeat;
-            background-size: 256px 256px;
-        }
-
-        body > *:not(app-icon) {
-            position: relative;
-            z-index: 1;
-        }
-
-        .font-display { font-family: 'Special Elite', cursive; }
-        .font-typewriter { font-family: 'Courier Prime', Courier, monospace; }
-
-        .section-label {
-            font-family: 'Courier Prime', Courier, monospace;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--ink-muted);
-            margin-bottom: 1.5rem;
-        }
-
-        .section-title {
-            font-family: 'Special Elite', cursive;
-            font-size: 28px;
-            line-height: 1.3;
-            margin-bottom: 0.5rem;
-        }
-        @media (min-width: 768px) {
-            .section-title { font-size: 36px; }
-        }
-
-        .dash-divider {
-            font-family: 'Courier Prime', Courier, monospace;
-            color: var(--rule);
-            text-align: center;
-            letter-spacing: 0.2em;
-            font-size: 14px;
-            padding: 1.5rem 0;
-            user-select: none;
-        }
-
-        .thin-rule {
-            border: none;
-            border-top: 1px solid var(--rule);
-            margin: 2rem 0;
-        }
-
-        .btn-typewriter {
-            font-family: 'Courier Prime', Courier, monospace;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            font-size: 12px;
-            border: 1px solid var(--ink);
-            background: transparent;
-            color: var(--ink);
-            padding: 12px 28px;
-            cursor: pointer;
-            border-radius: 0;
-            transition: background 0.2s, color 0.2s;
-            display: inline-block;
-            text-decoration: none;
-        }
-        .btn-typewriter:hover {
-            background: var(--ink);
-            color: var(--paper);
-        }
-
-        .form-input {
-            font-family: 'Courier Prime', Courier, monospace;
-            font-size: 15px;
-            border: 1px solid var(--rule);
-            background: var(--paper-light);
-            color: var(--ink);
-            padding: 10px 14px;
-            width: 100%;
-            border-radius: 2px;
-            outline: none;
-            transition: border-color 0.2s;
-            line-height: 1.7;
-        }
-        .form-input:focus {
-            border-color: var(--ink);
-        }
-        .form-input::placeholder {
-            color: var(--rule);
-        }
-
-        textarea.form-input {
-            resize: vertical;
-        }
-
-        .nav-link-item {
-            font-family: 'Courier Prime', Courier, monospace;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            font-size: 11px;
-            color: var(--ink);
-            text-decoration: none;
-            position: relative;
-            padding-bottom: 4px;
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-        .nav-link-item::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: var(--ink);
-            transform: scaleX(0);
-            transition: transform 0.2s;
-        }
-        .nav-link-item:hover::after,
-        .nav-link-item.active::after {
-            transform: scaleX(1);
-        }
-
-        .img-aged {
-            filter: sepia(15%) contrast(1.05) brightness(0.97);
-        }
-
-        .page-container {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.35s ease;
-        }
-        .page-container.active {
-            display: block;
-            opacity: 1;
-        }
-
-        .pull-quote {
-            font-family: 'Special Elite', cursive;
-            font-style: italic;
-            text-align: center;
-            max-width: 560px;
-            margin: 2.5rem auto;
-            font-size: 20px;
-            line-height: 1.6;
-            color: var(--ink-muted);
-        }
-
-        a { color: var(--ink); }
-        a:hover { text-decoration: underline; }
-
-        .accent-link {
-            color: var(--sage);
-            text-decoration: none;
-        }
-        .accent-link:hover {
-            text-decoration: underline;
-        }
-
-        .card-block {
-            background: var(--paper-dark);
-            border: 1px solid var(--rule);
-        }
-
-        .card-header-dark {
-            background: var(--ink);
-            color: var(--paper);
-            padding: 1.25rem 1.5rem;
-        }
-        .card-header-sage {
-            background: var(--sage);
-            color: var(--paper);
-            padding: 1.25rem 1.5rem;
-        }
-        .card-header-rust {
-            background: var(--rust);
-            color: var(--paper);
-            padding: 1.25rem 1.5rem;
-        }
-
-        .card-body { padding: 1.5rem; }
-        .card-footer {
-            background: var(--rule);
-            padding: 0.75rem 1.5rem;
-        }
-
-        /* Nav */
-        #main-nav-a1b2 {
-            background: var(--paper);
-            border-bottom: 1px solid var(--rule);
-            transition: box-shadow 0.3s;
-        }
-        #main-nav-a1b2.scrolled {
-            box-shadow: 0 2px 8px rgba(28,24,20,0.08);
-        }
-
-        /* Mobile menu */
-        #mobile-menu-c3d4 {
-            background: var(--paper);
-        }
-
-        .form-success {
-            font-family: 'Special Elite', cursive;
-            font-style: italic;
-            color: var(--sage);
-        }
-        .form-error {
-            font-family: 'Courier Prime', Courier, monospace;
-            color: var(--rust);
-            font-size: 14px;
-        }
-
-        .poem-card {
-            padding: 1.25rem 0;
-        }
-
-        .ghost-signup-custom iframe {
-            max-width: 100% !important;
-        }
-
-        /* Three-column gateway grid */
-        .gateway-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-        @media (min-width: 768px) {
-            .gateway-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        /* === ENHANCEMENT 2: Blinking cursors === */
-        .nav-cursor, .blink-cursor {
-            display: inline-block;
-            font-family: 'Courier Prime', monospace;
-            color: #6B5D4A;
-            animation: blink 1.1s step-end infinite;
-            margin-left: 2px;
-            font-weight: 300;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        /* === ENHANCEMENT 1: Typing cursor === */
-        .typing-cursor {
-            display: inline;
-            font-family: 'Courier Prime', monospace;
-            color: var(--ink);
-            animation: blink 1.1s step-end infinite;
-            font-weight: 300;
-        }
-        .typing-cursor.fade-out {
-            animation: cursorFadeOut 0.6s ease forwards;
-        }
-        @keyframes cursorFadeOut {
-            0% { opacity: 1; }
-            100% { opacity: 0; }
-        }
-
-        /* === ENHANCEMENT 3: Typed photo border treatment === */
-        .typed-photo {
-            border: 8px solid #FAF5EA;
-            box-shadow:
-                2px 2px 0px #C4B49A,
-                4px 4px 0px #B8A888,
-                1px 1px 8px rgba(28, 24, 20, 0.18);
-            filter: sepia(18%) contrast(1.04) brightness(0.96);
-            display: block;
-            transform: rotate(-0.8deg);
-        }
-        .typed-photo-about {
-            border: 8px solid #FAF5EA;
-            box-shadow:
-                2px 2px 0px #C4B49A,
-                4px 4px 0px #B8A888,
-                1px 1px 8px rgba(28, 24, 20, 0.18);
-            filter: sepia(18%) contrast(1.04) brightness(0.96);
-            display: block;
-            transform: rotate(0.6deg);
-        }
-        .typed-photo-wrap {
-            overflow: visible;
-            padding: 8px;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aaron J. Smith — Spiritual Direction, Tarot &amp; Writing</title>
+  <meta name="description" content="Aaron J. Smith is a poet, post-Christian theologian, and spiritual director in Hillsboro, Oregon, offering spiritual direction and contemplative tarot for people in the middle of deconstruction.">
+  <link rel="canonical" href="https://aaronjsmith.net/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Aaron J. Smith">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://aaronjsmith.net/">
+  <meta property="og:title" content="Aaron J. Smith — Poet, Theologian, Spiritual Director">
+  <meta property="og:description" content="Aaron J. Smith is a poet, post-Christian theologian, and spiritual director in Hillsboro, Oregon, offering spiritual direction and contemplative tarot for people in the middle of deconstruction.">
+  <meta property="og:image" content="https://aaronjsmith.net/images/og-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Aaron J. Smith standing in front of a mural of rainbow-colored wings">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F0E8D8">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="me" href="https://mastodon.social/@aaronjsmith">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;family=Special+Elite&amp;display=swap">
+  <link rel="stylesheet" href="/assets/site.css?v=2">
+  <script src="/assets/site.js?v=2" defer></script>
+  <script>
+    (function () {
+      var map = { '#direction': '/spiritual-direction/', '#tarot': '/tarot/', '#writing': '/writing/', '#about': '/about/' };
+      function go() { var to = map[location.hash]; if (to) location.replace(to); }
+      go();
+      window.addEventListener('hashchange', go);
+    })();
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://aaronjsmith.net/#aaron",
+      "name": "Aaron J. Smith",
+      "url": "https://aaronjsmith.net/",
+      "image": "https://aaronjsmith.net/images/aaron-smith.jpg",
+      "email": "mailto:contact@aaronjsmith.net",
+      "jobTitle": "Spiritual director",
+      "description": "Poet, post-Christian theologian, and spiritual director in Hillsboro, Oregon.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hillsboro",
+        "addressRegion": "OR",
+        "addressCountry": "US"
+      },
+      "memberOf": {
+        "@type": "Organization",
+        "name": "The Order of Hildegard",
+        "url": "https://www.orderofhildegard.org/"
+      },
+      "sameAs": [
+        "https://bsky.app/profile/aaronjsmith.net",
+        "https://mastodon.social/@aaronjsmith",
+        "https://www.instagram.com/_aaronjsmith_",
+        "https://www.threads.net/@_aaronjsmith_",
+        "https://www.facebook.com/100000words",
+        "https://theclutteredmouth.com/",
+        "https://podcasts.apple.com/us/podcast/all-things-made-new/id1528396686"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "name": "Aaron J. Smith",
+      "url": "https://aaronjsmith.net/"
+    }
+  ]
+}
+  </script>
 </head>
-<body data-id="0" class="bg-paper text-ink min-h-screen">
-    <app-icon data-id="1" hidden data-icon="feather" data-palette="Earth"></app-icon>
-
-    <!-- NAVIGATION -->
-    <nav data-id="2" id="main-nav-a1b2" class="fixed top-0 left-0 right-0 z-50 px-4 md:px-8">
-        <div data-id="3" class="max-w-5xl mx-auto flex items-center justify-between h-16">
-            <a data-id="4" id="nav-logo-e5f6" class="font-display italic text-xl tracking-wide cursor-pointer select-none" style="text-decoration:none; color:var(--ink);">Aaron J. Smith<span data-id="5" class="nav-cursor">▌</span></a>
-            <!-- Desktop nav -->
-            <div data-id="6" class="hidden md:flex items-center gap-6">
-                <button data-id="7" class="nav-link-item active" data-nav="home">Home</button>
-                <button data-id="8" class="nav-link-item" data-nav="direction">Direction</button>
-                <button data-id="9" class="nav-link-item" data-nav="writing">Writing</button>
-                <button data-id="11" class="nav-link-item" data-nav="tarot">Tarot</button>
-                <button data-id="10" class="nav-link-item" data-nav="about">About</button>
-             </div>
-            <!-- Mobile hamburger -->
-            <button data-id="12" id="mobile-menu-btn-g7h8" class="md:hidden p-2 min-h-[44px] min-w-[44px] flex items-center justify-center cursor-pointer" style="background:none;border:none;">
-                <i data-id="13" data-lucide="menu" class="w-6 h-6"></i>
-            </button>
-        </div>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-current="page">Aaron J. Smith<span class="cursor" aria-hidden="true">▌</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/spiritual-direction/">Direction</a></li>
+        <li><a href="/tarot/">Tarot</a></li>
+        <li><a href="/writing/">Writing</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
     </nav>
+  </div>
+</header>
 
-    <!-- MOBILE MENU -->
-    <div data-id="14" id="mobile-menu-c3d4" class="hidden fixed inset-0 z-[100] flex flex-col p-6">
-        <div data-id="15" class="flex justify-end">
-            <button data-id="16" id="mobile-menu-close-i9j0" class="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center cursor-pointer" style="background:none;border:none;">
-                <i data-id="17" data-lucide="x" class="w-6 h-6"></i>
-            </button>
-        </div>
-        <div data-id="18" class="flex flex-col items-center justify-center flex-1 gap-8">
-            <button data-id="19" class="nav-link-item text-lg mobile-nav-btn" data-nav="home" style="font-size:16px;">Home</button>
-            <button data-id="20" class="nav-link-item text-lg mobile-nav-btn" data-nav="direction" style="font-size:16px;">Direction</button>
-            <button data-id="21" class="nav-link-item text-lg mobile-nav-btn" data-nav="writing" style="font-size:16px;">Writing</button>
-            <button data-id="23" class="nav-link-item text-lg mobile-nav-btn" data-nav="tarot" style="font-size:16px;">Tarot</button>
-            <button data-id="22" class="nav-link-item text-lg mobile-nav-btn" data-nav="about" style="font-size:16px;">About</button>
-         </div>
+<main id="main">
+  <section class="hero wrap">
+    <h1 class="label"><span class="visually-hidden">Aaron J. Smith: </span><span class="nw">Spiritual direction ·</span> <span class="nw">Tarot ·</span> <span class="nw">Writing</span></h1>
+    <blockquote class="hero-quote">
+      <p class="tw" data-typewriter><span class="tw-full">“I don’t come with answers. <br>I come with presence, with questions, <br>and with the strange conviction <br>that the holy still moves <br>in the places we’ve abandoned.”</span></p>
+    </blockquote>
+    <p class="lede">Spiritual direction and contemplative tarot for people who have left the church but haven’t left the longing. Based in Hillsboro, Oregon, and meeting by video anywhere.</p>
+    <div class="actions">
+      <a class="btn" href="/spiritual-direction/">Spiritual direction</a>
+      <a class="btn btn--ghost" href="/tarot/">Tarot readings</a>
     </div>
+    <p><a class="text-link" href="/writing/">Or read the writing →</a></p>
+    <p class="roles"><span class="nw">Poet ·</span> <span class="nw">Post-Christian theologian ·</span> <span class="nw">Spiritual director</span></p>
+  </section>
 
-    <!-- ========================================= -->
-    <!-- PAGE: HOME -->
-    <!-- ========================================= -->
-    <main data-id="24">
-        <div data-id="25" id="page-home" class="page-container active">
-            <!-- HERO -->
-            <section data-id="26" id="hero-k1l2" class="pt-28 md:pt-36 pb-12 px-4 md:px-8 text-center">
-                <div data-id="27" class="max-w-2xl mx-auto">
-                    <p data-id="28" class="section-label mb-6">[ aaronjsmith.net ]<span data-id="29" class="blink-cursor">▌</span></p>
-                    <blockquote data-id="30" id="hero-quote" class="font-display italic text-2xl md:text-[36px] leading-snug md:leading-[1.45] max-w-[620px] mx-auto mb-6" style="color:var(--ink); min-height: 2em;">
-                    </blockquote>
-                    <div data-id="31" class="dash-divider">— &nbsp; — &nbsp; —</div>
-                    <p data-id="32" class="section-label mt-2">· Poet · Post-Christian Theologian · Spiritual Director ·</p>
-                </div>
-            </section>
+  <div class="divider" aria-hidden="true">— · — · — · — · — · — · —</div>
 
-            <div data-id="33" class="dash-divider">— · — · — · — · — · — · —</div>
-
-            <!-- ABOUT INTRO -->
-            <section data-id="34" id="about-intro-m3n4" class="py-12 px-4 md:px-8">
-                <div data-id="35" class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
-                    <div data-id="36" class="typed-photo-wrap">
-                        <img data-id="37" src="images/aaron-smith.jpg" alt="Aaron J. Smith — portrait" class="w-full typed-photo" />
-                    </div>
-                    <div data-id="38" class="flex flex-col justify-center">
-                        <p data-id="39" class="mb-6">I'm Aaron — a poet, a spiritual director, a post-Christian theologian — and I'm kind of a mess. I live in Oregon, where the green is honest and the weird is celebrated. I drink too much coffee and not enough water.</p>
-                        <p data-id="40"><a data-id="41" class="accent-link cursor-pointer" data-nav="about">About Aaron and his work →</a></p>
-                    </div>
-                </div>
-            </section>
-
-            <div data-id="42" class="dash-divider">— · — · — · — · — · — · —</div>
-
-            <!-- GATEWAY CARDS — THREE COLUMNS -->
-            <section data-id="43" id="gateway-o5p6" class="py-12 px-4 md:px-8">
-                <div data-id="44" class="max-w-5xl mx-auto gateway-grid">
-                    <!-- Card 1: Spiritual Direction -->
-                    <div data-id="45" class="card-block">
-                        <div data-id="46" class="card-header-dark">
-                            <h2 data-id="47" class="font-display text-2xl md:text-[28px]">Spiritual Direction</h2>
-                        </div>
-                        <div data-id="48" class="card-body">
-                            <p data-id="49">If you're in the middle of something — a faith that's shifting, a grief that won't name itself, a question that keeps returning — spiritual direction offers a particular accompaniment. Presence, and careful attention to what's already alive in you.</p>
-                        </div>
-                        <div data-id="50" class="card-footer">
-                            <a data-id="51" class="accent-link cursor-pointer section-label" data-nav="direction" style="color:var(--ink);">Learn about spiritual direction →</a>
-                        </div>
-                    </div>
-                    <!-- Card 2: The Cluttered Mouth -->
-                    <div data-id="52" class="card-block">
-                        <div data-id="53" class="card-header-sage">
-                            <h2 data-id="54" class="font-display text-2xl md:text-[28px]">The Cluttered Mouth</h2>
-                        </div>
-                        <div data-id="55" class="card-body">
-                            <p data-id="56">Poetry. Prose. Prayer. Protest. Everything stuck in the throat. Essays on deconstruction, embodiment, and the strange work of staying curious about the sacred. Published unhurriedly, when the words are ready.</p>
-                        </div>
-                        <div data-id="57" class="card-footer">
-                            <a data-id="58" class="accent-link cursor-pointer section-label" data-nav="writing" style="color:var(--ink);">Read the writing →</a>
-                        </div>
-                    </div>
-                    <!-- Card 3: Curious Tarot -->
-                    <div data-id="59" class="card-block">
-                        <div data-id="60" class="card-header-rust">
-                            <h2 data-id="61" class="font-display text-2xl md:text-[28px]">Curious Tarot</h2>
-                        </div>
-                        <div data-id="62" class="card-body">
-                            <p data-id="63">The cards are a mirror, not a crystal ball. I use tarot as a contemplative tool — a way of paying attention to what's already moving in you. If you're curious about what that looks like, or want to explore a reading, this is the place.</p>
-                        </div>
-                        <div data-id="64" class="card-footer">
-                            <a data-id="65" class="accent-link cursor-pointer section-label" data-nav="tarot" style="color:var(--ink);">Explore Curious Tarot →</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- HOME FOOTER -->
-            <footer data-id="66" id="footer-home-q7r8" class="py-12 px-4 md:px-8 border-t" style="border-color:var(--rule);">
-                <div data-id="67" class="max-w-5xl mx-auto">
-                    <div data-id="68" class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                        <p data-id="69" class="section-label" style="margin-bottom:0;">© 2026 Aaron J. Smith · Hillsboro, Oregon</p>
-                        <div data-id="70" class="flex flex-wrap gap-4">
-                            <a data-id="71" class="section-label cursor-pointer" data-nav="direction" style="margin-bottom:0; text-decoration:none;">Direction</a>
-                            <a data-id="72" class="section-label cursor-pointer" data-nav="writing" style="margin-bottom:0; text-decoration:none;">Writing</a>
-                            <a data-id="73" class="section-label cursor-pointer" data-nav="about" style="margin-bottom:0; text-decoration:none;">About</a>
-                            <a data-id="74" class="section-label cursor-pointer" data-nav="tarot" style="margin-bottom:0; text-decoration:none;">Tarot</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
-
-        <!-- ========================================= -->
-        <!-- PAGE: DIRECTION -->
-        <!-- ========================================= -->
-        <div data-id="75" id="page-direction" class="page-container">
-            <section data-id="76" class="pt-28 md:pt-36 pb-8 px-4 md:px-8">
-                <div data-id="77" class="max-w-3xl mx-auto">
-                    <h1 data-id="78" class="section-title">Spiritual Direction</h1>
-                    <p data-id="79" class="font-typewriter italic" style="color:var(--ink-muted);">Not advice. Accompaniment.</p>
-                </div>
-            </section>
-
-            <div data-id="80" class="dash-divider">— · — · — · — · — · — · —</div>
-
-            <section data-id="81" class="py-8 px-4 md:px-8">
-                <div data-id="82" class="max-w-3xl mx-auto">
-                    <p data-id="83" class="mb-4">What drew me to spiritual direction was curiosity — the same thing that's drawn me to most things worth doing. I came to it first as a directee, not knowing exactly what I was walking into. What I found was something I hadn't expected: a space that felt like holy ground. Liminal. Unhurried. What the ancient texts call kairos — a different quality of time altogether.</p>
-                    <p data-id="84" class="mb-8">I've never left that space unchanged.</p>
-
-                    <hr data-id="85" class="thin-rule">
-
-                    <p data-id="86" class="section-label">[ What Spiritual Direction Is ]</p>
-                    <p data-id="87" class="mb-4">Spiritual direction is a conversation about questions. Not answering them — sitting with them. Learning to hold them differently, to resist the pull of rigid certainty, to ask better ones. It is not therapy, though it can be deeply healing. It is not advice, though clarity often comes. It is careful, unhurried attention to what is already alive in you — the movement beneath the surface, the thing you keep circling back to, the place where something holy is trying to get your attention.</p>
-                    <p data-id="88" class="mb-8">Every time I step into this space — as a directee or as a director — I feel it: holy ground. A threshold. The kind of time that doesn't run on clocks. That hasn't changed no matter how long I've been doing this work.</p>
-
-                    <hr data-id="89" class="thin-rule">
-
-                    <p data-id="90" class="section-label">[ Who This Is For ]</p>
-                    <p data-id="91" class="mb-4">People who have left the church but haven't left the longing. Those in the middle of deconstruction who still sense something sacred beneath the rubble. Queer people who have been told their bodies are problems to be solved. Survivors of religious trauma who need someone who won't flinch at their anger. People who don't have a religious background at all but feel the weight of their own inner life and want a guide. Skeptics. Mystics. Everyone in between.</p>
-                    <p data-id="92" class="mb-8">If you are somewhere in that territory — this may be for you.</p>
-
-                    <hr data-id="93" class="thin-rule">
-
-                    <p data-id="94" class="section-label">[ How I Work ]</p>
-                    <p data-id="95" class="mb-4">My approach is trauma-informed and rooted in the contemplative tradition — Ignatian discernment, centering prayer, the practices of stillness that cross traditions. I draw on Internal Family Systems (IFS) as a framework for understanding the inner life. I work from a post-Christian, incarnational theology that takes the body seriously, honors lament, and refuses to spiritualize suffering away.</p>
-                    <p data-id="96" class="mb-8">No correct doctrine is required. No belief you need to hold before you arrive. There is only the honest conversation about what is actually happening in you.</p>
-
-                    <hr data-id="97" class="thin-rule">
-
-                    <p data-id="98" class="section-label">[ What To Expect ]</p>
-                    <p data-id="99" class="mb-8">Sessions are about 50 minutes, held via video, typically once a month, but can be more frequently if you're in a season of particular intensity. I am not here to fix you. I am here to sit with you while you find your own way.</p>
-
-                    <div data-id="100" class="pull-quote">I am currently accepting new directees.</div>
-
-                    <div data-id="101" class="dash-divider">— &nbsp; — &nbsp; —</div>
-
-                    <!-- CONTACT FORM -->
-                    <div data-id="102" class="mt-8">
-                        <p data-id="103" class="section-label">[ Reach Out ]</p>
-                        <p data-id="104" class="mb-6">If you're wondering whether direction might be the right thing for this season — reach out. No obligation. Tell me where you are.  We'll figure out the rest, together.</p>
-                        <form data-id="105" id="direction-contact-form-s1t2" action="https://formspree.io/f/xykpqvaz" method="POST">
-    <input data-id="106" type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-
-    <!-- REQUIRED for Formspree to work -->
-        <div data-id="107" class="flex flex-col gap-4 max-w-lg">
-        <div data-id="108">
-            <label data-id="109" class="section-label block mb-1" style="margin-bottom:0.25rem;">Name</label>
-            <input data-id="110" type="text" name="name" class="form-input" required placeholder="Your name">
-        </div>
-        <div data-id="111">
-            <label data-id="112" class="section-label block mb-1" style="margin-bottom:0.25rem;">Email</label>
-            <input data-id="113" type="email" name="email" class="form-input" required placeholder="you@example.com">
-        </div>
-        <div data-id="114">
-            <label data-id="115" class="section-label block mb-1" style="margin-bottom:0.25rem;">What's on your heart? (There are no wrong answers.)</label>
-            <textarea data-id="116" name="message" class="form-input" rows="6" placeholder="Take your time."></textarea>
-        </div>
-        <div data-id="117">
-            <label data-id="118" class="section-label block mb-1" style="margin-bottom:0.25rem;">How did you find your way here? <span data-id="119" style="opacity:0.5;">(optional)</span></label>
-            <input data-id="120" type="text" name="referral" class="form-input" placeholder="">
-        </div>
-        <div data-id="121" class="mt-2">
-            <button data-id="122" type="submit" class="btn-typewriter">Begin the conversation</button>
-        </div>
-        <div data-id="123" id="direction-form-status-u3v4" class="mt-2" style="display:none;"></div>
+  <section class="wrap" aria-label="About Aaron">
+    <div class="intro">
+      <figure class="photo">
+        <img src="/images/aaron-smith.jpg" width="640" height="640" alt="Aaron J. Smith, in glasses and a beard, looking into the camera">
+      </figure>
+      <div>
+        <p>I’m Aaron — a poet, a spiritual director, a post-Christian theologian — and I’m kind of a mess. I live in Oregon, where the green is honest and the weird is celebrated. I drink too much coffee and not enough water.</p>
+        <p><a class="text-link" href="/about/">More about me →</a></p>
+      </div>
     </div>
-</form>
+  </section>
 
-                    </div>
-                </div>
-            </section>
+  <section class="wrap" aria-labelledby="ways-in">
+    <h2 id="ways-in" class="visually-hidden">Ways in</h2>
+    <ul class="doors">
+      <li class="door">
+        <h3>Spiritual Direction</h3>
+        <p>If you’re in the middle of something — a faith that’s shifting, a grief that won’t name itself, a question that keeps returning — spiritual direction offers a particular kind of accompaniment. Presence, and careful attention to what’s already alive in you.</p>
+        <a href="/spiritual-direction/">Learn about direction →</a>
+      </li>
+      <li class="door door--rust">
+        <h3>Curious Tarot</h3>
+        <p>The cards are a mirror, not a crystal ball. I use tarot as a contemplative tool — a way of paying attention to what’s moving in you. No experience needed; skeptics welcome.</p>
+        <a href="/tarot/">Explore Curious Tarot →</a>
+      </li>
+      <li class="door door--sage">
+        <h3>The Cluttered Mouth</h3>
+        <p>Poetry. Prose. Prayer. Protest. Everything stuck in the throat. Essays on deconstruction, embodiment, and the strange work of staying curious about the sacred.</p>
+        <a href="/writing/">Read the writing →</a>
+      </li>
+    </ul>
+  </section>
 
-            <!-- DIRECTION FOOTER -->
-            <footer data-id="124" class="py-12 px-4 md:px-8 border-t mt-12" style="border-color:var(--rule);">
-                <div data-id="125" class="max-w-5xl mx-auto">
-                    <div data-id="126" class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                        <p data-id="127" class="section-label" style="margin-bottom:0;">© 2026 Aaron J. Smith · Hillsboro, Oregon</p>
-                        <div data-id="128" class="flex flex-wrap gap-4">
-                            <a data-id="129" class="section-label cursor-pointer" data-nav="direction" style="margin-bottom:0;">Direction</a>
-                            <a data-id="130" class="section-label cursor-pointer" data-nav="writing" style="margin-bottom:0;">Writing</a>
-                            <a data-id="131" class="section-label cursor-pointer" data-nav="about" style="margin-bottom:0;">About</a>
-                            <a data-id="132" class="section-label cursor-pointer" data-nav="tarot" style="margin-bottom:0;">Tarot</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
-
-        <!-- ========================================= -->
-        <!-- PAGE: WRITING -->
-        <!-- ========================================= -->
-        <div data-id="133" id="page-writing" class="page-container">
-            <section data-id="134" class="pt-28 md:pt-36 pb-8 px-4 md:px-8">
-                <div data-id="135" class="max-w-3xl mx-auto">
-                    <h1 data-id="136" class="section-title">Writing</h1>
-                    <p data-id="137" class="font-typewriter italic" style="color:var(--ink-muted);">Prayer and protest. Sometimes both in the same line.</p>
-                </div>
-            </section>
-
-            <div data-id="138" class="dash-divider">— · — · — · — · — · — · —</div>
-
-            <section data-id="139" class="py-8 px-4 md:px-8">
-                <div data-id="140" class="max-w-3xl mx-auto">
-                    <p data-id="141" class="mb-8">Writing is how I hear my heart think. It's where the thing that's too tangled to say out loud gets slowed down, turned over, worked into a sentence that can hold it. It's how I process — grief, wonder, anger, the slow erosion of certainty, the slower arrival of something truer. It is, for me, a form of prayer and a form of protest. Sometimes both in the same line.</p>
-
-                    <hr data-id="142" class="thin-rule">
-                 
-                    <p data-id="148" class="section-label">[ Poetry ]</p>
-                    <p data-id="149" class="mb-8">My poems live where language starts to fail and keeps going anyway. They tend to be sparse, image-driven, caring about bodies, grief, what the tradition got wrong, and occasionally right. They come out of the same place as my theology — the conviction that honesty is more holy than certainty, and that the right image can do what no argument can.</p>
-
-                    <hr data-id="147" class="thin-rule">
-                    
-                    <p data-id="151" class="section-label">[ Essays &amp; Theology ]</p>
-                    <p data-id="152" class="mb-8">The prose is where I work things out at length. Deconstruction. Kenosis. What the body knows that the mind is slow to admit. The theologians who saved my faith by refusing to protect it. I write for people who are done with easy answers and still can't stop asking the questions.</p>
-                    
-                    <hr data-id="150" class="thin-rule">
-
-                    <p data-id="143" class="section-label">[ The Cluttered Mouth ]</p>
-                    <p data-id="144" class="mb-4">The Cluttered Mouth is where my inner life meets the world. It's not a platform. It's not a brand. It's a place where I put the things that won't stay quiet — poems, theological essays, reflections on deconstruction and embodiment and the strange persistence of the sacred. It publishes unhurriedly, when something is actually ready. I'd rather write one true thing than ten polished ones.</p>
-                    <p data-id="145" class="mb-8"><a data-id="146" href="https://theclutteredmouth.com" target="_blank" rel="noopener" class="section-label" style="margin-bottom:0; color:var(--ink); text-decoration:none;">Read at The Cluttered Mouth →</a></p>
-
-                    <div data-id="153" class="dash-divider">— · — · — · — · — · — · —</div>
-
-                    <!-- NEWSLETTER -->
-                    <p data-id="154" class="section-label">[ Subscribe ]</p>
-                    <p data-id="155" class="mb-6">If you want these words in your inbox — occasionally, unhurriedly, when something is actually worth saying — you're welcome here.</p>
-                    <div data-id="156" class="ghost-signup-custom">
-                        <script src="https://cdn.jsdelivr.net/ghost/signup-form@~0.3/umd/signup-form.min.js" data-button-color="#6B7A5A" data-button-text-color="#FFFFFF" data-site="https://theclutteredmouth.com/" data-locale="en" async></script>
-                    </div>
-                </div>
-            </section>
-
-            <!-- WRITING FOOTER -->
-            <footer data-id="157" class="py-12 px-4 md:px-8 border-t mt-12" style="border-color:var(--rule);">
-                <div data-id="158" class="max-w-5xl mx-auto">
-                    <div data-id="159" class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                        <p data-id="160" class="section-label" style="margin-bottom:0;">© 2026 Aaron J. Smith · Hillsboro, Oregon</p>
-                        <div data-id="161" class="flex flex-wrap gap-4">
-                            <a data-id="162" class="section-label cursor-pointer" data-nav="direction" style="margin-bottom:0;">Direction</a>
-                            <a data-id="163" class="section-label cursor-pointer" data-nav="writing" style="margin-bottom:0;">Writing</a>
-                            <a data-id="164" class="section-label cursor-pointer" data-nav="about" style="margin-bottom:0;">About</a>
-                            <a data-id="165" class="section-label cursor-pointer" data-nav="tarot" style="margin-bottom:0;">Tarot</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
-
-        <!-- ========================================= -->
-        <!-- PAGE: TAROT -->
-        <!-- ========================================= -->
-        <div data-id="216" id="page-tarot" class="page-container">
-            <section data-id="217" class="pt-28 md:pt-36 pb-8 px-4 md:px-8">
-                <div data-id="218" class="max-w-3xl mx-auto">
-                    <h1 data-id="219" class="font-display text-3xl md:text-[40px] mb-1">Curious Tarot</h1>
-                    <p data-id="220" class="font-typewriter italic" style="color:var(--ink-muted);">Tarot for the curious.</p>
-                </div>
-            </section>
-
-            <div data-id="221" class="dash-divider">— · — · — · — · — · — · —</div>
-
-            <section data-id="222" class="py-8 px-4 md:px-8">
-                <div data-id="223" class="max-w-3xl mx-auto">
-                    <p data-id="224" class="mb-6">I grew up being told tarot was off limits. Like most forbidden things, that made me more curious, not less. When I finally bought a deck, I sat with it for a long time before I did anything else — just looked at the images, let the archetypes do what archetypes do. Turns out it wasn't evil. Just misunderstood.</p>
-                    <p data-id="225" class="mb-8">What I found in the cards was what I find everywhere I look carefully enough: story. Pattern. The ancient grammar of the human interior — the fool setting out, the tower falling, the star rising in the wreckage. I'd been reading that grammar in scripture and theology for years. The deck just uses different paper.</p>
-
-                    <hr data-id="226" class="thin-rule">
-
-                    <p data-id="227" class="section-label">[ What Tarot Is to Me ]</p>
-                    <p data-id="228" class="mb-4">I am not a fortune teller. I don't believe the cards predict the future, and I'd be suspicious of anyone who claims they do. What I believe is this: the images in a tarot deck give the unconscious something to reach for — a vocabulary when words have run out, a mirror when you're not sure what you're looking at.</p>
-                    <p data-id="229" class="mb-8">I use tarot the same way I use everything else in my practice: contemplatively. Slowly. With more questions than answers. The cards don't tell you what's true. They show you what you already know but haven't said out loud yet.</p>
-
-                    <hr data-id="230" class="thin-rule">
-
-                    <p data-id="231" class="section-label">[ What a Reading With Me Looks Like ]</p>
-                    <p data-id="232" class="mb-4">A reading is a conversation — not a performance. You bring a question, a season, a threshold you're standing at. I draw cards and we sit with them together. I'll tell you what I see. You'll tell me what lands. We'll follow whatever thread is alive.</p>
-                    <p data-id="233" class="mb-8">I'm not here to impress you with esoteric knowledge. I'm here to pay attention with you. No doctrine required. No prior experience with tarot necessary. Skeptics are welcome — I was one.</p>
-
-                    <hr data-id="234" class="thin-rule">
-
-                    <p data-id="235" class="section-label">[ What I Offer ]</p>
-
-                    <div data-id="236" class="mb-6">
-                        <h3 data-id="237" class="font-display text-xl mb-1">Three Card Pull</h3>
-                        <p data-id="238">A focused reading on one question or theme. 30 minutes. Good for a specific moment of decision or clarity. $50</p>
-                    </div>
-                    <div data-id="239" class="dash-divider" style="padding:0.75rem 0;">— — —</div>
-                    <div data-id="240" class="mb-6">
-                        <h3 data-id="241" class="font-display text-xl mb-1">Full Reading</h3>
-                        <p data-id="242">A longer conversation using a spread suited to what you're carrying. 60 minutes. Good for seasons of transition, discernment, or the big questions that don't have obvious answers. $100</p>
-                    </div>
-                    <div data-id="243" class="dash-divider" style="padding:0.75rem 0;">— — —</div>
-                    <div data-id="244" class="mb-6">
-                        <h3 data-id="245" class="font-display text-xl mb-1">Correspondence</h3>
-                        <p data-id="246">You write to me with your question. I respond with a written reading — thoughtful, unhurried, in your own time. Good for people who process better on paper, or who just aren't a video-call person. $75</p>
-                    </div>
-
-                    <div data-id="247" class="dash-divider">— · — · — · — · — · — · —</div>
-
-                    <!-- REACH OUT -->
-                    <p data-id="248" class="section-label">[ Reach Out ]</p>
-                    <p data-id="249" class="mb-6">If you're curious — about tarot, about what a reading might look like for you, or about anything on this page — reach out. There's no obligation to start a conversation.</p>
-
-                     <form data-id="105" id="direction-contact-form-s1t2" action="https://formspree.io/f/xykpqvaz" method="POST">
-    <input data-id="106" type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-
-    <!-- REQUIRED for Formspree to work -->
-        <div data-id="107" class="flex flex-col gap-4 max-w-lg">
-        <div data-id="108">
-            <label data-id="109" class="section-label block mb-1" style="margin-bottom:0.25rem;">Name</label>
-            <input data-id="110" type="text" name="name" class="form-input" required placeholder="Your name">
-        </div>
-        <div data-id="111">
-            <label data-id="112" class="section-label block mb-1" style="margin-bottom:0.25rem;">Email</label>
-            <input data-id="113" type="email" name="email" class="form-input" required placeholder="you@example.com">
-        </div>
-        <div data-id="114">
-            <label data-id="115" class="section-label block mb-1" style="margin-bottom:0.25rem;">What are you looking for?</label>
-            <textarea data-id="116" name="message" class="form-input" rows="6" placeholder="Take your time."></textarea>
-        </div>
-        <div data-id="117">
-            <label data-id="118" class="section-label block mb-1" style="margin-bottom:0.25rem;">What's your experience with tarot <span data-id="119" style="opacity:0.5;">(optional)</span></label>
-            <input data-id="120" type="text" name="referral" class="form-input" placeholder="">
-        </div>
-        <div data-id="121" class="mt-2">
-            <button data-id="122" type="submit" class="btn-typewriter">Begin the conversation</button>
-        </div>
-        <div data-id="123" id="direction-form-status-u3v4" class="mt-2" style="display:none;"></div>
+  <section class="wrap">
+    <div class="prose">
+      <div class="section-head">
+        <h2>Latest from The Cluttered Mouth</h2>
+        <a class="text-link" href="https://theclutteredmouth.com/">All writing →</a>
+      </div>
+  <ul class="posts" data-ghost-key="" data-limit="3">
+    <li>
+      <time class="post-date" datetime="2026-09-26">Sep 26, 2026</time>
+      <a class="post-title" href="https://theclutteredmouth.com/wont-let-go/">Won’t Let Go</a>
+      <span class="post-dek">but Jesus</span>
+    </li>
+    <li>
+      <time class="post-date" datetime="2026-09-16">Sep 16, 2026</time>
+      <a class="post-title" href="https://theclutteredmouth.com/because-no-one-has-hired-us/">Because No One Has Hired Us</a>
+      <span class="post-dek">what happens when no one wants us</span>
+    </li>
+    <li>
+      <time class="post-date" datetime="2026-09-14">Sep 14, 2026</time>
+      <a class="post-title" href="https://theclutteredmouth.com/the-trauma-informed-cross/">The Trauma Informed Cross</a>
+      <span class="post-dek">discipleship and death</span>
+    </li>
+  </ul>
+      <p class="small">New pieces arrive by email when they’re ready. <a href="https://theclutteredmouth.com/#/portal/signup">Subscribe at The Cluttered Mouth</a>.</p>
     </div>
-</form>
+  </section>
+</main>
 
-                </div>
-            </section>
-
-            <!-- TAROT FOOTER -->
-            <footer data-id="270" class="py-12 px-4 md:px-8 border-t mt-12" style="border-color:var(--rule);">
-                <div data-id="271" class="max-w-5xl mx-auto">
-                    <div data-id="272" class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                        <p data-id="273" class="section-label" style="margin-bottom:0;">© 2026 Aaron J. Smith · Hillsboro, Oregon</p>
-                        <div data-id="274" class="flex flex-wrap gap-4">
-                            <a data-id="275" class="section-label cursor-pointer" data-nav="direction" style="margin-bottom:0;">Direction</a>
-                            <a data-id="276" class="section-label cursor-pointer" data-nav="writing" style="margin-bottom:0;">Writing</a>
-                            <a data-id="277" class="section-label cursor-pointer" data-nav="about" style="margin-bottom:0;">About</a>
-                            <a data-id="278" class="section-label cursor-pointer" data-nav="tarot" style="margin-bottom:0;">Tarot</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
-        
-        <!-- ========================================= -->
-        <!-- PAGE: ABOUT -->
-        <!-- ========================================= -->
-        <div data-id="166" id="page-about" class="page-container">
-            <section data-id="167" class="pt-28 md:pt-36 pb-8 px-4 md:px-8">
-                <div data-id="168" class="max-w-3xl mx-auto">
-                    <!-- Two column header -->
-                    <div data-id="169" class="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-8 items-start">
-                        <div data-id="170" class="typed-photo-wrap">
-                            <img data-id="171" src="images/Wings.jpg" alt="Wings" class="w-full md:w-[220px] typed-photo-about" />
-                        </div>
-                        <div data-id="172">
-                            <h1 data-id="173" class="font-display text-3xl md:text-[36px] mb-1">Aaron J. Smith</h1>
-                            <p data-id="174" class="font-typewriter italic mb-4" style="color:var(--ink-muted);">Formation</p>
-                            <p data-id="175" class="mb-4">I'm a poet, a spiritual director, a post-Christian theologian, — and I'm kind of a mess. I live in Oregon, where the green is honest and the weird is celebrated. I drink too much coffee and not enough water.</p>
-                            <p data-id="176">I've been deconstructing and reconstructing for over twenty years. Religious trauma and church hurt are part of my story. So is the slow, strange work of finding that the Jesus story — stripped of the institution's need to manage it — still has something worth following.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <div data-id="177" class="dash-divider">— · — · — · — · — · — · —</div>
-
-            <section data-id="178" class="py-8 px-4 md:px-8">
-                <div data-id="179" class="max-w-3xl mx-auto">
-                    <p data-id="180" class="section-label">[ Theological Formation ]</p>
-                    <p data-id="181" class="mb-6">My theology is post-Christian in the sense that I no longer hold the dogmatic structures of Christianity — but I have not left the tradition so much as I have learned to read it differently, against itself, through the lens of those it has harmed. The through-line in my theological thinking is kenosis: God's self-donation as the shape of divinity itself, which means that power-over is always a theological problem, and vulnerability is always a theological resource. My framework — incarnational, lamenting, liberative — grounds my work in the body, takes suffering seriously rather than spiritualizing it, and orients everything toward liberation, for the marginalized first.</p>
-
-                    <hr data-id="183" class="thin-rule">
-
-                       <div data-id="186" class="pull-quote">I am not trying to build a platform. I am trying to be faithful to the thread — the one that runs through the poems and the theology and the direction sessions and the tarot. If you're here, you've probably found a piece of that thread. Welcome.</div>
-
-                    <div data-id="187" class="dash-divider">— &nbsp; — &nbsp; —</div>
-
-                    <!-- CONTACT FORM -->
-                    <div data-id="188" class="mt-8">
-                        <p data-id="189" class="section-label">[ Send a Note ]</p>
-                         <form data-id="105" id="direction-contact-form-s1t2" action="https://formspree.io/f/xykpqvaz" method="POST">
-    <input data-id="106" type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-
-    <!-- REQUIRED for Formspree to work -->
-        <div data-id="107" class="flex flex-col gap-4 max-w-lg">
-        <div data-id="108">
-            <label data-id="109" class="section-label block mb-1" style="margin-bottom:0.25rem;">Name</label>
-            <input data-id="110" type="text" name="name" class="form-input" required placeholder="Your name">
-        </div>
-        <div data-id="111">
-            <label data-id="112" class="section-label block mb-1" style="margin-bottom:0.25rem;">Email</label>
-            <input data-id="113" type="email" name="email" class="form-input" required placeholder="you@example.com">
-        </div>
-        <div data-id="114">
-            <label data-id="115" class="section-label block mb-1" style="margin-bottom:0.25rem;">What do you want to say?</label>
-            <textarea data-id="116" name="message" class="form-input" rows="6" placeholder="Take your time."></textarea>
-        </div>
-           <div data-id="121" class="mt-2">
-            <button data-id="122" type="submit" class="btn-typewriter">Begin the conversation</button>
-        </div>
-        <div data-id="123" id="direction-form-status-u3v4" class="mt-2" style="display:none;"></div>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-name">Aaron J. Smith</p>
+        <p>Poet, post-Christian theologian, spiritual director.</p>
+        <p>Hillsboro, Oregon · Sessions by video anywhere</p>
+        <p><a href="mailto:contact@aaronjsmith.net">contact@aaronjsmith.net</a></p>
+      </div>
+      <nav aria-label="Footer">
+        <h2>Pages</h2>
+        <ul>
+          <li><a href="/spiritual-direction/">Spiritual Direction</a></li>
+          <li><a href="/tarot/">Curious Tarot</a></li>
+          <li><a href="/writing/">Writing</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="https://theclutteredmouth.com/">The Cluttered Mouth</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Elsewhere</h2>
+        <ul>
+          <li><a href="https://theclutteredmouth.com/#/portal/signup">Newsletter</a></li>
+          <li><a href="https://podcasts.apple.com/us/podcast/all-things-made-new/id1528396686">Podcast: All Things Made New</a></li>
+          <li><a href="https://bsky.app/profile/aaronjsmith.net">Bluesky</a></li>
+          <li><a href="https://mastodon.social/@aaronjsmith" rel="me">Mastodon</a></li>
+          <li><a href="https://www.instagram.com/_aaronjsmith_">Instagram</a></li>
+          <li><a href="https://www.threads.net/@_aaronjsmith_">Threads</a></li>
+          <li><a href="https://www.facebook.com/100000words">Facebook</a></li>
+        </ul>
+      </div>
     </div>
-</form>
-
-                    </div>
-                </div>
-            </section>
-
-            <!-- ABOUT FOOTER -->
-            <footer data-id="207" class="py-12 px-4 md:px-8 border-t mt-12" style="border-color:var(--rule);">
-                <div data-id="208" class="max-w-5xl mx-auto">
-                    <div data-id="209" class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                        <p data-id="210" class="section-label" style="margin-bottom:0;">© 2026 Aaron J. Smith · Hillsboro, Oregon</p>
-                        <div data-id="211" class="flex flex-wrap gap-4">
-                            <a data-id="212" class="section-label cursor-pointer" data-nav="direction" style="margin-bottom:0;">Direction</a>
-                            <a data-id="213" class="section-label cursor-pointer" data-nav="writing" style="margin-bottom:0;">Writing</a>
-                            <a data-id="214" class="section-label cursor-pointer" data-nav="about" style="margin-bottom:0;">About</a>
-                            <a data-id="215" class="section-label cursor-pointer" data-nav="tarot" style="margin-bottom:0;">Tarot</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
-
-        
-    </main>
-
-    <script>
-        // === ICONS (progressive enhancement) ===
-        if (typeof lucide !== "undefined" && typeof lucide.createIcons === "function") {
-            lucide.createIcons();
-        }
-
-        // === TYPEWRITER ANIMATION ===
-        var heroQuoteEl = document.getElementById('hero-quote');
-        var heroQuoteText = "I don\u2019t come with answers.\nI come with presence, with questions,\nand with the strange conviction\nthat the holy still moves\nin the places we\u2019ve abandoned.";
-        var typewriterInterval = null;
-        var typewriterTimeout = null;
-        var typingSpeed = 90; // ms per character — slow and deliberate, like a newspaper being typed
-
-        function startTypewriter() {
-            // Clear any previous animation
-            if (typewriterInterval) clearInterval(typewriterInterval);
-            if (typewriterTimeout) clearTimeout(typewriterTimeout);
-
-            heroQuoteEl.innerHTML = '<span class="typing-cursor">\u258C</span>';
-            var charIndex = 0;
-            var currentText = '';
-
-            typewriterInterval = setInterval(function() {
-                if (charIndex < heroQuoteText.length) {
-                    var ch = heroQuoteText[charIndex];
-                    if (ch === '\n') {
-                        currentText += '<br>';
-                    } else {
-                        // Escape HTML special chars
-                        if (ch === '<') ch = '&lt;';
-                        else if (ch === '>') ch = '&gt;';
-                        else if (ch === '&') ch = '&amp;';
-                        currentText += ch;
-                    }
-                    charIndex++;
-                    heroQuoteEl.innerHTML = '\u201C' + currentText + '<span class="typing-cursor">\u258C</span>';
-                } else {
-                    // Typing complete — add closing quote
-                    clearInterval(typewriterInterval);
-                    typewriterInterval = null;
-                    heroQuoteEl.innerHTML = '\u201C' + currentText + '\u201D<span class="typing-cursor">\u258C</span>';
-
-                    // Keep cursor blinking for 2 seconds, then fade out
-                    typewriterTimeout = setTimeout(function() {
-                        var cursor = heroQuoteEl.querySelector('.typing-cursor');
-                        if (cursor) {
-                            cursor.classList.add('fade-out');
-                            // Remove cursor after fade completes
-                            setTimeout(function() {
-                                if (cursor && cursor.parentNode) {
-                                    cursor.parentNode.removeChild(cursor);
-                                }
-                            }, 600);
-                        }
-                    }, 2000);
-                }
-            }, typingSpeed);
-        }
-
-        // === ROUTING ===
-        var pages = ['home', 'direction', 'writing', 'about', 'tarot'];
-        var currentPage = 'home';
-
-        function navigateTo(page) {
-            if (!pages.includes(page)) return;
-            currentPage = page;
-            window.location.hash = page === 'home' ? '' : page;
-
-            // Hide all pages
-            document.querySelectorAll('.page-container').forEach(function(el) {
-                el.classList.remove('active');
-                el.style.display = 'none';
-                el.style.opacity = '0';
-            });
-
-            // Show target page
-            var target = document.getElementById('page-' + page);
-            if (target) {
-                target.style.display = 'block';
-                // Force reflow
-                void target.offsetWidth;
-                target.classList.add('active');
-                target.style.opacity = '1';
-            }
-
-            // Update nav active state
-            document.querySelectorAll('.nav-link-item').forEach(function(link) {
-                link.classList.remove('active');
-                if (link.dataset.nav === page) {
-                    link.classList.add('active');
-                }
-            });
-
-            // Scroll to top
-            window.scrollTo(0, 0);
-
-            // Close mobile menu
-            document.getElementById('mobile-menu-c3d4').classList.add('hidden');
-
-            // Restart typewriter animation when navigating to home
-            if (page === 'home') {
-                startTypewriter();
-            }
-        }
-
-        // Nav click handlers (desktop + mobile + footer + inline links)
-        document.querySelectorAll('[data-nav]').forEach(function(el) {
-            el.addEventListener('click', function(e) {
-                e.preventDefault();
-                navigateTo(el.dataset.nav);
-            });
-        });
-
-        // Logo click
-        document.getElementById('nav-logo-e5f6').addEventListener('click', function(e) {
-            e.preventDefault();
-            navigateTo('home');
-        });
-
-        // Hash routing on load
-        function checkHash() {
-            var hash = window.location.hash.replace('#', '');
-            if (hash && pages.includes(hash)) {
-                navigateTo(hash);
-            } else {
-                navigateTo('home');
-            }
-        }
-        window.addEventListener('hashchange', checkHash);
-        checkHash();
-
-        // === MOBILE MENU ===
-        document.getElementById('mobile-menu-btn-g7h8').addEventListener('click', function() {
-            document.getElementById('mobile-menu-c3d4').classList.remove('hidden');
-        });
-        document.getElementById('mobile-menu-close-i9j0').addEventListener('click', function() {
-            document.getElementById('mobile-menu-c3d4').classList.add('hidden');
-        });
-
-        // === NAV SCROLL SHADOW ===
-        var nav = document.getElementById('main-nav-a1b2');
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 10) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-
-        // === FORM SUBMISSIONS (AJAX) ===
-        function setupForm(formId, statusId) {
-            var form = document.getElementById(formId);
-            if (!form) return;
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                var statusEl = document.getElementById(statusId);
-                var formData = new FormData(form);
-                var submitBtn = form.querySelector('button[type="submit"]');
-
-                submitBtn.textContent = 'Sending...';
-                submitBtn.disabled = true;
-
-                fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                }).then(function(response) {
-                    if (response.ok) {
-                        statusEl.style.display = 'block';
-                        statusEl.innerHTML = '<p class="form-success">Thank you. I\'ll be in touch within a few days.</p>';
-                        form.reset();
-                        submitBtn.textContent = 'Sent';
-                    } else {
-                        throw new Error('Form submission failed');
-                    }
-                }).catch(function() {
-                    statusEl.style.display = 'block';
-                    statusEl.innerHTML = '<p class="form-error">Something went wrong. Please try again, or email me directly at <a href="mailto:contact@aaronjsmith.net" class="accent-link">contact@aaronjsmith.net</a></p>';
-                    submitBtn.textContent = 'Try again';
-                    submitBtn.disabled = false;
-                });
-            });
-        }
-
-        setupForm('direction-contact-form-s1t2', 'direction-form-status-u3v4');
-        setupForm('about-contact-form-w5x6', 'about-form-status-y7z8');
-        setupForm('tarot-contact-form-a1b2', 'tarot-form-status-c3d4');
-    </script>
+    <p class="copyright">© <span data-year>2026</span> Aaron J. Smith</p>
+  </div>
+</footer>
 </body>
 </html>

@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Thank You — Aaron J. Smith</title>
-  <meta name="description" content="Your message was received.">
+  <title>Page Not Found — Aaron J. Smith</title>
+  <meta name="description" content="This page may have moved when the site was rebuilt.">
   <meta name="robots" content="noindex">
-  <link rel="canonical" href="https://aaronjsmith.net/thank-you.html">
+  <link rel="canonical" href="https://aaronjsmith.net/404.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Aaron J. Smith">
   <meta property="og:locale" content="en_US">
-  <meta property="og:url" content="https://aaronjsmith.net/thank-you.html">
-  <meta property="og:title" content="Thank You — Aaron J. Smith">
-  <meta property="og:description" content="Your message was received.">
+  <meta property="og:url" content="https://aaronjsmith.net/404.html">
+  <meta property="og:title" content="Page Not Found — Aaron J. Smith">
+  <meta property="og:description" content="This page may have moved when the site was rebuilt.">
   <meta property="og:image" content="https://aaronjsmith.net/images/og-card.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -28,6 +28,16 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;family=Special+Elite&amp;display=swap">
   <link rel="stylesheet" href="/assets/site.css?v=2">
   <script src="/assets/site.js?v=2" defer></script>
+  <script>
+    (function () {
+      var p = location.pathname.toLowerCase();
+      var map = [['direction', '/spiritual-direction/'], ['tarot', '/tarot/'], ['writ', '/writing/'],
+                 ['poem', '/writing/'], ['blog', '/writing/'], ['about', '/about/'], ['contact', '/about/#reach-out']];
+      for (var i = 0; i < map.length; i++) {
+        if (p.indexOf(map[i][0]) > -1) { location.replace(map[i][1]); return; }
+      }
+    })();
+  </script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -47,13 +57,18 @@
 
 <main id="main">
   <section class="not-found wrap">
-    <p class="label">Message received</p>
-    <h1>Something landed here.</h1>
+    <p class="label">404</p>
+    <h1>This page wandered off.</h1>
     <div class="prose">
-      <p>I received your message. I read everything that comes through, and I’ll respond when I can sit with it properly — not just quickly. That usually means within a few days.</p>
-      <p>In the meantime, thank you for reaching out. It takes something to send a message like this.</p>
+      <p>It may have moved when the site was rebuilt. One of these is probably what you were looking for:</p>
     </div>
-    <p><a class="text-link" href="/">← Back home</a></p>
+    <div class="actions">
+      <a class="btn" href="/spiritual-direction/">Spiritual direction</a>
+      <a class="btn btn--ghost" href="/tarot/">Tarot</a>
+      <a class="btn btn--ghost" href="/writing/">Writing</a>
+      <a class="btn btn--ghost" href="/about/">About</a>
+    </div>
+    <p style="margin-top:2rem"><a class="text-link" href="/">← Home</a></p>
   </section>
 </main>
 
