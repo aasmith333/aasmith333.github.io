@@ -138,6 +138,8 @@
     var url = GHOST_API + '?key=' +
       encodeURIComponent(key) + '&limit=' + encodeURIComponent(limit) +
       '&fields=title,url,published_at,custom_excerpt';
+    var filter = list.getAttribute('data-ghost-filter');   // e.g. "tag:poetry"
+    if (filter) url += '&filter=' + encodeURIComponent(filter);
 
     fetch(url).then(function (r) {
       if (!r.ok) throw new Error('Ghost error');

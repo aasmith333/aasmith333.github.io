@@ -23,9 +23,9 @@ The header and footer are copied into every page. If you change them, change the
 
 - **Fees or session details:** search `spiritual-direction/index.html` for `$15–$100`. The price shows up in the at-a-glance box, the "What to expect" section and the FAQ.
 - **Tarot prices:** in `tarot/index.html`, each price appears on its reading card and in the "Which reading?" dropdown.
-- **Latest posts lists** (Home, Writing, Subscribe): these update themselves from Ghost's Content API. The key is in `data-ghost-key` on each `<ul class="posts">`, and the API address is at the top of the Ghost section in `assets/site.js`. The posts typed into the HTML are a backup that shows if Ghost can't be reached.
+- **Latest posts lists** (Home, Writing, Subscribe, plus the Poetry and Essay lists on Writing): these update themselves from Ghost's Content API. The Poetry and Essay lists pull whatever you tag `Poetry` or `Essay` in Ghost. The key is in `data-ghost-key` on each `<ul class="posts">`, and the API address is at the top of the Ghost section in `assets/site.js`. The posts typed into the HTML are a backup that shows if Ghost can't be reached.
 - **Forms:** all three forms send to Formspree (`https://formspree.io/f/xykpqvaz`). A hidden `_subject` field on each one says where the message came from ("Spiritual direction inquiry", "Tarot reading request", "Note from aaronjsmith.net").
-- **After editing CSS or JS:** change `?v=2` to `?v=3` in the `<link>`/`<script>` tags so browsers load the new file.
+- **After editing CSS or JS:** raise the `?v=` number (for example `?v=4` to `?v=5`) on the `site.css` and `site.js` tags in every HTML file, so browsers load the new version.
 
 ## Don't delete
 
