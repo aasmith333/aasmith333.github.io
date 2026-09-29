@@ -101,6 +101,8 @@
             'Thank you. I’ll be in touch within a few days.';
         }
         if (button) button.textContent = 'Sent';
+        var after = form.querySelector('.form-after');
+        if (after) after.hidden = false;
       }).catch(function () {
         if (status) {
           status.className = 'form-status is-error';
@@ -126,12 +128,14 @@
      The lists on the Home and Writing pages are written into the HTML.
      To keep them updated automatically, create a Content API key in Ghost
      (Settings > Integrations > Add custom integration) and paste it into
-     the data-ghost-key="" attribute on the list. */
+     the data-ghost-key="" attribute on the list.
+     Ghost's API answers at the ghost.io address, not theclutteredmouth.com. */
+  var GHOST_API = 'https://the-cluttered-mouth.ghost.io/ghost/api/content/posts/';
   Array.prototype.forEach.call(document.querySelectorAll('[data-ghost-key]'), function (list) {
     var key = list.getAttribute('data-ghost-key');
     if (!key || !window.fetch) return;
     var limit = list.getAttribute('data-limit') || '3';
-    var url = 'https://theclutteredmouth.com/ghost/api/content/posts/?key=' +
+    var url = GHOST_API + '?key=' +
       encodeURIComponent(key) + '&limit=' + encodeURIComponent(limit) +
       '&fields=title,url,published_at,custom_excerpt';
 
@@ -164,5 +168,17 @@
       list.innerHTML = '';
       list.appendChild(frag);
     }).catch(function () { /* keep the list that's already in the page */ });
+  });
+
+  /* ---------- "Copy" buttons (fediverse handle) ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-copy]'), function (btn) {
+    if (!navigator.clipboard) return;
+    btn.hidden = false;
+    btn.addEventListener('click', function () {
+      navigator.clipboard.writeText(btn.getAttribute('data-copy')).then(function () {
+        btn.textContent = 'Copied';
+        setTimeout(function () { btn.textContent = 'Copy'; }, 2000);
+      });
+    });
   });
 })();

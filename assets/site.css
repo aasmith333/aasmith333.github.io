@@ -681,6 +681,64 @@ a:hover { color: var(--rust-dark); text-decoration-thickness: 2px; }
 /* Ghost newsletter embed */
 .signup { min-height: 58px; margin: 1.25rem 0 .5rem; max-width: 30rem; }
 
+.subscribe-box {
+  margin: 0 0 1rem;
+  padding: 1.4rem;
+  background: var(--paper-light);
+  border: 1px solid var(--rule);
+}
+.subscribe-box h3 { margin: 0 0 .25rem; }
+.subscribe-box p { margin-bottom: .5rem; }
+.subscribe-box .signup { margin: .75rem 0; }
+
+/* Other ways to follow */
+.follow-head { margin-top: 2rem; }
+.follow {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+}
+.follow li {
+  display: grid;
+  gap: .15rem;
+  padding: .85rem 0;
+  border-bottom: 1px dashed var(--rule);
+}
+.follow li:first-child { border-top: 1px dashed var(--rule); }
+.follow-label {
+  font-size: .8125rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.follow-row { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
+.follow-note { font-size: .9375rem; color: var(--muted); }
+
+.handle {
+  font-family: var(--mono);
+  font-size: 1rem;
+  background: var(--paper-light);
+  border: 1px solid var(--rule);
+  padding: .15rem .45rem;
+  overflow-wrap: anywhere;
+}
+
+.copy {
+  font-family: var(--mono);
+  font-size: .8125rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  padding: .3rem .7rem;
+  min-height: 2.25rem;
+  cursor: pointer;
+}
+.copy:hover { background: var(--ink); color: var(--paper-light); }
+
 /* ---------- Footer ---------- */
 
 .site-footer {
