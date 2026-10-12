@@ -25,7 +25,10 @@ The header and footer are copied into every page. If you change them, change the
 - **Tarot prices:** in `tarot/index.html`, each price appears on its reading card and in the "Which reading?" dropdown.
 - **Posts lists** (latest posts on Home and Subscribe; Poetry and Essay lists on Writing): these update themselves from Ghost's Content API. The Poetry and Essay lists pull whatever you tag `Poetry` or `Essay` in Ghost. The key is in `data-ghost-key` on each `<ul class="posts">`, and the API address is at the top of the Ghost section in `assets/site.js`. The posts typed into the HTML are a backup that shows if Ghost can't be reached.
 - **Forms:** all three forms send to Formspree (`https://formspree.io/f/xykpqvaz`). A hidden `_subject` field on each one says where the message came from ("Spiritual direction inquiry", "Tarot reading request", "Note from aaronjsmith.net").
-- **After editing CSS or JS:** raise the `?v=` number (for example `?v=4` to `?v=5`) on the `site.css` and `site.js` tags in every HTML file, so browsers load the new version.
+- **Colors and fonts:** the look (parchment, tooled leather and gold, after The Cluttered Mouth's logo) is set by the variables at the top of `assets/site.css`. The textures are `assets/parchment.jpg` and `assets/leather.jpg`; the ornament under page titles is `assets/flourish.svg` (and `flourish-gold.svg` in the footer). Fonts are Cinzel, IM Fell English and EB Garamond from Google Fonts, loaded in each page's `<head>`.
+- **Newsletter signup button colors:** set on each Ghost signup `<script>` tag (`data-button-color` and `data-button-text-color`). On Home it's gold on the leather panel; on Writing and Subscribe it's leather with gold text.
+- **The Cluttered Mouth logo:** `images/cluttered-mouth-logo-lg.webp` is a copy of the logo with its paper background made see-through, so it sits on the page texture without a box around it.
+- **After editing CSS or JS:** raise the `?v=` number (for example `?v=5` to `?v=6`) on the `site.css` and `site.js` tags in every HTML file, so browsers load the new version.
 
 ## Don't delete
 
