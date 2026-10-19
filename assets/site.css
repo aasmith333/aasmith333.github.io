@@ -9,6 +9,11 @@
    ========================================================================== */
 
 :root {
+  /* Page background: plain off-white. (For the old parchment look, set
+     body's background back to: var(--paper) var(--paper-tex) repeat;
+     background-size: 512px 512px;) */
+  --page: #FAF7F0;
+
   /* Parchment */
   --paper: #F3E7D1;
   --paper-light: #FAF3E6;
@@ -57,8 +62,7 @@ html {
 
 body {
   margin: 0;
-  background: var(--paper) var(--paper-tex) repeat;
-  background-size: 512px 512px;
+  background: var(--page);
   color: var(--ink);
   font-family: var(--body);
   font-size: 1.1875rem;
