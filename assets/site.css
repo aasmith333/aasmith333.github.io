@@ -880,7 +880,7 @@ h2 + .faq details:first-of-type { border-top: 0; padding-top: .25rem; }
   list-style: none;
 }
 @media (min-width: 56em) {
-  .offers { grid-template-columns: repeat(3, 1fr); }
+  .offers { grid-template-columns: repeat(2, 1fr); }
 }
 
 .offer {
